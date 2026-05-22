@@ -15,205 +15,334 @@
 
     <main class="main">
       <div class="section-header">
-        <h1>Landing pages</h1>
-        <p>De l'idée à la maquette déployée sur Vercel, sans coder. Stitch + Claude Code.</p>
+        <h1>Landing pages WordPress</h1>
+        <p>De l'idée à la page en ligne en 30 min. Stitch pour le design + WordPress pour la prod (gratuit, plugins, sécu, e-commerce).</p>
       </div>
 
-      <h2>La pipeline en 4 étapes</h2>
+      <div class="callout">
+        <p><strong>Pourquoi WordPress et pas Vercel ?</strong> Vercel = abonnement payant + tu te tape la gestion DNS + pas de e-commerce natif + 0 plugins. WordPress = 0 €, plugins sécu/SEO/e-commerce gratuits, hébergement à 3€/mois Hostinger, et 40% du web tourne dessus.</p>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="big">0€</div><div class="label">Hébergement Hostinger</div></div>
+        <div class="stat-card"><div class="big">5min</div><div class="label">Setup initial</div></div>
+        <div class="stat-card"><div class="big">60k+</div><div class="label">Plugins gratuits</div></div>
+        <div class="stat-card"><div class="big">∞</div><div class="label">Pages illimitées</div></div>
+      </div>
+
+      <div class="section-divider"><span>Le pipeline en 4 étapes</span></div>
+
+      <div class="flow-grid">
+        <div class="flow-node">
+          <div class="icon">🎨</div>
+          <h4>Stitch</h4>
+          <p>Maquette HTML/CSS</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="icon">📝</div>
+          <h4>WordPress</h4>
+          <p>Import & adapt</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="icon">🚀</div>
+          <h4>En ligne</h4>
+          <p>Domain.fr</p>
+        </div>
+      </div>
+
+      <div class="section-divider"><span>Étape 1 — Générer la maquette avec Stitch</span></div>
+
+      <div class="browser-mockup">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">VS Code · Claude Code prompt</div>
+        </div>
+        <div class="browser-body" style="background: var(--bg-elevated); color: var(--text); padding: 20px;">
+          <div style="font-family: var(--mono); font-size: 13px; line-height: 1.7;">
+            <span style="color: var(--accent);">▸ Vous</span> &mdash; "Fais-moi une landing pour AUTAF qui cible les électriciens"<br><br>
+            <span style="color: var(--green);">▸ Claude</span> &mdash; J'active le MCP Stitch et je génère...<br>
+            <span style="color: var(--text-dim);">  → 1 hero avec hook + CTA</span><br>
+            <span style="color: var(--text-dim);">  → 3 chiffres clés (économies, clients, ancienneté)</span><br>
+            <span style="color: var(--text-dim);">  → 3 témoignages photos</span><br>
+            <span style="color: var(--text-dim);">  → FAQ 5 questions</span><br>
+            <span style="color: var(--text-dim);">  → Footer + mentions</span><br>
+            <span style="color: var(--green);">✓</span> <span style="color: var(--text);">Maquette générée → dossier landing-electricien/</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt Stitch — landing AUTAF électricien</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Via le MCP Stitch, génère-moi une landing page pour AUTAF qui cible les électriciens BTP.
+
+Structure :
+- Hero : titre choc + CTA "Demande mon devis gratuit"
+- Pourquoi nous : 3 colonnes (économies moyennes, expertise BTP, accompagnement)
+- 3 témoignages d'artisans avec photos
+- FAQ : 5 questions critiques pour un électricien
+- CTA final + footer
+
+Style : dark mode, accents jaune AUTAF #FFE72B, mobile-first.
+Output : dossier landing-electricien/ prêt à exporter en WordPress.</div>
+      </div>
+
+      <div class="section-divider"><span>Étape 2 — Setup WordPress (5 min)</span></div>
 
       <div class="grid-2">
         <div class="card">
-          <span class="badge badge-orange">ÉTAPE 1</span>
-          <h4>🎨 Génération via Stitch</h4>
-          <p>Prompt Claude → Stitch génère la maquette HTML/CSS complète.</p>
+          <span class="badge badge-orange">RECOMMANDÉ</span>
+          <h4>🏠 Hostinger Premium (3€/mois)</h4>
+          <p>WordPress en 1 clic. Domain inclus, SSL auto, sauvegardes auto, support FR. Le meilleur rapport simplicité/prix pour démarrer.</p>
         </div>
         <div class="card">
-          <span class="badge badge-blue">ÉTAPE 2</span>
-          <h4>🔧 Itération design</h4>
-          <p>Ajustements ciblés sur sections précises sans tout refaire.</p>
+          <span class="badge badge-blue">ALTERNATIVE</span>
+          <h4>⚙️ VPS auto-hébergé</h4>
+          <p>Sur ce VPS Hostinger CG GROUPE : Docker WordPress déjà setup. Coût marginal 0 €. Plus technique mais 100% contrôle.</p>
+        </div>
+      </div>
+
+      <h3>Setup express Hostinger</h3>
+
+      <div class="flow-grid">
+        <div class="flow-node">
+          <div class="icon">1️⃣</div>
+          <h4>Choisir un domaine</h4>
+          <p>Genre <code>landing-electricien-autaf.fr</code></p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="icon">2️⃣</div>
+          <h4>Install WordPress 1 clic</h4>
+          <p>Dans hPanel</p>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="icon">3️⃣</div>
+          <h4>Admin login</h4>
+          <p>wp-admin → tableau de bord</p>
+        </div>
+      </div>
+
+      <div class="section-divider"><span>Étape 3 — Importer la maquette dans WordPress</span></div>
+
+      <p>2 approches selon le niveau technique :</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge badge-green">DÉBUTANT</span>
+          <h4>🎨 Via Elementor (no-code)</h4>
+          <p>Plugin gratuit visual builder. Glisser-déposer. Claude vous donne le contenu, vous le collez dans Elementor.</p>
+          <ul style="font-size:13px;padding-left:18px;margin-top:8px;">
+            <li>Install plugin Elementor</li>
+            <li>Créer page vide</li>
+            <li>Coller texte/images de la maquette Stitch</li>
+            <li>Publier</li>
+          </ul>
         </div>
         <div class="card">
-          <span class="badge badge-purple">ÉTAPE 3</span>
-          <h4>📝 Copy persuasif</h4>
-          <p>Skill <code>copywriting</code> + <code>page-cro</code> pour le texte qui convertit.</p>
+          <span class="badge badge-blue">INTERMÉDIAIRE</span>
+          <h4>📝 Via Custom Theme</h4>
+          <p>On copie le HTML/CSS de Stitch dans un thème enfant WordPress. Plus fidèle à la maquette mais demande de toucher au code.</p>
+          <ul style="font-size:13px;padding-left:18px;margin-top:8px;">
+            <li>Créer un child theme</li>
+            <li>Copier index.html → page-template.php</li>
+            <li>Importer style.css dans le thème</li>
+            <li>Publier</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt Claude pour automatiser l'import WordPress</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Active la skill wordpress-master. La maquette est dans landing-electricien/.
+
+Mission : porter cette maquette dans WordPress :
+1. Crée un thème enfant à partir d'Astra (light, rapide)
+2. Crée un template de page "landing-electricien"
+3. Copie le HTML de landing-electricien/index.html dans le template (en PHP)
+4. Copie le CSS dans style.css du thème enfant
+5. Configure les images (Media Library upload)
+6. Crée la page WordPress "Électriciens" avec ce template
+7. Donne-moi l'URL et le lien admin
+
+Sécurité : applique le hardening WP de base (désactive l'éditeur de fichiers, force HTTPS, change le préfixe de table si neuf).</div>
+      </div>
+
+      <div class="section-divider"><span>Étape 4 — Plugins indispensables</span></div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="feature-icon">🔒</div>
+          <h4>Wordfence</h4>
+          <p style="font-size:13px;">Sécurité : firewall, scan malware, login attempts. Gratuit.</p>
         </div>
         <div class="card">
-          <span class="badge badge-green">ÉTAPE 4</span>
-          <h4>🚀 Deploy Vercel</h4>
-          <p>1 commande pour déployer, URL publique en 30 secondes.</p>
+          <div class="feature-icon">🔍</div>
+          <h4>Yoast SEO</h4>
+          <p style="font-size:13px;">SEO on-page, schema, sitemaps, Open Graph. Gratuit.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon">⚡</div>
+          <h4>WP Rocket / W3 Cache</h4>
+          <p style="font-size:13px;">Cache + minification + lazy load. Performance Core Web Vitals.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon">📊</div>
+          <h4>Google Site Kit</h4>
+          <p style="font-size:13px;">GA4 + Search Console + AdSense intégré. Officiel Google.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon">📨</div>
+          <h4>Contact Form 7 / WPForms</h4>
+          <p style="font-size:13px;">Formulaires de contact / devis. Anti-spam intégré.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon">🛒</div>
+          <h4>WooCommerce (si e-commerce)</h4>
+          <p style="font-size:13px;">Boutique complète : produits, paiement Stripe, livraison.</p>
         </div>
       </div>
 
-      <h2>Pré-requis</h2>
-      <ul>
-        <li>MCP Stitch configuré avec clé Google AI Studio (voir <a href="mcp.html#stitch">MCP</a>)</li>
-        <li>Compte Vercel (gratuit, <a href="https://vercel.com" target="_blank">vercel.com</a>)</li>
-        <li>Vercel CLI installée : <code>npm install -g vercel</code></li>
-        <li>Optionnel : MCP Playwright pour tester la landing automatiquement</li>
-      </ul>
-
-      <h2>Le prompt master Stitch</h2>
-
       <div class="snippet">
-        <div class="snippet-header"><span>Prompt complet (à adapter)</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Stitch, génère-moi une landing page pour [TON BUSINESS].
+        <div class="snippet-header"><span>Install des plugins essentiels en 1 prompt</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Via WP-CLI (skill wordpress-master), installe et active ces plugins sur ma WordPress :
+- wordfence (sécurité)
+- wordpress-seo (Yoast)
+- wp-rocket (ou w3-total-cache si pas de licence)
+- google-site-kit
+- contact-form-7
 
-Contexte business :
-- Cible : [PERSONA]
-- Promesse : [VALUE PROP en 1 phrase]
-- Preuve sociale : [CHIFFRES + LOGOS]
-- Objection #1 à anticiper : [OBJECTION + RÉPONSE]
-- CTA principal : [ACTION attendue]
+Configure les bases :
+- Wordfence : firewall ON + email alerts admin
+- Yoast : sitemap activé + breadcrumbs ON
+- Cache : on/off selon page (off sur formulaires)
 
-Structure :
-1. Hero (titre + sous-titre + CTA + visual hero)
-2. Logos clients ou chiffres clés
-3. "Pour qui" : 3 personas avec icône
-4. "Comment ça marche" : 4 étapes numérotées
-5. Témoignages : 3 cards avec photo + verbatim
-6. Tarifs ou bénéfices (selon modèle)
-7. FAQ : 5 questions critiques
-8. CTA final + footer
-
-Style :
-- Dark mode haut de gamme (type Linear / Stripe / Vercel)
-- Accent color : [COULEUR]
-- Typographie : Inter pour le sans-serif, JetBrains Mono pour code/numbers
-- Mobile-first
-- Animations subtiles au scroll (intersection observer)
-
-Output : un dossier landing-[NOM]/ avec :
-- index.html
-- assets/style.css
-- assets/app.js (interactions)
-- README.md (instructions deploy)
-
-Prêt à déployer sur Vercel.</div>
+Donne-moi la liste de ce qui a été activé.</div>
       </div>
 
-      <h2>Itérer en gardant le contrôle</h2>
+      <div class="section-divider"><span>Étape 5 — Tests automatiques avec Playwright</span></div>
 
-      <p>Une fois la 1ère version sortie, on itère section par section. Pas tout refaire.</p>
+      <p>Avant de partager l'URL, on teste visuellement et fonctionnellement :</p>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Itération ciblée</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">La section "Pour qui" est bien mais :
-- Trop générique, manque les pains spécifiques par persona
-- Active la skill copywriting et propose 3 variantes pour chaque persona
-- Garde la structure HTML existante, change uniquement le texte
-- Format : 1 phrase de douleur + 1 phrase de promesse par persona</div>
+      <div class="compare">
+        <div class="compare-side">
+          <div class="compare-label bad">AVANT déploiement</div>
+          <div class="compare-body">
+            <ul style="padding-left:18px;font-size:13px;">
+              <li>❌ CTA ne redirige pas où il faut</li>
+              <li>❌ Formulaire submit ne marche pas</li>
+              <li>❌ Images cassées sur mobile</li>
+              <li>❌ Slow loading (3s+ LCP)</li>
+              <li>❌ Pas de tracking GA4</li>
+            </ul>
+          </div>
+        </div>
+        <div class="compare-side">
+          <div class="compare-label good">APRÈS Playwright check</div>
+          <div class="compare-body">
+            <ul style="padding-left:18px;font-size:13px;">
+              <li>✓ CTA testés mobile + desktop</li>
+              <li>✓ Form submit + email reçu vérifié</li>
+              <li>✓ Lighthouse score > 90</li>
+              <li>✓ LCP < 1.5s, CLS = 0</li>
+              <li>✓ Events GA4 firing OK</li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Audit CRO avant deploy</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Active la skill page-cro. Audite la landing actuelle en mode brutal :
-- Hierarchie visuelle : qu'est-ce qui attire l'œil en premier ?
-- Friction CTA : combien de clics jusqu'à conversion ?
-- Manque de preuves sociales ?
-- Objections non traitées ?
-- Mobile vs desktop : différences ?
-
-Sors-moi un punch list ordonné par impact attendu.</div>
-      </div>
-
-      <h2>Déploiement Vercel</h2>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Premier déploiement</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">cd landing-mon-business
-vercel</div>
-      </div>
-
-      <p>Vercel va :</p>
-      <ol>
-        <li>Demander de se connecter (1ère fois seulement)</li>
-        <li>Détecter automatiquement le framework</li>
-        <li>Donner une URL temporaire de preview</li>
-        <li>Proposer de "promouvoir" en production avec <code>vercel --prod</code></li>
-      </ol>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Déployer en production</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">vercel --prod</div>
-      </div>
-
-      <h2>Tests automatiques avec Playwright</h2>
-
-      <p>Avant de partager l'URL, demandez à Claude de tester la landing.</p>
 
       <div class="snippet">
         <div class="snippet-header"><span>Test E2E via Playwright MCP</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Playwright, teste la landing déployée sur https://landing-mon-business.vercel.app :
+        <div class="snippet-body">Via le MCP Playwright, teste la landing https://landing-electricien-autaf.fr :
 
-1. Ouvre la page sur desktop (1440×900) et mobile (390×844)
-2. Capture screenshot des 2 versions
-3. Vérifie que les CTA principaux sont cliquables et redirigent où il faut
-4. Remplis le formulaire avec un test bidon et vérifie qu'il soumet
-5. Score Lighthouse (performance, accessibilité, SEO)
-6. Sors-moi un rapport avec les screenshots + les éventuels problèmes détectés</div>
+1. Ouvre sur desktop (1440×900) et mobile (390×844), screenshot les 2
+2. Vérifie que tous les CTA cliquent où il faut
+3. Remplis le formulaire avec un test bidon et vérifie qu'il submit + reçoit confirmation
+4. Score Lighthouse : performance, accessibilité, SEO, best practices
+5. Vérifie que GA4 firing (events page_view + cta_clicked)
+6. Sors un rapport markdown avec les screenshots embed + tous les problèmes détectés
+
+Si Lighthouse < 90 sur n'importe quelle métrique : propose les 3 fixs prioritaires.</div>
       </div>
 
-      <h2>Alternative : refonte d'une page existante</h2>
+      <div class="section-divider"><span>Bonus : e-commerce en 1h avec WooCommerce</span></div>
 
-      <p>Vous avez déjà une landing mais elle convertit mal ? Audit + refonte ciblée :</p>
+      <p>Si vous vendez des formations, des packs, des SaaS billables : WooCommerce ajoute la couche e-commerce.</p>
 
       <div class="snippet">
-        <div class="snippet-header"><span>Audit + refonte existant</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Voici l'URL de notre landing actuelle : https://autaf.fr/devis
+        <div class="snippet-header"><span>Setup WooCommerce + Stripe en 1 prompt</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Active wordpress-master + woocommerce skill.
 
-1. Via Playwright MCP, charge la page et screenshot mobile + desktop
-2. Active la skill page-cro et audit complet
-3. Propose un plan de refonte en 5 points prioritaires (impact > effort)
-4. Pour chaque point, propose la modif concrète (HTML/CSS exact)
-5. Donne-moi un estimé de gain de conversion attendu (range pessimiste / optimiste)
+Mission : ajoute WooCommerce à ma WordPress avec :
+1. Install et activation WooCommerce
+2. Configuration de base : France, EUR, TVA 20%
+3. Install + setup gateway Stripe (test mode)
+4. Crée 3 produits :
+   - "Formation Claude Code AUTAF" (197 €, digital, accès illimité)
+   - "Pack 10 vidéos TikTok BTP" (490 €, service)
+   - "Audit landing express" (97 €, service one-shot)
+5. Configure les emails transactionnels (confirmation, facture)
+6. Ajoute le panier + checkout au menu
 
-Ne touche pas au code tant que je n'ai pas validé le plan.</div>
+Sécurité : active Wordfence sur les routes /checkout et /my-account.
+
+Test final : passe une commande test en Stripe test mode, confirme tout marche.</div>
       </div>
 
-      <h2>Skills à activer pour landing pages</h2>
+      <div class="section-divider"><span>Skills à activer pour landing WordPress</span></div>
 
-      <div class="grid-2">
-        <div class="card">
-          <h4>copywriting</h4>
-          <p>Pour les headlines, body, CTA, taglines. Frameworks AIDA, PAS, BAB.</p>
+      <div class="skill-lib">
+        <div class="skill-tile" style="--skill-accent: #21759b">
+          <div class="head"><span class="emoji">📝</span><span class="badge badge-orange">CORE</span></div>
+          <div class="name">wordpress-master</div>
+          <div class="desc">Skill complète WordPress : themes, plugins, sécu, SEO, WooCommerce, REST API, WP-CLI.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install wordpress</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-        <div class="card">
-          <h4>page-cro</h4>
-          <p>Pour l'audit et l'optimisation des conversions. Vraie expertise CRO.</p>
+        <div class="skill-tile" style="--skill-accent: #21759b">
+          <div class="head"><span class="emoji">✍️</span></div>
+          <div class="name">copywriting</div>
+          <div class="desc">Headlines, body, CTA persuasifs. Frameworks AIDA/PAS/BAB.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-        <div class="card">
-          <h4>customer-research</h4>
-          <p>Pour identifier les "true pain points" à mettre dans le copy.</p>
+        <div class="skill-tile" style="--skill-accent: #21759b">
+          <div class="head"><span class="emoji">📈</span></div>
+          <div class="name">page-cro</div>
+          <div class="desc">Audit + optimisation conversion. Friction, social proof, CTA.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-        <div class="card">
-          <h4>seo-page</h4>
-          <p>Pour l'optimisation on-page (meta, schema, Core Web Vitals).</p>
-        </div>
-        <div class="card">
-          <h4>schema-markup</h4>
-          <p>Pour ajouter le JSON-LD qui aide à apparaître dans les résultats riches Google.</p>
-        </div>
-        <div class="card">
-          <h4>ai-seo</h4>
-          <p>Pour optimiser la page afin qu'elle soit citée par ChatGPT / Perplexity / Claude.</p>
+        <div class="skill-tile" style="--skill-accent: #21759b">
+          <div class="head"><span class="emoji">🔍</span></div>
+          <div class="name">seo-page</div>
+          <div class="desc">SEO on-page complet : meta, schema, Core Web Vitals.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
       </div>
-
-      <h2>Recette complète : landing AUTAF en 10 min</h2>
-
-      <p>Voir la <a href="recettes.html">page recettes</a>, recette n°1.</p>
 
       <h2>Et maintenant ?</h2>
       <div class="grid-2">
         <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-orange">EXEMPLE COMPLET</span>
+          <span class="badge badge-orange">EN ACTION</span>
           <h4>💡 Recette landing 10 min</h4>
-          <p>Le workflow A-Z, copy-pastable.</p>
+          <p>Le workflow A à Z copy-pastable.</p>
         </a>
-        <a href="video.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-purple">AUTRE PRODUCTION</span>
-          <h4>🎬 Vidéo TikTok</h4>
-          <p>Pipeline complet Hyperframes + fal.ai.</p>
+        <a href="publication.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">PUBLIER</span>
+          <h4>📱 PostFast & co</h4>
+          <p>Diffuser le trafic vers la landing via TikTok / LinkedIn / Insta.</p>
         </a>
       </div>
     </main>

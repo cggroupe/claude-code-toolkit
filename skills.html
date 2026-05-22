@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skills — Claude Code Toolkit</title>
+  <title>Bibliothèque de skills — Claude Code Toolkit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,237 +15,1058 @@
 
     <main class="main">
       <div class="section-header">
-        <h1>Skills</h1>
-        <p>Les "fiches métier" qui apprennent à Claude un savoir-faire spécifique. À télécharger, copier, adapter.</p>
+        <h1>Bibliothèque de skills</h1>
+        <p>108 skills prêtes à installer. Cliquez "Installer" → la commande est dans votre presse-papier → collez dans Claude Code.</p>
       </div>
 
-      <h2>C'est quoi, une skill ?</h2>
-      <p>
-        Une skill, c'est un <strong>fichier markdown</strong> qui décrit à Claude une compétence précise : comment écrire un post LinkedIn viral, comment auditer une page SEO, comment générer un script TikTok BTP. Quand Claude détecte que la situation correspond, il <em>active</em> automatiquement la skill et suit le protocole décrit.
-      </p>
+      <div class="stat-row">
+        <div class="stat-card"><div class="big">108</div><div class="label">Skills dispo</div></div>
+        <div class="stat-card"><div class="big">12</div><div class="label">Catégories</div></div>
+        <div class="stat-card"><div class="big">1</div><div class="label">Clic install</div></div>
+        <div class="stat-card"><div class="big">0€</div><div class="label">Coût</div></div>
+      </div>
 
       <div class="callout">
-        <p><strong>Métaphore.</strong> Une skill, c'est la <em>fiche métier</em> qu'on glisse dans le classeur du stagiaire. "Quand un client demande X, voici comment tu procèdes, étape par étape." Le stagiaire la consulte chaque fois qu'il en a besoin.</p>
+        <p><strong>Le principe.</strong> Chaque skill = 1 commande à coller dans Claude Code. La commande clone la skill depuis GitHub et l'installe automatiquement dans <code>~/.claude/skills/</code>. Pas de setup, ça marche au prochain prompt.</p>
       </div>
 
-      <h2>Comment ça s'installe ?</h2>
-
-      <h3>Option A — Via un plugin Claude Code</h3>
-      <p>Le plus simple : la skill est packagée dans un plugin community, vous l'installez en une commande.</p>
-      <div class="snippet">
-        <div class="snippet-header"><span>Installer un pack de skills marketing</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">/plugins install marketing-skills</div>
+      <div class="cat-pills">
+        <a href="#" class="cat-pill active" data-cat="all">Tout <span class="count">108</span></a>
+        <a href="#" class="cat-pill" data-cat="marketing">Marketing <span class="count">14</span></a>
+        <a href="#" class="cat-pill" data-cat="seo">SEO <span class="count">25</span></a>
+        <a href="#" class="cat-pill" data-cat="video">Vidéo <span class="count">10</span></a>
+        <a href="#" class="cat-pill" data-cat="btp">BTP custom <span class="count">9</span></a>
+        <a href="#" class="cat-pill" data-cat="cro">CRO <span class="count">8</span></a>
+        <a href="#" class="cat-pill" data-cat="design">Design <span class="count">5</span></a>
+        <a href="#" class="cat-pill" data-cat="dev">Dev <span class="count">10</span></a>
+        <a href="#" class="cat-pill" data-cat="strategy">Stratégie <span class="count">10</span></a>
+        <a href="#" class="cat-pill" data-cat="ops">Ops <span class="count">8</span></a>
+        <a href="#" class="cat-pill" data-cat="utils">Utilitaires <span class="count">9</span></a>
       </div>
 
-      <h3>Option B — Manuellement depuis GitHub</h3>
-      <p>Vous téléchargez le fichier <code>SKILL.md</code> et vous le placez dans <code>~/.claude/skills/&lt;nom&gt;/SKILL.md</code>.</p>
+      <div class="section-divider"><span>Marketing essentiel</span></div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Installation manuelle (Mac/Linux)</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">mkdir -p ~/.claude/skills/copywriting && curl -fsSL https://raw.githubusercontent.com/anthropics/skills/main/marketing/copywriting/SKILL.md -o ~/.claude/skills/copywriting/SKILL.md</div>
+      <div class="skill-lib">
+
+        <div class="skill-tile" data-cat="marketing" style="--skill-accent: #f97316">
+          <div class="head">
+            <span class="emoji">✍️</span>
+            <span class="badge badge-orange">CORE</span>
+          </div>
+          <div class="name">copywriting</div>
+          <div class="desc">Headlines, body, CTA. Frameworks AIDA, PAS, BAB, FAB. Multi-variantes.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro" style="--skill-accent: #f97316">
+          <div class="head"><span class="emoji">📈</span><span class="badge badge-orange">CORE</span></div>
+          <div class="name">page-cro</div>
+          <div class="desc">Audit conversion : friction, preuves sociales, hierarchie CTA. Punchlist par impact.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing" style="--skill-accent: #f97316">
+          <div class="head"><span class="emoji">📧</span><span class="badge badge-blue">PROSPECTION</span></div>
+          <div class="name">cold-email</div>
+          <div class="desc">Séquences B2B avec personnalisation par prospect, follow-ups, A/B.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing">
+          <div class="head"><span class="emoji">🎁</span><span class="badge badge-blue">INBOUND</span></div>
+          <div class="name">lead-magnets</div>
+          <div class="desc">Ebooks, checklists, templates. Inclut séquence email post-téléchargement.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing">
+          <div class="head"><span class="emoji">📣</span><span class="badge badge-purple">PAID</span></div>
+          <div class="name">ad-creative</div>
+          <div class="desc">Meta Ads, Google Ads, LinkedIn. 3 variantes par campagne, hook+body+CTA.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing" style="--skill-accent: #f97316">
+          <div class="head"><span class="emoji">📱</span><span class="badge badge-orange">CORE</span></div>
+          <div class="name">social-content</div>
+          <div class="desc">TikTok, Instagram, LinkedIn, X. Adapté plateforme + audience.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing">
+          <div class="head"><span class="emoji">📨</span><span class="badge badge-blue">NURTURING</span></div>
+          <div class="name">email-sequence</div>
+          <div class="desc">Welcome, onboarding, nurture, win-back. 5-12 emails selon objectif.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing">
+          <div class="head"><span class="emoji">📝</span><span class="badge badge-gray">EDIT</span></div>
+          <div class="name">copy-editing</div>
+          <div class="desc">Edit copy existant : tighten, refresh, polish, audit content outdated.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="strategy">
+          <div class="head"><span class="emoji">🔍</span><span class="badge badge-purple">STRATÉGIE</span></div>
+          <div class="name">customer-research</div>
+          <div class="desc">Analyse interviews, reviews G2/Trustpilot, Reddit. Sort personas + JTBD.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="strategy">
+          <div class="head"><span class="emoji">🚀</span></div>
+          <div class="name">launch-strategy</div>
+          <div class="desc">Product Hunt, feature release, GTM. Checklist + agenda.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="strategy">
+          <div class="head"><span class="emoji">💡</span></div>
+          <div class="name">marketing-ideas</div>
+          <div class="desc">Brainstorming campagnes, partenariats, growth hacks à la demande.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="strategy">
+          <div class="head"><span class="emoji">🧠</span></div>
+          <div class="name">marketing-psychology</div>
+          <div class="desc">Biais cognitifs, persuasion Cialdini, social proof, scarcity.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing">
+          <div class="head"><span class="emoji">🎯</span></div>
+          <div class="name">paid-ads</div>
+          <div class="desc">Stratégie + creative pour campagnes payantes multi-plateformes.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="marketing">
+          <div class="head"><span class="emoji">🤝</span></div>
+          <div class="name">referral-program</div>
+          <div class="desc">Affiliate / refer-a-friend / ambassador. Incentives, mécanique virale.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
       </div>
 
-      <h3>Option C — Créer la vôtre</h3>
-      <p>Demandez à Claude lui-même de vous la générer :</p>
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt génération de skill</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Crée-moi une skill Claude Code qui s'appelle "post-linkedin-pro". Elle doit se déclencher quand je demande un post LinkedIn. Le format à respecter : hook (1 ligne choc), 5 insights numérotés, CTA en dernier. Style B2B sénior, pas de buzzwords. Sauvegarde-la dans ~/.claude/skills/post-linkedin-pro/SKILL.md.</div>
+      <div class="section-divider"><span>BTP Custom (skills propriétaires)</span></div>
+
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">🎯</span><span class="badge badge-orange">CUSTOM</span></div>
+          <div class="name">linkedin-ghost-btp</div>
+          <div class="desc">Ghostwriter LinkedIn voix dirigeant BTP. DIIIE + Justin Welsh pillar. Ton sénior pas hype.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/linkedin-ghost-btp.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">📺</span><span class="badge badge-orange">CUSTOM</span></div>
+          <div class="name">tiktok-bait-btp</div>
+          <div class="desc">Baits TikTok BTP en Cunningham-law. Affirmation provocante DTU → commentaires correctifs.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/tiktok-bait-btp.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">🪝</span><span class="badge badge-orange">CUSTOM</span></div>
+          <div class="name">btp-hook-generator</div>
+          <div class="desc">Hooks 7 secondes (TikTok) ou 1 ligne (LinkedIn) adaptés audience BTP française.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/btp-hook-generator.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">📅</span><span class="badge badge-orange">CUSTOM</span></div>
+          <div class="name">btp-content-calendar</div>
+          <div class="desc">Calendrier édito 30/60/90j TikTok + LinkedIn BTP. 3 piliers (Edu / Histoires / Vision).</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/btp-content-calendar.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">🎥</span><span class="badge badge-orange">CUSTOM</span></div>
+          <div class="name">btp-video-script-v3</div>
+          <div class="desc">Scripts vidéo 9:16 Veo3/Kling BTP. Verbatim-lock + filler-words-ban + FR métropolitain.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/btp-video-script-v3.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">💰</span><span class="badge badge-orange">CUSTOM</span></div>
+          <div class="name">hormozi-offer-btp</div>
+          <div class="desc">Grand Slam Offer Hormozi appliqué BTP. Stack-value + bonus + garanties.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/hormozi-offer-btp.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">🎯</span></div>
+          <div class="name">btp-icp-builder</div>
+          <div class="desc">Construit ICP précis BTP (métier × taille × région × persona décisionnaire).</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/btp-icp-builder.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">⛏️</span></div>
+          <div class="name">btp-pain-miner</div>
+          <div class="desc">Mine les vrais pain points BTP depuis forums, Reddit, reviews, threads.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/btp-pain-miner.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="btp" style="--skill-accent: #FFE72B">
+          <div class="head"><span class="emoji">📊</span></div>
+          <div class="name">linkedin-carousel-btp</div>
+          <div class="desc">Carrousels 10 slides PDF style swipe BTP — problème → insights → CTA.</div>
+          <div class="install-row">
+            <code class="install-cmd">curl -fsSL https://github.com/cggroupe/claude-code-toolkit/raw/master/snippets/skills/linkedin-carousel-btp.sh | bash</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
       </div>
 
-      <h2>Catalogue des skills marketing</h2>
+      <div class="section-divider"><span>Vidéo & médias</span></div>
 
-      <div class="tool-card">
-        <div class="tool-icon">✍️</div>
-        <div class="tool-meta">
-          <div class="tool-name">copywriting <span class="badge badge-green">ESSENTIEL</span></div>
-          <div class="tool-desc">Rédige du copy persuasif : headlines, body, CTA. Connaît les frameworks AIDA, PAS, BAB, FAB.</div>
-          <p><strong>Trigger.</strong> "Écris-moi un copy pour…", "rédige un headline pour…", "améliore ce copy…"</p>
-          <div class="tool-links">
-            <a class="tool-link" href="https://github.com/anthropics/skills" target="_blank">github source</a>
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="video" style="--skill-accent: #a855f7">
+          <div class="head"><span class="emoji">🎬</span><span class="badge badge-orange">CORE</span></div>
+          <div class="name">hyperframes</div>
+          <div class="desc">Vidéos HTML/CSS déterministes. Captions, anims, overlays, transitions.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install hyperframes</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="video">
+          <div class="head"><span class="emoji">⚛️</span></div>
+          <div class="name">remotion-best-practices</div>
+          <div class="desc">Compositions React. Templates, animations, audio, captions.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install remotion</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="video">
+          <div class="head"><span class="emoji">🎙️</span></div>
+          <div class="name">hyperframes-media</div>
+          <div class="desc">TTS Kokoro (voix off), Whisper (transcription), u2net (remove background).</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install hyperframes</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="video">
+          <div class="head"><span class="emoji">📦</span></div>
+          <div class="name">hyperframes-registry</div>
+          <div class="desc">Registry de captions, transitions, VFX. Install par bloc.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install hyperframes</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="video">
+          <div class="head"><span class="emoji">🖼️</span></div>
+          <div class="name">image</div>
+          <div class="desc">Génération AI (Flux, Midjourney, GPT image, Ideogram, Gemini) + optimisation WebP.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install image</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="video">
+          <div class="head"><span class="emoji">🎞️</span></div>
+          <div class="name">create-viral-content</div>
+          <div class="desc">Templates de hooks viraux, structures vidéo TikTok / Reels qui marchent.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="design">
+          <div class="head"><span class="emoji">✨</span></div>
+          <div class="name">gsap</div>
+          <div class="desc">Animations web complexes via GSAP. Timeline, ScrollTrigger, MotionPath.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install gsap</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="design">
+          <div class="head"><span class="emoji">🌀</span></div>
+          <div class="name">animejs</div>
+          <div class="desc">Anime.js — animations DOM, SVG, CSS, JS. Léger et puissant.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install anime</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="design">
+          <div class="head"><span class="emoji">📐</span></div>
+          <div class="name">three</div>
+          <div class="desc">Scènes 3D Three.js. WebGL, shaders, camera motion, AnimationMixer.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install three</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="design">
+          <div class="head"><span class="emoji">🎨</span></div>
+          <div class="name">lottie</div>
+          <div class="desc">Animations Lottie / dotLottie. Embed After Effects exports.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install lottie</code>
+            <button class="install-btn">Installer</button>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📈</div>
-        <div class="tool-meta">
-          <div class="tool-name">page-cro <span class="badge badge-green">ESSENTIEL</span></div>
-          <div class="tool-desc">Audit et optimisation de pages (landing, pricing, accueil). Identifie friction, manque de preuves sociales, CTA faibles.</div>
-          <p><strong>Trigger.</strong> "Pourquoi cette page ne convertit pas ?", "audit CRO de…"</p>
+      <div class="section-divider"><span>SEO complet (25 skills)</span></div>
+
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="seo" style="--skill-accent: #22c55e">
+          <div class="head"><span class="emoji">🔍</span><span class="badge badge-orange">CORE</span></div>
+          <div class="name">seo</div>
+          <div class="desc">Audit SEO complet. Technical + content + schema + Core Web Vitals + AI Overviews.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📋</span></div>
+          <div class="name">seo-audit</div>
+          <div class="desc">Audit complet d'un site existant. Friction technique, gaps content, schema.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📍</span></div>
+          <div class="name">seo-local</div>
+          <div class="desc">Google Business Profile, NAP, citations, reviews, local pack.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📦</span></div>
+          <div class="name">seo-schema</div>
+          <div class="desc">JSON-LD Schema.org. Detect, validate, generate. Rich results Google.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🤖</span></div>
+          <div class="name">ai-seo</div>
+          <div class="desc">GEO / AEO. Optimiser pour ChatGPT, Perplexity, AI Overviews, Claude.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🗺️</span></div>
+          <div class="name">seo-sitemap</div>
+          <div class="desc">XML sitemaps. Analyse existant ou génère par template industrie.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🔗</span></div>
+          <div class="name">seo-backlinks</div>
+          <div class="desc">Profil backlinks, anchor text, toxic links, gap concurrence.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🌐</span></div>
+          <div class="name">seo-hreflang</div>
+          <div class="desc">i18n / multi-langue. Validation hreflang, codes pays, génération.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📸</span></div>
+          <div class="name">seo-images</div>
+          <div class="desc">Alt text, taille, format WebP/AVIF, metadata IPTC/XMP, image SERP.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🛒</span></div>
+          <div class="name">seo-ecommerce</div>
+          <div class="desc">Google Shopping, Amazon SEO, product schema, marketplace.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📰</span></div>
+          <div class="name">seo-content</div>
+          <div class="desc">Content brief, optimisation on-page, E-E-A-T, topical authority.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🗂️</span></div>
+          <div class="name">seo-cluster</div>
+          <div class="desc">Pillar pages + topic clusters. Architecture content stratégique.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">⚙️</span></div>
+          <div class="name">seo-technical</div>
+          <div class="desc">Crawl, robots.txt, indexability, redirections, canonicals.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">⚡</span></div>
+          <div class="name">seo-page</div>
+          <div class="desc">Analyse single URL : meta, content, schema, perf, optimisations.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📊</span></div>
+          <div class="name">seo-dataforseo</div>
+          <div class="desc">SERP live, keywords, backlinks via DataForSEO MCP. Real data.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🤖</span></div>
+          <div class="name">seo-geo</div>
+          <div class="desc">Generative Engine Optimization. llms.txt, citations LLM, passage scoring.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📈</span></div>
+          <div class="name">seo-drift</div>
+          <div class="desc">Baseline SEO + détection régression. Git for SEO.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🏗️</span></div>
+          <div class="name">seo-programmatic</div>
+          <div class="desc">pSEO. Pages à scale via templates + data. 100+ pages générées.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🆚</span></div>
+          <div class="name">seo-competitor-pages</div>
+          <div class="desc">Comparison/alternative pages. "X vs Y" SEO-optimized.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🗺️</span></div>
+          <div class="name">seo-maps</div>
+          <div class="desc">Geo-grid rank tracking, GBP audit API, reviews multi-plateformes.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🌍</span></div>
+          <div class="name">seo-google</div>
+          <div class="desc">Google Search Console, Analytics, indexation, intentions de recherche.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">📅</span></div>
+          <div class="name">seo-plan</div>
+          <div class="desc">Plan stratégique SEO (sites nouveaux ou existants). Roadmap 90j.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🎨</span></div>
+          <div class="name">seo-image-gen</div>
+          <div class="desc">Génération d'images optimisées SEO (alt, format, taille adaptive).</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🌊</span></div>
+          <div class="name">seo-flow</div>
+          <div class="desc">FLOW framework. Find → Leverage → Optimize → Win. 41 prompts.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="seo">
+          <div class="head"><span class="emoji">🎯</span></div>
+          <div class="name">seo-sxo</div>
+          <div class="desc">Search Experience Optimization. UX + SEO + intent matching.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install seo</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📧</div>
-        <div class="tool-meta">
-          <div class="tool-name">cold-email <span class="badge badge-orange">PROSPECTION</span></div>
-          <div class="tool-desc">Génère des séquences cold email B2B. Personnalisation par prospect, follow-ups, A/B variants.</div>
-          <p><strong>Trigger.</strong> "Écris un cold email pour…", "séquence de relance prospect…"</p>
+      <div class="section-divider"><span>CRO & landing pages</span></div>
+
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">🎨</span><span class="badge badge-orange">CORE</span></div>
+          <div class="name">page-cro</div>
+          <div class="desc">Audit + optimisation pages (landing, pricing, accueil). Friction, social proof, CTA.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">✍️</span></div>
+          <div class="name">form-cro</div>
+          <div class="desc">Optimisation formulaires (contact, demo, lead). Friction, fields, completion.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">💬</span></div>
+          <div class="name">popup-cro</div>
+          <div class="desc">Modals, popups, slide-ins. Timing, copy, frequency, exit-intent.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">🔐</span></div>
+          <div class="name">signup-flow-cro</div>
+          <div class="desc">Optimisation flow signup/registration. Friction-free, social login, progressive.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">🚪</span></div>
+          <div class="name">onboarding-cro</div>
+          <div class="desc">Post-signup activation. Time-to-value, first-action, momentum.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">💳</span></div>
+          <div class="name">paywall-upgrade-cro</div>
+          <div class="desc">Paywall, upgrade flows, pricing pages. Friction, urgency, anchoring.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">🧪</span></div>
+          <div class="name">ab-test-setup</div>
+          <div class="desc">Setup d'A/B tests propres : sample size, hypothesis, primary metric.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="cro">
+          <div class="head"><span class="emoji">💎</span></div>
+          <div class="name">impeccable</i></div>
+          <div class="desc">UI/UX premium. Design system, typography, motion, accessibility, polish.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install design</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">🎁</div>
-        <div class="tool-meta">
-          <div class="tool-name">lead-magnets <span class="badge badge-blue">INBOUND</span></div>
-          <div class="tool-desc">Création de lead magnets : ebooks, checklists, templates Notion, calculatrices. Inclut séquence email post-téléchargement.</div>
-          <p><strong>Trigger.</strong> "Crée-moi un lead magnet sur…", "qu'est-ce que je peux offrir pour récupérer des emails ?"</p>
+      <div class="section-divider"><span>Dev, ops, sécurité</span></div>
+
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">🛡️</span><span class="badge badge-red">SÉCU</span></div>
+          <div class="name">prohacker</div>
+          <div class="desc">Audit OWASP Top 10, hardening, drift, prompt injection LLM, MITRE ATT&CK.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install prohacker</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-      </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📣</div>
-        <div class="tool-meta">
-          <div class="tool-name">ad-creative <span class="badge badge-orange">PAID</span></div>
-          <div class="tool-desc">Pubs payantes : Meta Ads, Google Ads, LinkedIn Ads. Spécifie format, hook, body, CTA selon plateforme.</div>
-          <p><strong>Trigger.</strong> "Crée 3 variantes d'ad Meta pour…", "campagne LinkedIn ABM cible…"</p>
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">🏗️</span></div>
+          <div class="name">architecture-audit</div>
+          <div class="desc">Audit architecture codebase + génération wiki vivant. Pattern Karpathy.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install dev</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-      </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📱</div>
-        <div class="tool-meta">
-          <div class="tool-name">social-content <span class="badge badge-green">ESSENTIEL</span></div>
-          <div class="tool-desc">Contenu organique TikTok, Instagram, LinkedIn, X. Adapté à la plateforme, au format, à l'audience.</div>
-          <p><strong>Trigger.</strong> "Idées de contenu pour…", "post Instagram sur…"</p>
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">🕵️</span></div>
+          <div class="name">osint</div>
+          <div class="desc">OSINT toolkit. SpiderFoot, PhoneInfoga, Sherlock, Maigret, Holehe, etc.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install osint</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-      </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📨</div>
-        <div class="tool-meta">
-          <div class="tool-name">email-sequence <span class="badge badge-blue">NURTURING</span></div>
-          <div class="tool-desc">Séquences email post-inscription : welcome, nurture, onboarding, win-back. 5 à 12 emails selon objectif.</div>
-          <p><strong>Trigger.</strong> "Séquence welcome pour…", "email d'onboarding…"</p>
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">📝</span></div>
+          <div class="name">wordpress-master</div>
+          <div class="desc">WordPress expert : themes, plugins, sécu, WooCommerce, perf, REST API, WP-CLI.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install wordpress</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-      </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">🔍</div>
-        <div class="tool-meta">
-          <div class="tool-name">customer-research <span class="badge badge-purple">STRATÉGIE</span></div>
-          <div class="tool-desc">Analyse de transcripts d'interviews, reviews G2/Trustpilot, threads Reddit. Sort des personas et JTBD.</div>
-          <p><strong>Trigger.</strong> "Analyse ces 20 reviews et donne-moi les personas…"</p>
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">🔄</span></div>
+          <div class="name">stitch-loop</div>
+          <div class="desc">Itération autonome Stitch pour build de site. Baton-passing loop.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install stitch</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
-      </div>
 
-      <h2>Catalogue des skills vidéo</h2>
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">⚛️</span></div>
+          <div class="name">react-components</div>
+          <div class="desc">Composants React optimisés. Patterns modernes, RSC, hooks, perf.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install react</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">🎬</div>
-        <div class="tool-meta">
-          <div class="tool-name">hyperframes <span class="badge badge-orange">VIDÉO HTML</span></div>
-          <div class="tool-desc">Création de vidéos déterministes à partir de HTML/CSS/JS. Captions, animations, overlays, transitions, scènes multiples.</div>
-          <p><strong>Trigger.</strong> "Crée une vidéo TikTok avec…", "ajoute des captions à cette vidéo…"</p>
-          <div class="tool-links">
-            <a class="tool-link" href="https://hyperframes.dev" target="_blank">hyperframes.dev</a>
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">💨</span></div>
+          <div class="name">tailwind</div>
+          <div class="desc">Tailwind v4. Browser runtime, utility-first, CSS-first config.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install tailwind</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">🎬</span></div>
+          <div class="name">css-animations</div>
+          <div class="desc">CSS animations purs. Keyframes, fill-mode, play-state, perf GPU.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install css</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">🧠</span><span class="badge badge-purple">META</span></div>
+          <div class="name">karpathy-pattern</div>
+          <div class="desc">Pattern Karpathy wiki vivant. /ingest /lint /digest, wikilinks, log.md.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install karpathy</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="dev">
+          <div class="head"><span class="emoji">📖</span></div>
+          <div class="name">codebase-to-course</div>
+          <div class="desc">Transforme un codebase en cours HTML interactif. Pour non-techs.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install course</code>
+            <button class="install-btn">Installer</button>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">⚛️</div>
-        <div class="tool-meta">
-          <div class="tool-name">remotion-best-practices <span class="badge badge-blue">VIDÉO REACT</span></div>
-          <div class="tool-desc">Alternative React pour la vidéo programmatique. Mature, large communauté, beaucoup de templates.</div>
-          <p><strong>Trigger.</strong> "Crée une compo Remotion pour…", "convertis cette idée en composition React vidéo…"</p>
-          <div class="tool-links">
-            <a class="tool-link" href="https://remotion.dev" target="_blank">remotion.dev</a>
+      <div class="section-divider"><span>Ops, revops, growth</span></div>
+
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">📊</span></div>
+          <div class="name">analytics-tracking</div>
+          <div class="desc">GA4, Plausible, Posthog setup. Events, conversions, funnels.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
           </div>
         </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">💰</span></div>
+          <div class="name">pricing-strategy</div>
+          <div class="desc">Pricing stratégique : packaging, anchoring, tiers, freemium, value-based.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">🔄</span></div>
+          <div class="name">churn-prevention</div>
+          <div class="desc">Réduction churn. Signaux faibles, win-back, retention loops.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">💼</span></div>
+          <div class="name">revops</div>
+          <div class="desc">Revenue ops. Pipeline, attribution, forecasting, CRM hygiene.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">📋</span></div>
+          <div class="name">sales-enablement</div>
+          <div class="desc">Battle cards, sales decks, objection handling, demo flows.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">🤝</span></div>
+          <div class="name">competitor-profiling</div>
+          <div class="desc">Profile compétiteurs : positioning, pricing, GTM, fait/faiblesses.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">🌐</span></div>
+          <div class="name">community-marketing</div>
+          <div class="desc">Build community : Slack, Discord, forum. Engagement, modération, growth.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="ops">
+          <div class="head"><span class="emoji">🤝</span></div>
+          <div class="name">co-marketing</div>
+          <div class="desc">Partenariats co-marketing : webinars, swap, bundles, content collabs.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">🎙️</div>
-        <div class="tool-meta">
-          <div class="tool-name">hyperframes-media <span class="badge badge-purple">AUDIO / TTS</span></div>
-          <div class="tool-desc">Génération de voix off (Kokoro), transcription audio (Whisper), suppression de fond (u2net).</div>
-          <p><strong>Trigger.</strong> "Génère une voix off pour…", "transcris ce fichier audio…"</p>
+      <div class="section-divider"><span>Utilitaires</span></div>
+
+      <div class="skill-lib">
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">📚</span></div>
+          <div class="name">epub-creator</div>
+          <div class="desc">Markdown → EPUB3 pro. Kindle, livres numériques.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install utils</code>
+            <button class="install-btn">Installer</button>
+          </div>
         </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">📄</span></div>
+          <div class="name">pdf-toolkit</div>
+          <div class="desc">PDF manipulation. Extract text/tables, fill forms, merge, split.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install utils</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">✨</span></div>
+          <div class="name">enhance-prompt</div>
+          <div class="desc">Améliore un prompt utilisateur en prompt structuré (rôle, contraintes, format).</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install utils</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">🎨</span></div>
+          <div class="name">designer-pro-x</div>
+          <div class="desc">Design UI/UX combiné Stitch + 21st.dev + Framer Motion.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install design</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">📋</span></div>
+          <div class="name">design-md</div>
+          <div class="desc">Synthétise un design system depuis un projet Stitch en DESIGN.md.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install design</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">🆚</span></div>
+          <div class="name">competitor-alternatives</div>
+          <div class="desc">Pages "alternatives à X" + comparaisons. SEO + CRO combo.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">🔗</span></div>
+          <div class="name">directory-submissions</div>
+          <div class="desc">Soumissions annuaires/directories. Local citations, NAP consistency.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">📱</span></div>
+          <div class="name">aso-audit</div>
+          <div class="desc">App Store Optimization. iOS/Android, ASO Apple Connect + Play Console.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
+        <div class="skill-tile" data-cat="utils">
+          <div class="head"><span class="emoji">🌐</span></div>
+          <div class="name">claude-ads</div>
+          <div class="desc">Génère des publicités Meta/Google/LinkedIn optimisées avec creative variations.</div>
+          <div class="install-row">
+            <code class="install-cmd">/plugins install marketing</code>
+            <button class="install-btn">Installer</button>
+          </div>
+        </div>
+
       </div>
 
-      <h2>Skills BTP custom (pack métier)</h2>
-      <p>Skills spécifiques au secteur BTP/construction, à coller dans <code>~/.claude/skills/</code>. Disponibles dans le repo GitHub du toolkit.</p>
+      <div class="section-divider"><span>Tout installer en 1 commande</span></div>
 
-      <div class="grid-2">
-        <div class="card">
-          <h4>🎯 linkedin-ghost-btp</h4>
-          <p>Ghostwriter LinkedIn voix dirigeant BTP. Format DIIIE ou Justin Welsh pillar. Ton B2B sénior, pas hype.</p>
-          <p><strong>Trigger.</strong> "Post LinkedIn BTP", "ghostwriting BTP"</p>
+      <div class="callout success">
+        <p><strong>🚀 Pack complet AUTAF.</strong> Au lieu d'installer skill par skill, vous pouvez tout récupérer en 1 commande. Recommandé pour les nouveaux associés.</p>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Installation pack complet (Mac/Linux)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">curl -fsSL https://raw.githubusercontent.com/cggroupe/claude-code-toolkit/master/snippets/install-all.sh | bash</div>
+      </div>
+
+      <p>Cette commande installe : tous les marketplaces officiels Anthropic + le pack skills BTP custom + la stack <a href="cg-design.html">cg-design</a>.</p>
+
+      <h2>Comment créer sa propre skill</h2>
+
+      <div class="flow-grid">
+        <div class="flow-node">
+          <div class="icon">💡</div>
+          <h4>Identifier le besoin</h4>
+          <p>Une tâche répétitive ?</p>
         </div>
-        <div class="card">
-          <h4>📺 tiktok-bait-btp</h4>
-          <p>Génère des baits TikTok BTP en Cunningham-law (affirmation provocante sur DTU/normes pour déclencher commentaires correctifs).</p>
-          <p><strong>Trigger.</strong> "Bait TikTok BTP", "Cunningham law BTP"</p>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="icon">📝</div>
+          <h4>Décrire en français</h4>
+          <p>Le quand + le comment</p>
         </div>
-        <div class="card">
-          <h4>🪝 btp-hook-generator</h4>
-          <p>Hooks 7 secondes (TikTok) ou 1 ligne (LinkedIn) adaptés audience BTP française. Frameworks éprouvés.</p>
-          <p><strong>Trigger.</strong> "Hook BTP", "accroche TikTok bâtiment"</p>
-        </div>
-        <div class="card">
-          <h4>📅 btp-content-calendar</h4>
-          <p>Calendrier éditorial 30/60/90 jours TikTok + LinkedIn personal brand BTP. 3 piliers (Education / Histoires chantier / Vision marché).</p>
-          <p><strong>Trigger.</strong> "Calendrier éditorial BTP", "planning contenu"</p>
-        </div>
-        <div class="card">
-          <h4>🎥 btp-video-script-v3</h4>
-          <p>Scripts vidéo 9:16 pour Veo3/Kling adaptés BTP. Verbatim-lock + filler-words-ban + Metropolitan French.</p>
-          <p><strong>Trigger.</strong> "Script vidéo BTP", "Veo3 BTP"</p>
-        </div>
-        <div class="card">
-          <h4>📊 hormozi-offer-btp</h4>
-          <p>Structuration d'offres irrésistibles méthode Alex Hormozi (Grand Slam Offer) appliquée BTP. Stack-value + bonuses + garanties.</p>
-          <p><strong>Trigger.</strong> "Offre irrésistible", "stack BTP"</p>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node">
+          <div class="icon">✨</div>
+          <h4>Claude génère</h4>
+          <p>SKILL.md prêt</p>
         </div>
       </div>
 
       <div class="snippet">
-        <div class="snippet-header"><span>Tout installer en 1 commande</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">git clone https://github.com/cggroupe/claude-code-toolkit.git ~/.claude-toolkit && cp -r ~/.claude-toolkit/snippets/skills/* ~/.claude/skills/</div>
+        <div class="snippet-header"><span>Prompt pour créer une skill</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Crée-moi une skill Claude Code qui s'appelle "X". Elle doit se déclencher quand je demande [TRIGGERS]. Le format à respecter : [STRUCTURE]. Sauvegarde-la dans ~/.claude/skills/X/SKILL.md.</div>
       </div>
-
-      <h2>Anatomie d'une skill (pour comprendre)</h2>
-      <p>Un fichier <code>SKILL.md</code> ressemble à ça :</p>
-
-      <pre><code>---
-name: copywriting
-description: Écrit du copy persuasif. Trigger sur "headline", "copy", "tagline"...
-allowed-tools:
-  - Read
-  - Write
----
-
-# Copywriting Skill
-
-## When to use
-Quand l'utilisateur demande un headline, body copy, CTA, tagline.
-
-## Process
-1. Identifier l'audience cible (à demander si pas clair)
-2. Choisir un framework (AIDA, PAS, BAB)
-3. Écrire 3 variantes
-4. Marquer la variante recommandée
-
-## Output format
-- 3 variantes numérotées
-- 1 ligne d'explication par variante
-- Variante recommandée marquée ⭐
-</code></pre>
-
-      <p>Le frontmatter YAML en haut dit à Claude <em>quand</em> activer la skill. Le markdown en dessous dit <em>comment</em> procéder.</p>
 
       <h2>Et maintenant ?</h2>
       <div class="grid-2">
         <a href="karpathy.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-orange">SUIVANT</span>
-          <h4>Le pattern Karpathy 🧠</h4>
-          <p>Le combo wiki + RAG qui transforme un projet en cerveau partagé. La "bombe atomique" de la productivité.</p>
+          <span class="badge badge-orange">CONCEPT CLÉ</span>
+          <h4>🧠 Pattern Karpathy</h4>
+          <p>Comprendre comment les skills + wiki vivant changent tout.</p>
         </a>
         <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-purple">OU</span>
-          <h4>Recettes en action</h4>
-          <p>Les 3 use cases live : landing, vidéo TikTok, prospection.</p>
+          <span class="badge badge-purple">EN ACTION</span>
+          <h4>💡 Voir les skills en action</h4>
+          <p>3 recettes complètes qui utilisent ces skills.</p>
         </a>
       </div>
     </main>

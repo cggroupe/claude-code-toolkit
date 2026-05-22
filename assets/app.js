@@ -31,6 +31,43 @@ function setupCopyButtons() {
       });
     });
   });
+
+  // Install buttons for skill tiles
+  document.querySelectorAll('.install-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const row = btn.closest('.install-row');
+      if (!row) return;
+      const cmd = row.querySelector('.install-cmd');
+      if (!cmd) return;
+      const text = cmd.textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const original = btn.textContent;
+        btn.textContent = '✓ Copié';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1600);
+      });
+    });
+  });
+
+  // Category filter pills
+  document.querySelectorAll('.cat-pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const cat = pill.dataset.cat;
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      document.querySelectorAll('.skill-tile').forEach(tile => {
+        if (cat === 'all' || tile.dataset.cat === cat) {
+          tile.style.display = '';
+        } else {
+          tile.style.display = 'none';
+        }
+      });
+    });
+  });
 }
 
 function highlightNav() {
