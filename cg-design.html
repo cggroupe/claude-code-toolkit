@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cg-design stack — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>cg-design stack 🎨</h1>
+        <p>Générateur d'ads multi-marques HTML/CSS + Puppeteer. 122+ templates prêts, charte verrouillée, 0€/mois.</p>
+      </div>
+
+      <div class="callout success">
+        <p><strong>🎯 La stack maison.</strong> Cette stack est l'arme secrète interne pour produire des visuels Instagram, LinkedIn et TikTok à la chaîne pour AUTAF, BRH, QualiControl, ProElec et le personal brand Philippe. Vous l'installez en 1 commande sur votre Claude Code.</p>
+      </div>
+
+      <h2>À quoi ça sert ?</h2>
+
+      <p>
+        Vous prompts Claude (« fais-moi un visuel IG pour AUTAF qui cible les plombiers ») et la stack
+        produit un PNG 1080×1350 prêt à publier, en respectant la charte de la marque (couleurs, polices,
+        anti-invention factuelle). Pas de Canva, pas de Figma. Du HTML/CSS rendu en image avec Puppeteer.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="feature-icon">🎨</div>
+          <h4>5 marques chartées</h4>
+          <p>AUTAF, BRH, QualiControl, ProElec, WorkRepublic, CG GROUPE corp, personal brand Philippe.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon">📐</div>
+          <h4>5 formats supportés</h4>
+          <p>IG portrait 1080×1350, IG square, IG story 9:16, LinkedIn paysage, TikTok cover.</p>
+        </div>
+        <div class="card">
+          <div class="feature-icon">⚡</div>
+          <h4>Render en local</h4>
+          <p>Puppeteer + Inter Display + General Sans. Aucun appel API externe, gratuit, illimité.</p>
+        </div>
+      </div>
+
+      <h2>Installation (1 commande)</h2>
+
+      <p>Sur votre VPS / machine de dev, en root :</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Install cg-design stack</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">mkdir -p /opt/stack && cd /opt/stack \
+  && curl -L http://72.62.178.237:8940/export/cg-design-latest.tar.gz -o cg-design.tar.gz \
+  && tar xzf cg-design.tar.gz && rm cg-design.tar.gz \
+  && cd cg-design && bash install.sh</div>
+      </div>
+
+      <p>Le script <code>install.sh</code> va :</p>
+      <ol>
+        <li>Vérifier Node.js 20+</li>
+        <li>Installer Puppeteer 24 + libs Chromium</li>
+        <li>Installer Inter + Inter Display dans <code>/usr/share/fonts/opentype/inter/</code></li>
+        <li>Setup le service systemd <code>cg-design-api</code> sur port 8940</li>
+        <li>Ouvrir le port 8940 dans UFW</li>
+        <li>Faire un premier render de validation</li>
+        <li>Health check de l'API</li>
+      </ol>
+
+      <div class="callout info">
+        <p><strong>Pré-requis machine.</strong> Linux (Ubuntu 22.04+ ou 24.04 testé), Node 20+, accès root pour installer fonts et systemd. Sur Mac/Windows pour dev local, lancer sans <code>--systemd</code> : <code>bash install.sh --no-systemd</code>.</p>
+      </div>
+
+      <h2>Vérification post-install</h2>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Smoke test</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">systemctl status cg-design-api
+curl http://localhost:8940/healthz
+ls /opt/stack/cg-design/templates/ig-portrait-1080-1350/ | wc -l</div>
+      </div>
+
+      <p>Dashboard live : <a href="http://72.62.178.237:8940" target="_blank">http://72.62.178.237:8940</a> (instance de référence Philippe — votre instance sera sur votre IP).</p>
+
+      <h2>Architecture du dossier</h2>
+
+      <pre><code>/opt/stack/cg-design/
+├── CLAUDE.md                  Instructions Claude (à lire en premier)
+├── ONBOARDING-CLAUDE.md       Onboarding complet + charte AUTAF
+├── README.md                  Quick start
+├── log.md                     Journal append-only des changements
+├── install.sh                 Installer portable
+├── package.json               Node deps
+├── brands/                    Chartes par marque (brand.json + fonts + logo)
+│   ├── autaf/                 Couleurs, polices, tone, ICP
+│   ├── brh/
+│   └── _shared/               Assets communs
+├── templates/                 HTML par format
+│   ├── ig-portrait-1080-1350/  122+ templates ⭐ format winner
+│   ├── ig-square-1080/
+│   ├── ig-story-1080-1920/
+│   ├── linkedin-landscape-1200-627/
+│   └── tiktok-cover-1080-1920/
+├── variants/                  Données JSON par template/persona
+│   └── autaf-21-receipt/      Ex : un même template avec 12 variantes métier
+│       ├── electricien.json
+│       ├── plombier.json
+│       └── carreleur.json
+├── src/
+│   ├── server.js              HTTP plain sur port 8940
+│   ├── render.js              CLI de render Puppeteer
+│   ├── variants.js            Génération de variantes data-driven
+│   └── lib/                   Utilities
+├── wiki/                      Pattern Karpathy intégré ⭐
+│   ├── INDEX.md
+│   ├── schema.md              Taxonomie + conventions
+│   └── notes/
+│       ├── brand-autaf.md
+│       ├── pattern-stamp-punchy.md
+│       ├── pattern-editorial-premium.md
+│       └── pattern-data-driven.md
+└── output/                    PNGs rendus (gitignored)</code></pre>
+
+      <h2>Comment l'utiliser depuis Claude Code</h2>
+
+      <p>Une fois la stack installée, ouvrez Claude Code dans <code>/opt/stack/cg-design/</code> et lancez un de ces prompts.</p>
+
+      <h3>Cas A — Nouveau visuel Instagram</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt visuel IG ads</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Lis ONBOARDING-CLAUDE.md et CLAUDE.md d'abord.
+
+Mission : crée un visuel IG Ads 1080×1350 pour AUTAF qui cible les électriciens.
+
+Workflow :
+1. Identifie la marque : AUTAF (brands/autaf/brand.json)
+2. Choisis le pattern : stamp-punchy (artisans direct scroll-stop)
+3. Format : ig-portrait-1080-1350
+4. Copie un template existant similaire (ex: templates/ig-portrait-1080-1350/autaf-04-electricien.html ou autaf-21-receipt.html)
+5. Adapte le copy à l'électricien : pain point spécifique, stat verifiée, CTA AUTAF
+6. Render : node src/render.js --template autaf-XX-electricien
+7. Lis le PNG output pour vérifier (pas d'overflow, pas de débordement)
+8. Update wiki/notes/brand-autaf.md
+9. Ajoute une ligne à log.md
+
+Respecte la charte AUTAF (navy #241B5D + jaune Stabilo #FFE72B + blanc, General Sans + Waiting for the Sunrise pour annotations). Pas de gradient, pas d'emoji, pas de Google Fonts URL.</div>
+      </div>
+
+      <h3>Cas B — Carrousel DTU (4 slides techniques)</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt carrousel DTU</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Lis ONBOARDING-CLAUDE.md (section 3 et 4).
+
+Mission : carrousel DTU 25.41 (pose plaques de plâtre BA13) en 4 slides pour Instagram AUTAF.
+
+Mode anti-invention :
+1. WebSearch + WebFetch sur 2 sources pro (Batirama, CAPEB, Knauf, Industries du Plâtre)
+2. Construis un brief tabulaire des valeurs sourcées (avec provenance)
+3. Demande validation du brief AVANT de coder
+4. Code en n'utilisant QUE les valeurs du brief
+5. Style alternance : prendre le style YELLOW (fond jaune) cette fois (le précédent batch était NAVY)
+
+Structure :
+- Slide 1 : tampon DTU 25.41 énorme + cartouche + step 01/04 + H1 punchline + schéma central + bulle "3 règles clés"
+- Slide 2 : 2-3 panels avec mini-schémas + valeurs cotées
+- Slide 3 : tableau technique Paramètre / Valeur DTU
+- Slide 4 : 3 règles (data-num + picto) + CTA "Trouve un plaquiste AUTAF"
+
+Render + Read les 4 PNG avant validation.</div>
+      </div>
+
+      <h3>Cas C — Variantes data-driven (1 template × 12 métiers)</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt batch variantes</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Mission : à partir du template autaf-21-receipt.html, génère 12 variantes — une par métier (plombier, électricien, maçon, carreleur, peintre, menuisier, charpentier, couvreur, plaquiste, terrassier, conducteur de travaux, agent immo).
+
+Pour chaque métier :
+1. Crée variants/autaf-21-receipt/<metier>.json avec : pain spécifique, prix moyen chantier, stat AUTAF (artisans actifs du métier), CTA personnalisé
+2. Render via node src/variants.js --template autaf-21-receipt
+3. Output 12 PNG distincts
+
+Update log.md et wiki/notes/brand-autaf.md à la fin.</div>
+      </div>
+
+      <h2>Les 5 marques et leurs chartes</h2>
+
+      <table>
+        <tr>
+          <th>Marque</th>
+          <th>Couleurs signature</th>
+          <th>Polices</th>
+          <th>Ton</th>
+        </tr>
+        <tr>
+          <td><strong>AUTAF</strong></td>
+          <td>Navy <code>#241B5D</code> + Jaune Stabilo <code>#FFE72B</code></td>
+          <td>General Sans + Waiting for the Sunrise</td>
+          <td>BTP terrain, cahier d'écolier annoté</td>
+        </tr>
+        <tr>
+          <td><strong>BRH</strong></td>
+          <td>Vert <code>#147814</code> + Or <code>#E5B045</code> + Crème <code>#F8F4ED</code></td>
+          <td>Inter Display</td>
+          <td>Chaleureux local, particuliers/seniors</td>
+        </tr>
+        <tr>
+          <td><strong>QualiControl</strong></td>
+          <td>(à compléter)</td>
+          <td>Inter</td>
+          <td>Pro technique, contrôle qualité</td>
+        </tr>
+        <tr>
+          <td><strong>ProElec</strong></td>
+          <td>(à compléter)</td>
+          <td>Inter</td>
+          <td>Électricité pro</td>
+        </tr>
+        <tr>
+          <td><strong>CG GROUPE</strong></td>
+          <td>Mono noir / blanc luxe (Linear / Stripe / Apple)</td>
+          <td>Inter</td>
+          <td>Corporate haut de gamme</td>
+        </tr>
+      </table>
+
+      <div class="callout warn">
+        <p><strong>⚠️ Anti-invention factuelle.</strong> Pour les visuels BTP (notamment carrousels DTU), <strong>jamais d'invention de chiffres</strong>. Toujours WebSearch + WebFetch sources pro (Batirama, CAPEB, Industries du Plâtre, Knauf), brief tabulaire validé par Philippe, puis codage strict. Si une valeur n'est pas dans le brief : on la retire ou on reformule en principe.</p>
+      </div>
+
+      <h2>Les 3 patterns esthétiques</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge badge-orange">PATTERN 1</span>
+          <h4>🎯 stamp-punchy</h4>
+          <p>Direct scroll-stopper. Gros tampons, contrastes forts, message percutant. Pour artisans et particuliers.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-blue">PATTERN 2</span>
+          <h4>📰 editorial-premium</h4>
+          <p>B2B sobre éditorial. Typographie soignée, espaces généreux. Pour PME, pros, seniors.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">PATTERN 3</span>
+          <h4>📊 data-driven</h4>
+          <p>Institutionnel chiffré. Stats, graphiques, comparatifs. Pour partenaires, notaires, agences.</p>
+        </div>
+      </div>
+
+      <h2>Les interdits absolus</h2>
+
+      <div class="callout danger">
+        <ul style="margin: 0;">
+          <li>❌ <strong>Pas de gradient flou / halo</strong> (Philippe associe ça à du contenu IA)</li>
+          <li>❌ <strong>Pas d'emoji</strong> dans les designs</li>
+          <li>❌ <strong>Pas de couleur hors charte</strong> (notamment pas de cyan / bleu clair / vert hors marque BRH)</li>
+          <li>❌ <strong>Pas de Google Fonts URL</strong> (Puppeteer pas de réseau par défaut, toujours <code>@font-face file:///</code>)</li>
+          <li>❌ <strong>Pas de tagline en rotation -90deg</strong> (chevauche le texte)</li>
+          <li>❌ <strong>Pas de big number &gt; 200px sans <code>white-space: nowrap</code></strong> (déborde)</li>
+        </ul>
+      </div>
+
+      <h2>Workflow détaillé pour ajouter un nouveau design</h2>
+
+      <ol class="steps">
+        <li>
+          <h3>Identifier la marque cible</h3>
+          <p>Vérifier <code>brands/&lt;id&gt;/brand.json</code>. Si pas existante, créer la charte avant.</p>
+        </li>
+        <li>
+          <h3>Choisir le pattern</h3>
+          <p>stamp-punchy / editorial-premium / data-driven. Voir <code>wiki/INDEX.md</code>.</p>
+        </li>
+        <li>
+          <h3>Choisir le format</h3>
+          <p>Par défaut <code>ig-portrait-1080-1350</code> (format winner). Autres si besoin spécifique.</p>
+        </li>
+        <li>
+          <h3>Copier un template similaire</h3>
+          <p>Naming : <code>&lt;brand&gt;-&lt;index&gt;-&lt;persona&gt;.html</code>.</p>
+        </li>
+        <li>
+          <h3>Adapter copy, couleurs, logo, stats</h3>
+          <p>Depuis <code>brand.json</code>. Respecter le tone du champ <code>tone</code> de la marque.</p>
+        </li>
+        <li>
+          <h3>Render</h3>
+          <div class="snippet">
+            <div class="snippet-header"><span>Render un template</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">cd /opt/stack/cg-design && node src/render.js --template &lt;nouveau-nom&gt;</div>
+          </div>
+        </li>
+        <li>
+          <h3>Vérifier visuellement</h3>
+          <p>Read le PNG dans <code>output/</code>. Détecter overflow, débordements, polices fallback.</p>
+        </li>
+        <li>
+          <h3>Update wiki + log.md</h3>
+          <p>Pattern Karpathy obligatoire. <code>wiki/notes/brand-&lt;id&gt;.md</code> + ligne dans <code>log.md</code>.</p>
+        </li>
+      </ol>
+
+      <h2>Commandes utiles</h2>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Render tous les designs</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">cd /opt/stack/cg-design && node src/render.js</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Render une marque uniquement</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">node src/render.js --brand autaf</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Render un template précis</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">node src/render.js --template autaf-04-electricien</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Voir les logs du service</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">journalctl -u cg-design-api -f</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Redémarrer le service</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">systemctl restart cg-design-api</div>
+      </div>
+
+      <h2>Pattern Karpathy déjà intégré</h2>
+
+      <p>
+        La stack a son <strong>wiki Karpathy maintenu</strong> dans <code>wiki/</code> :
+        notes par marque, notes par pattern esthétique, schema.md taxonomique, INDEX.md.
+        Chaque ajout de template doit mettre à jour le wiki concerné et logger dans <code>log.md</code>.
+      </p>
+
+      <p>Voir la <a href="karpathy.html">page Pattern Karpathy</a> pour comprendre la philosophie.</p>
+
+      <h2>Référence rapide</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>📍 Dashboard live (référence Philippe)</h4>
+          <p><a href="http://72.62.178.237:8940" target="_blank">http://72.62.178.237:8940</a></p>
+        </div>
+        <div class="card">
+          <h4>📦 Archive tarball</h4>
+          <p><a href="http://72.62.178.237:8940/export/cg-design-latest.tar.gz" target="_blank">cg-design-latest.tar.gz</a></p>
+        </div>
+        <div class="card">
+          <h4>📄 Doc Claude</h4>
+          <p>Une fois installé : <code>cat /opt/stack/cg-design/CLAUDE.md</code></p>
+        </div>
+        <div class="card">
+          <h4>📖 Onboarding complet</h4>
+          <p><code>cat /opt/stack/cg-design/ONBOARDING-CLAUDE.md</code></p>
+        </div>
+      </div>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="karpathy.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">CONCEPT CLÉ</span>
+          <h4>🧠 Pattern Karpathy</h4>
+          <p>Le wiki maintenu par Claude. Déjà intégré dans cg-design.</p>
+        </a>
+        <a href="publication.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">PUBLIER</span>
+          <h4>📱 Publication automatisée</h4>
+          <p>Les PNG générés vers PostFast / Meta Ads / LinkedIn.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
