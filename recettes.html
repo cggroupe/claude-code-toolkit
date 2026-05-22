@@ -6,7 +6,7 @@
   <title>Recettes — Claude Code Toolkit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -14,287 +14,456 @@
     <div id="sidebar-placeholder"></div>
 
     <main class="main">
-      <div class="section-header">
-        <h1>Recettes prêtes</h1>
-        <p>Les 3 workflows démontrés en live. Copy-paste, lancez, regardez la magie opérer.</p>
+      <div class="section-header reveal">
+        <h1>3 recettes prêtes 💡</h1>
+        <p>Workflows complets démontrés en live. Cliquez la carte, déroulez les étapes, copiez les prompts.</p>
       </div>
 
-      <div class="callout">
-        <p><strong>📖 Comment utiliser cette page.</strong> Chaque recette est autonome : pré-requis, prompts, résultat attendu, troubleshooting. Vous copiez le bloc, vous collez dans Claude Code, vous regardez.</p>
+      <div class="stat-row reveal">
+        <div class="stat-card"><div class="big">3</div><div class="label">Recettes</div></div>
+        <div class="stat-card"><div class="big">10-30min</div><div class="label">Temps moyen</div></div>
+        <div class="stat-card"><div class="big">$0-35</div><div class="label">Budget par recette</div></div>
+        <div class="stat-card"><div class="big">100%</div><div class="label">Copy-pastable</div></div>
       </div>
 
       <!-- RECETTE 1 -->
-      <h2>🎨 Recette 1 — Landing page Stitch en 10 min</h2>
+      <div class="section-divider reveal"><span>Recette 1 · Landing en 10 min</span></div>
 
-      <p><strong>Objectif.</strong> Partir d'une idée vague (« une landing pour vendre nos formations »), arriver à une maquette HTML/CSS déployée sur Vercel, en 10 minutes.</p>
+      <div class="recipe-card reveal">
+        <div class="recipe-head">
+          <div>
+            <strong style="font-size:18px;">🎨 Landing page WordPress en 10 min</strong>
+            <div class="recipe-meta">
+              <span>10 min</span>
+              <span>$0</span>
+              <span>Stitch + WordPress</span>
+            </div>
+          </div>
+          <span class="badge badge-orange">LIVE</span>
+        </div>
+        <div class="recipe-body">
+          <div class="recipe-preview">
+            <div class="preview-block">
+              <div class="label">INPUT</div>
+              <div class="big">1 prompt</div>
+              <div style="font-size:11px;color:var(--text-dim);">"Landing pour électriciens BTP"</div>
+            </div>
+            <div class="preview-block">
+              <div class="label">OUTPUT</div>
+              <div class="big">1 URL</div>
+              <div style="font-size:11px;color:var(--text-dim);">landing-elec.cg-groupe.com</div>
+            </div>
+          </div>
 
-      <h3>Pré-requis</h3>
-      <ul>
-        <li>Claude Code installé</li>
-        <li>MCP Stitch configuré (voir <a href="mcp.html#stitch">page MCP</a>)</li>
-        <li>Compte Vercel (gratuit, <a href="https://vercel.com" target="_blank">vercel.com</a>)</li>
-      </ul>
+          <div class="stack-row">
+            <span class="stack-chip"><span class="icon">💬</span>Prompt</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">🎨</span>Stitch</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">📝</span>WordPress</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">🚀</span>En ligne</span>
+          </div>
 
-      <h3>Étape 1 : générer la maquette</h3>
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">1</div>
+              <span>Générer la maquette via Stitch</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Prompt Stitch</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Via le MCP Stitch, génère-moi une landing page dark mode haut de gamme pour AUTAF (cabinet courtage assurances artisans BTP), qui cible les électriciens.
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt Stitch — landing AUTAF</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Stitch, génère-moi une landing page sombre haut de gamme pour AUTAF (cabinet de courtage en assurances pour artisans BTP).
+Structure : hero + 3 chiffres clés + 3 témoignages + FAQ 5Q + CTA final.
+Style : dark, accents jaune AUTAF #FFE72B, Inter font, mobile-first.
+Output : dossier landing-electricien/ avec index.html + style.css.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-Structure attendue :
-1. Hero : titre choc + sous-titre + CTA "Demander mon devis gratuit"
-2. Section "Pourquoi AUTAF" : 3 colonnes (économies moyennes, expertise BTP, accompagnement humain)
-3. Section "Comment ça marche" : 4 étapes numérotées
-4. Section "Témoignages" : 3 cards avec photo + nom + métier + verbatim
-5. Section "FAQ" : 5 questions/réponses
-6. CTA final + footer (logo, mentions légales, contact)
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">2</div>
+              <span>Itérer (1-2 rounds maxi)</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Ajustement</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Active la skill page-cro. Audite ce que tu viens de générer (friction, CTA, social proof). Propose 3 modifs ciblées par impact. Applique-les sans tout refaire.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-Style : dark mode, accents orange chaud (type #f97316), typo Inter, généreux en espaces, mobile-first.
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">3</div>
+              <span>Porter sur WordPress</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Port WordPress</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Active wordpress-master. Crée un child theme (Astra), template "landing-electricien", port le HTML/CSS de Stitch dedans. Upload images. Donne-moi l'URL et le lien admin.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-Output : un dossier "landing-autaf/" avec index.html + style.css + assets/, prêt à déployer.</div>
-      </div>
-
-      <h3>Étape 2 : itérer (1-2 rounds)</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Ajustements design</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">La maquette est bien mais :
-- Le hero manque de preuve sociale, ajoute "850+ artisans accompagnés" en chiffre clé sous le CTA
-- Les témoignages : utilise les photos placeholder de unsplash (search "construction worker portrait")
-- La FAQ : 5 questions est trop, garde les 3 plus critiques pour un visiteur première fois</div>
-      </div>
-
-      <h3>Étape 3 : déployer sur Vercel</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Déploiement</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Le dossier landing-autaf est prêt. Déploie-le sur Vercel :
-1. Initialise un repo git local
-2. Crée un repo GitHub privé "landing-autaf-test"
-3. Push
-4. Lance "vercel" en CLI pour le déployer
-5. Donne-moi l'URL finale et le lien d'admin Vercel
-
-Important : ne mets pas de variables d'environnement sensibles, c'est une démo.</div>
-      </div>
-
-      <div class="callout success">
-        <p><strong>✅ Résultat attendu.</strong> Une URL Vercel type <code>landing-autaf-test.vercel.app</code> avec la landing déployée. Temps total : 8-12 min.</p>
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">4</div>
+              <span>Tester via Playwright</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Test E2E</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Via Playwright MCP, teste la landing : desktop + mobile screenshot, formulaire submit, Lighthouse score. Sors un rapport markdown.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- RECETTE 2 -->
-      <h2 style="margin-top: 80px;">🎬 Recette 2 — Vidéo TikTok 9:16 en 20 min</h2>
+      <div class="section-divider reveal"><span>Recette 2 · Vidéo TikTok en 20 min</span></div>
 
-      <p><strong>Objectif.</strong> Partir d'un angle ("Les 3 erreurs des artisans sur leur assurance décennale"), arriver à une vidéo 9:16 prête à publier sur TikTok.</p>
+      <div class="recipe-card reveal">
+        <div class="recipe-head">
+          <div>
+            <strong style="font-size:18px;">🎬 Vidéo TikTok 9:16 verrouillée</strong>
+            <div class="recipe-meta">
+              <span>20 min</span>
+              <span>$30-40</span>
+              <span>fal.ai + Hyperframes + PostFast</span>
+            </div>
+          </div>
+          <span class="badge badge-purple">LIVE</span>
+        </div>
+        <div class="recipe-body">
 
-      <h3>Pré-requis</h3>
-      <ul>
-        <li>MCP fal.ai configuré (clé + crédit ≥ $30)</li>
-        <li>Skill <code>hyperframes</code> + <code>btp-video-script-v3</code> installées</li>
-        <li>VS Code dans un dossier dédié <code>video-decennale/</code></li>
-      </ul>
+          <div class="grid-2" style="margin-bottom:18px;">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <div class="tt-status"><span>21:34</span><span>📶 100%</span></div>
+                <div class="tt-content">
+                  <div class="tt-user">
+                    <div class="avatar"></div>
+                    @autaf
+                  </div>
+                  <div class="tt-caption" style="margin-top:8px;">Les 3 erreurs qui ruinent la décennale des artisans 🔨</div>
+                  <div class="tt-hashtags">#BTP #artisan #decennale #pourtoi</div>
+                </div>
+              </div>
+            </div>
 
-      <h3>Étape 1 : script verrouillé</h3>
+            <div>
+              <h4 style="margin-top:0;">Output attendu</h4>
+              <ul style="font-size:13px;">
+                <li><strong>1 vidéo</strong> 1080×1920, 30-45s</li>
+                <li><strong>Hook 5s</strong> avec bait Cunningham law</li>
+                <li><strong>5 clips</strong> Veo3 standard image-to-video</li>
+                <li><strong>Voix off</strong> FR métropolitain, no fillers</li>
+                <li><strong>Captions auto</strong> jaune sur noir, 1 mot</li>
+                <li><strong>Audio chain</strong> highpass + loudnorm -14 LUFS</li>
+                <li><strong>Schedulé</strong> sur TikTok @autaf</li>
+              </ul>
+            </div>
+          </div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt script BTP</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Active btp-video-script-v3. Génère un script vidéo 9:16 de 40 secondes pour TikTok @autaf sur le thème "Les 3 erreurs des artisans BTP sur leur assurance décennale".
+          <div class="stack-row">
+            <span class="stack-chip"><span class="icon">📝</span>Script v3</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">🎙️</span>ElevenLabs</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">🎬</span>Veo3</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">📦</span>Hyperframes</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">📱</span>PostFast</span>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">1</div>
+              <span>Script verrouillé (skill btp-video-script-v3)</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Prompt script</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Active btp-video-script-v3. Script vidéo TikTok 9:16 de 40s sur "3 erreurs décennale artisans BTP".
 
 Format DTU 40 :
-- Hook 5s (bait Cunningham law) : affirmation faussement provocante
-- 3 erreurs avec exemple chiffré chacune (8-10s par erreur)
-- CTA 5s : "DM-moi 'DEVIS' pour un audit gratuit"
+- Hook 5s bait Cunningham
+- 3 erreurs avec exemple chiffré chacune (8-10s)
+- CTA 5s "DM-moi DEVIS pour audit gratuit"
 
-Verrous obligatoires :
-- Verbatim-lock (texte exact, pas d'improvisation)
-- Filler-words-ban (no "euh", "tu sais", "quoi")
-- Metropolitan French from Paris (NOT Quebec)
-- Chiffres en toutes lettres dans les dialogues
+Verrous : verbatim-lock + filler-words-ban + Metropolitan French (NOT Quebec). Chiffres en toutes lettres.
+Output : 5 clips de 8s prêts à générer en Veo3 standard.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-Output : 5 clips de 8s (Veo3 standard image-to-video).</div>
-      </div>
-
-      <h3>Étape 2 : génération clips Veo3</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt fal.ai Veo3</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Pour chacun des 5 clips du script, génère via le MCP fal :
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">2</div>
+              <span>Générer 5 clips Veo3 via fal.ai</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Prompt fal.ai</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Pour chaque clip du script, via le MCP fal :
 - Modèle : veo3/standard/image-to-video
-- Image start : trouve une image stock cohérente (Unsplash "construction worker france")
-- Durée : 8 secondes
-- Audio : dialogue exact du script + ambiance chantier discrète
-- Camera : varied (close-up sur clip 1, plan moyen clip 2-4, plan large clip 5)
+- Image start : Unsplash "construction worker france"
+- Durée : 8s
+- Audio : dialogue exact + ambiance chantier discrète
+- Camera : varied (close-up clip 1, plan moyen 2-4, plan large 5)
 - Style : realistic documentary, natural lighting
 
-Budget max : $35 (5 × $7 max).
-Sauvegarde tous les .mp4 dans output/clips/.</div>
-      </div>
+Budget max : $35 (5×$7 max). Sauvegarde dans output/clips/.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <h3>Étape 3 : assembler avec Hyperframes</h3>
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">3</div>
+              <span>Assemblage Hyperframes + captions</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Prompt Hyperframes</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Active hyperframes. Assemble les 5 clips :
+- 1080×1920, 30fps
+- Captions Whisper auto, jaune sur noir 70%, 1 mot
+- Hard cuts entre clips
+- Clip 1 : overlay "⚠️ ERREUR #1 QUI TUE TON CABINET" 3s
+- Audio : highpass=80 + afftdn + loudnorm -14 LUFS
+- Output : output/decennale-final.mp4</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt Hyperframes assembly</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Active la skill hyperframes. Assemble les 5 clips de output/clips/ en une vidéo finale :
-
-- Format 1080×1920, 30fps
-- Captions auto-générées (Whisper) avec style jaune sur fond noir 70% opacity, 1 mot à la fois
-- Transitions hard cut entre clips
-- Premier clip : ajoute overlay hook texte "⚠️ ERREUR #1 QUI TUE TON CABINET" pendant 3s
-- Audio :
-  - Voix off des clips (audio chain : highpass=80 + afftdn + loudnorm -14 LUFS)
-  - Pas de musique de fond pour ce format
-- Output : output/decennale-final.mp4
-
-Lance le render quand tu es prêt.</div>
-      </div>
-
-      <h3>Étape 4 : preview + ajustements</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Review</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Ouvre la vidéo et fais-toi-en une opinion. Si :
-- Une transition jure → ajuste la durée
-- Une caption arrive en retard → recale (offset -200ms si nécessaire)
-- L'audio d'un clip est étouffé → re-render ce clip avec compression différente
-
-Donne-moi un récap des ajustements proposés avant d'appliquer.</div>
-      </div>
-
-      <h3>Étape 5 : publication PostFast</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Schedule TikTok</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Schedule output/decennale-final.mp4 sur PostFast pour TikTok @autaf :
-- Date : demain 20h Paris
-- Caption : "Les 3 erreurs qui ruinent la décennale des artisans 🔨 (épisode 1)"
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">4</div>
+              <span>Schedule sur TikTok via PostFast</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Prompt PostFast</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Schedule output/decennale-final.mp4 sur PostFast pour TikTok @autaf demain 20h Paris :
+- Caption : "Les 3 erreurs qui ruinent la décennale des artisans 🔨"
 - Hashtags : #BTP #artisan #assurance #decennale #chantier #travaux #france #pourtoi #savoirfaire #conseilpro
 - Settings : public, comments/duet allowed
-- Track le postID dans output/scheduled-postids.json</div>
-      </div>
-
-      <div class="callout success">
-        <p><strong>✅ Résultat attendu.</strong> 1 vidéo de 30-45s, 1080×1920, schedulée pour publication, budget total ~$35. Temps total : 20-30 min.</p>
+- Track post ID dans output/scheduled-postids.json (OBLIGATOIRE)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- RECETTE 3 -->
-      <h2 style="margin-top: 80px;">🎯 Recette 3 — Prospection 50 leads BTP en 1h</h2>
+      <div class="section-divider reveal"><span>Recette 3 · Prospection 50 leads</span></div>
 
-      <p><strong>Objectif.</strong> Partir d'une cible métier+géo ("plombiers à Brest"), arriver à 50 leads enrichis avec téléphone, email, site et 1 cold email personnalisé par lead.</p>
+      <div class="recipe-card reveal">
+        <div class="recipe-head">
+          <div>
+            <strong style="font-size:18px;">🎯 50 leads BTP enrichis + 20 cold emails</strong>
+            <div class="recipe-meta">
+              <span>45-90 min</span>
+              <span>~$8</span>
+              <span>Apify + Pappers + Gmail</span>
+            </div>
+          </div>
+          <span class="badge badge-green">LIVE</span>
+        </div>
+        <div class="recipe-body">
+          <div class="recipe-preview">
+            <div class="preview-block">
+              <div class="label">SCRAPE</div>
+              <div class="big">50</div>
+              <div style="font-size:11px;color:var(--text-dim);">leads Google Maps</div>
+            </div>
+            <div class="preview-block">
+              <div class="label">ENRICH</div>
+              <div class="big">20</div>
+              <div style="font-size:11px;color:var(--text-dim);">cold emails personnalisés</div>
+            </div>
+          </div>
 
-      <h3>Pré-requis</h3>
-      <ul>
-        <li>MCP Apify configuré (token + crédit Apify ≥ 5$)</li>
-        <li>Skill <code>cold-email</code> + <code>customer-research</code> installées</li>
-        <li>VS Code dans un dossier <code>prospection-brest/</code></li>
-        <li>Optionnel : MCP Pappers ou clé Pappers pour SCI enrichment</li>
-      </ul>
+          <div class="stack-row">
+            <span class="stack-chip"><span class="icon">🕷️</span>Apify Maps</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">📊</span>Pappers / Sirene</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">🔍</span>Pages web</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">✍️</span>cold-email skill</span>
+            <span class="stack-arrow">→</span>
+            <span class="stack-chip"><span class="icon">📧</span>Gmail / Lemlist</span>
+          </div>
 
-      <h3>Étape 1 : scrape Google Maps</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Scrape Apify</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Apify, lance l'actor "Google Maps Scraper" (apify/google-maps-scraper) avec :
-- Search terms : "plombier Brest"
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">1</div>
+              <span>Scrape Google Maps via Apify</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Scrape</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Via MCP Apify, lance apify/google-maps-scraper :
+- Search : "plombier Brest"
 - Max places : 50
 - Country : France
 - Language : fr
+Sauvegarde brut dans output/maps-raw.json. Récap : combien de résultats, % avec téléphone/site/email.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-Sauvegarde le résultat brut dans output/maps-raw.json et fais-moi un récap : combien de résultats, % avec téléphone, % avec site web, % avec email.</div>
-      </div>
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">2</div>
+              <span>Enrichir (SIRET, dirigeant, CA)</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Enrich Sirene</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Pour chaque lead dans output/maps-raw.json :
+1. Cherche SIRET sur api.insee.fr à partir du nom + ville
+2. Enrichis : forme juridique, dirigeant, date création, CA estimé
+3. Si SCI : tous les associés
+4. Filtre out > 50 salariés
+Output : output/leads-enriched.csv</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <h3>Étape 2 : enrich (SIRET, dirigeant)</h3>
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">3</div>
+              <span>Recherche d'angle perso</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Angle perso</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Pour les 20 premiers leads :
+- Fetch leur site web → trouve UN détail spécifique (chantier récent, certification, anniversaire)
+- Sinon avis Google Maps → UN compliment top
+Sauve output/leads-personnalisation.json {siret, angle_perso}. Skip les leads sans angle clair.</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Enrichissement Pappers / Sirene</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Pour chaque lead dans output/maps-raw.json :
-1. Cherche le SIRET sur l'API Sirene gratuite (api.insee.fr) à partir du nom + ville
-2. Si SIRET trouvé, enrichis avec : forme juridique, dirigeant principal, date création, CA estimé
-3. Si SCI ou société multi-dirigeants : note tous les associés
-4. Filtre out les leads &gt; 50 salariés (hors cible artisan)
-
-Output : output/leads-enriched.csv avec colonnes :
-nom_entreprise, dirigeant, siret, telephone, email, site_web, ville, date_creation, ca_estime, statut_filtre</div>
-      </div>
-
-      <h3>Étape 3 : recherche d'angle personnalisé</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Personalization research</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Pour les 20 premiers leads de output/leads-enriched.csv :
-1. Si le lead a un site web : fetch la page d'accueil et trouve UN détail spécifique (chantier récent, certification, équipe, anniversaire)
-2. Si pas de site : utilise les avis Google Maps pour trouver UN détail (top compliment client, anecdote)
-3. Sauve dans output/leads-personnalisation.json sous forme :
-{
-  "siret": "...",
-  "angle_perso": "phrase courte 1 ligne qu'on peut intégrer dans un email"
-}
-
-Skip les leads où aucun angle clair ne sort.</div>
-      </div>
-
-      <h3>Étape 4 : génération cold emails</h3>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Génération cold emails (skill cold-email)</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Active la skill cold-email. Pour chaque lead dans output/leads-personnalisation.json, génère 1 cold email :
-
-Objet : court, intriguant, sans buzzwords (max 60 caractères)
-Corps :
-- Ligne 1 : pivot personnalisé (angle_perso du lead)
-- Ligne 2-3 : value prop AUTAF (économie moyenne -22% sur décennale BTP)
-- Ligne 4 : preuve sociale chiffrée (850+ artisans accompagnés, dont 40+ à Brest)
-- CTA : low-friction (15 min visio, pas d'engagement)
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">4</div>
+              <span>Générer cold emails (skill cold-email)</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Cold email</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Active cold-email. Pour chaque lead avec angle perso :
+- Objet : court, intriguant (max 60 caractères)
+- Corps : pivot angle perso + value prop AUTAF (-22% décennale) + preuve sociale (850+ artisans dont 40 à Brest) + CTA low-friction (15 min visio)
 - Sign-off : Philippe, fondateur AUTAF
+- Ton : sénior B2B, pas hype, pas d'emoji, pas de "j'espère que vous allez bien"
+Output : output/emails-cold.json</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-Ton : sénior, B2B, pas hype, pas d'emoji, pas de "j'espère que vous allez bien".
-Output : output/emails-cold.json (siret, email, objet, corps).</div>
+          <div class="accordion">
+            <button class="accordion-toggle">
+              <div class="acc-icon">5</div>
+              <span>Envoi test 5 puis bulk</span>
+              <span class="acc-chev">▾</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-content-inner">
+                <div class="snippet">
+                  <div class="snippet-header"><span>Test 5 → bulk</span><button class="copy-btn">Copier</button></div>
+                  <div class="snippet-body">Via MCP Gmail, envoie les 5 premiers emails. BCC philippe@autaf.fr pour validation.
+Si test OK 24h (taux ouverture > 35%) → exporte CSV pour Lemlist / Instantly et lance le reste.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h3>Étape 5 : envoi via Gmail ou outil de cold mailing</h3>
+      <!-- BONUS -->
+      <div class="section-divider reveal"><span>Recettes bonus</span></div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Envoi (test sur 5 d'abord)</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Gmail, envoie un test sur les 5 premiers emails de output/emails-cold.json. Cible MA boîte philippe@autaf.fr en bcc pour validation.
-
-Si l'A/B test est OK (taux ouverture > 35% après 24h), lance le reste via Lemlist / Instantly / Mailshake (export CSV depuis output/emails-cold.json).</div>
-      </div>
-
-      <div class="callout success">
-        <p><strong>✅ Résultat attendu.</strong> 50 leads scrapés + enrichis, 20 leads avec angle perso, 20 cold emails personnalisés prêts à envoyer. Coût Apify ~3$, coût Claude ~5$. Temps total : 45-90 min selon les itérations.</p>
-      </div>
-
-      <h2 style="margin-top: 80px;">Bonus : recettes complémentaires</h2>
-
-      <div class="grid-2">
+      <div class="grid-2 reveal">
         <div class="card">
-          <h4>📝 Génération 5 posts LinkedIn</h4>
-          <p>Active <code>linkedin-ghost-btp</code> → "génère-moi 5 posts LinkedIn dirigeant BTP cette semaine, mix DIIIE et Justin Welsh pillar". 10 min.</p>
+          <span class="badge badge-blue">10 min</span>
+          <h4>📝 5 posts LinkedIn dirigeant BTP</h4>
+          <p>Skill <code>linkedin-ghost-btp</code> → 5 posts format DIIIE ou Justin Welsh pillar.</p>
         </div>
         <div class="card">
-          <h4>🎙️ Conversion podcast → 5 clips</h4>
-          <p>Active <code>hyperframes-media</code> → "transcris ce podcast 45min, identifie les 5 meilleurs moments de 30s, génère 5 vidéos verticales avec captions". 15 min.</p>
+          <span class="badge badge-purple">15 min</span>
+          <h4>🎙️ Podcast → 5 clips vidéo</h4>
+          <p>Skill <code>hyperframes-media</code> → transcript Whisper + détection top moments + 5 verticales.</p>
         </div>
         <div class="card">
-          <h4>📊 Audit SEO de 10 pages concurrents</h4>
-          <p>MCP DataForSEO + skill <code>seo-audit</code> → "audite ces 10 URLs, sors leurs top 20 keywords, gap analysis vs notre site". 20 min.</p>
+          <span class="badge badge-green">20 min</span>
+          <h4>📊 Audit SEO 10 pages concurrents</h4>
+          <p>MCP DataForSEO + skill <code>seo-audit</code> → top keywords + gap analysis.</p>
         </div>
         <div class="card">
+          <span class="badge badge-orange">30 min</span>
           <h4>🛍️ Lead magnet "Top 10 erreurs"</h4>
-          <p>Skill <code>lead-magnets</code> → "crée-moi un PDF lead magnet 'Top 10 erreurs décennale' avec design pro + séquence email 5 jours post-téléchargement". 30 min.</p>
+          <p>Skill <code>lead-magnets</code> → PDF designé + séquence email 5 jours.</p>
         </div>
       </div>
 
-      <h2>Et maintenant ?</h2>
-      <div class="grid-2">
-        <a href="karpathy.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-orange">REVENIR À LA THÉORIE</span>
-          <h4>🧠 Pattern Karpathy</h4>
-          <p>Comprendre comment structurer un projet pour que ces recettes restent maintenables sur le long terme.</p>
+      <div class="section-divider reveal"><span>Et maintenant ?</span></div>
+      <div class="grid-2 reveal">
+        <a href="bonnes-pratiques.html" class="card lift-card">
+          <span class="badge badge-orange">À LIRE D'ABORD</span>
+          <h4>📖 10 bonnes pratiques</h4>
+          <p>Avant de lancer les recettes, les règles d'or.</p>
         </a>
-        <a href="sos.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-red">EN CAS DE PÉPIN</span>
+        <a href="sos.html" class="card lift-card">
+          <span class="badge badge-red">EN CAS DE BUG</span>
           <h4>🆘 SOS pannes</h4>
-          <p>Les bugs courants : Veo3 accent québécois, Apify timeout, PostFast doublons.</p>
+          <p>Veo3, PostFast, Apify : les fixs en 1 min.</p>
         </a>
       </div>
     </main>

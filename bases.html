@@ -6,7 +6,7 @@
   <title>Les bases — Claude Code Toolkit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -14,210 +14,278 @@
     <div id="sidebar-placeholder"></div>
 
     <main class="main">
-      <div class="section-header">
-        <h1>Les bases</h1>
-        <p>Les 8 commandes à connaître par cœur. Vous ne lirez pas 100 pages de doc.</p>
+      <div class="section-header reveal">
+        <h1>Les 8 commandes vitales ⌨️</h1>
+        <p>Tout ce qu'il faut savoir. Pas besoin de mémoriser — tapez <code>/</code> dans Claude Code et un menu apparaît.</p>
       </div>
 
-      <h2>Comment ça marche, une commande ?</h2>
-      <p>Une commande commence par <code>/</code> (slash). Vous tapez <code>/</code> dans le chat et un menu apparaît avec toutes les commandes disponibles. Vous pouvez aussi parler en français normal : Claude comprend.</p>
-
-      <div class="callout info">
-        <p><strong>💡 La règle d'or.</strong> Vous n'avez <em>pas</em> à mémoriser les commandes. Tapez <code>/</code> et explorez. La doc est dans le menu.</p>
+      <div class="callout reveal">
+        <p><strong>La règle d'or.</strong> Vous n'apprenez pas, vous explorez. Le menu <code>/</code> liste tout en temps réel.</p>
       </div>
 
-      <h2>Les 8 commandes vitales</h2>
+      <div class="section-divider reveal"><span>Le quotidien</span></div>
 
-      <div class="tool-card">
-        <div class="tool-icon">❓</div>
-        <div class="tool-meta">
-          <div class="tool-name">/help <span class="badge badge-green">Quotidien</span></div>
-          <div class="tool-desc">L'aide intégrée. Liste toutes les commandes disponibles avec leur description.</div>
-          <p><strong>Quand l'utiliser :</strong> dès que vous avez un doute sur ce qui existe.</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Exemple</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">/help</div>
+      <div class="cmd-grid reveal">
+        <div class="cmd-card">
+          <div class="cmd-icon">❓</div>
+          <div class="cmd-name">/help</div>
+          <div class="cmd-desc">L'aide intégrée. Liste toutes les commandes dispo avec leur description.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">🧹</div>
+          <div class="cmd-name">/clear</div>
+          <div class="cmd-desc">Efface la conversation. À utiliser quand Claude part en vrille.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">⏪</div>
+          <div class="cmd-name">/resume</div>
+          <div class="cmd-desc">Reprend une session précédente. Idéal pour repartir le matin.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">📂</div>
+          <div class="cmd-name">/init</div>
+          <div class="cmd-desc">Initialise un nouveau projet. Crée CLAUDE.md avec le contexte.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">🧠</div>
+          <div class="cmd-name">/memory</div>
+          <div class="cmd-desc">Gère la mémoire long-terme. Ce que Claude retient entre sessions.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">👥</div>
+          <div class="cmd-name">/agents</div>
+          <div class="cmd-desc">Délègue à un sous-agent spécialisé. Pour les tâches longues.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">📋</div>
+          <div class="cmd-name">/plan</div>
+          <div class="cmd-desc">Mode plan. Claude propose, vous validez, puis il exécute.</div>
+        </div>
+
+        <div class="cmd-card">
+          <div class="cmd-icon">🧩</div>
+          <div class="cmd-name">/plugins</div>
+          <div class="cmd-desc">Installe des plugins community (skills, commandes, MCP).</div>
+        </div>
+      </div>
+
+      <div class="section-divider reveal"><span>Détails par commande</span></div>
+
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">❓</div>
+          <span>/help — l'aide intégrée</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> dès que vous avez un doute.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Exemple</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">/help</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">🧹</div>
-        <div class="tool-meta">
-          <div class="tool-name">/clear <span class="badge badge-green">Quotidien</span></div>
-          <div class="tool-desc">Vide la conversation en cours. Claude oublie ce qui vient d'être dit.</div>
-          <p><strong>Quand l'utiliser :</strong> quand Claude s'égare et tourne en rond, ou quand vous passez à un sujet complètement différent. Comme jeter un brouillon et reprendre une feuille blanche.</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Exemple</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">/clear</div>
-          </div>
-          <div class="callout warn">
-            <p><strong>⚠️ Attention.</strong> <code>/clear</code> efface la conversation mais <em>pas</em> les fichiers créés. Vos fichiers sur le disque restent intacts.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-icon">⏪</div>
-        <div class="tool-meta">
-          <div class="tool-name">/resume <span class="badge badge-blue">Pratique</span></div>
-          <div class="tool-desc">Reprendre une conversation précédente. Très utile quand vous fermez VS Code et revenez le lendemain.</div>
-          <p><strong>Quand l'utiliser :</strong> en début de journée, pour reprendre où vous vous êtes arrêté.</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Exemple</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">/resume</div>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">🧹</div>
+          <span>/clear — vider le contexte</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> Claude tourne en rond ou nouveau sujet sans rapport.</p>
+            <p><strong>⚠️ Important :</strong> <code>/clear</code> efface la conversation mais <em>pas</em> les fichiers déjà créés sur le disque.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Reset</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">/clear</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📂</div>
-        <div class="tool-meta">
-          <div class="tool-name">/init <span class="badge badge-orange">Important</span></div>
-          <div class="tool-desc">Initialise un projet Claude Code. Crée un fichier <code>CLAUDE.md</code> qui décrit votre projet pour que Claude le comprenne à chaque session.</div>
-          <p><strong>Quand l'utiliser :</strong> la <em>première fois</em> que vous travaillez sur un nouveau dossier. Claude analyse votre projet et écrit lui-même le fichier de présentation.</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Exemple</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">/init</div>
-          </div>
-          <div class="callout info">
-            <p><strong>Métaphore.</strong> C'est comme rédiger le "<em>livret d'accueil</em>" du projet pour le stagiaire. À chaque retour au bureau, le stagiaire relit le livret avant de bosser.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-icon">🧠</div>
-        <div class="tool-meta">
-          <div class="tool-name">/memory <span class="badge badge-orange">Important</span></div>
-          <div class="tool-desc">Gère la mémoire long-terme. Ce que Claude doit se souvenir entre les sessions.</div>
-          <p><strong>Quand l'utiliser :</strong> quand vous voulez que Claude retienne une préférence personnelle ("je travaille en français", "ne crée jamais de code dans ce dossier"), un contexte business ("notre boîte fait du BTP, notre cible c'est les artisans").</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Sauvegarder une préférence</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">Remember: je travaille en français. Toutes les explications en français, code et commentaires en anglais.</div>
-          </div>
-          <div class="callout success">
-            <p><strong>💎 Power tip.</strong> Plus vous nourrissez la mémoire, plus Claude devient pertinent. Au début c'est un stagiaire qui ne vous connaît pas, après 2 semaines c'est un collègue qui vous comprend.</p>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">⏪</div>
+          <span>/resume — reprendre une session</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> début de journée, pour reprendre où vous vous étiez arrêté.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Reprendre</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">/resume</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">👥</div>
-        <div class="tool-meta">
-          <div class="tool-name">/agents <span class="badge badge-purple">Avancé</span></div>
-          <div class="tool-desc">Délègue une tâche à un <strong>sous-agent</strong> spécialisé. Comme appeler un collègue expert sur un sujet précis.</div>
-          <p><strong>Quand l'utiliser :</strong> pour des tâches longues ou spécifiques. Exemple : "lance un agent qui fait l'audit SEO complet du site pendant que je continue mon travail".</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Lancer un sous-agent</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">Lance un agent qui scrape PagesJaunes pour me sortir 50 plombiers à Brest avec leur téléphone et leur site web.</div>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">📂</div>
+          <span>/init — initialiser un projet</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> la <em>première fois</em> que vous travaillez sur un nouveau dossier.</p>
+            <p>Claude scanne le projet et écrit lui-même CLAUDE.md (le "livret d'accueil").</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Init</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">/init</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">📋</div>
-        <div class="tool-meta">
-          <div class="tool-name">/plan ou Plan Mode <span class="badge badge-orange">Important</span></div>
-          <div class="tool-desc">Bascule en <strong>mode plan</strong>. Claude réfléchit, propose un plan d'action, mais ne <em>fait rien</em> tant que vous n'avez pas approuvé.</div>
-          <p><strong>Quand l'utiliser :</strong> avant une grosse tâche (refonte d'un site, gros refactor). On vérifie le plan, on ajuste, puis on lance l'exécution.</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Activer le plan mode</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">Passe en plan mode. Propose-moi un plan pour créer une landing page complète AUTAF avec hero, témoignages, pricing et CTA. Ne code rien tant que je n'ai pas validé.</div>
-          </div>
-          <div class="callout">
-            <p><strong>Raccourci VS Code.</strong> Vous pouvez aussi appuyer sur <code>Shift+Tab</code> pour basculer en plan mode rapidement.</p>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">🧠</div>
+          <span>/memory — mémoire long-terme</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> pour les préférences qui doivent tenir entre sessions.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Sauvegarder une préférence</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Remember : je travaille en français. Explications en français, code en anglais.</div>
+            </div>
+            <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">Plus la mémoire est nourrie, plus Claude devient pertinent. Au début un stagiaire, après 2 semaines un collègue.</p>
           </div>
         </div>
       </div>
 
-      <div class="tool-card">
-        <div class="tool-icon">🧩</div>
-        <div class="tool-meta">
-          <div class="tool-name">/plugins <span class="badge badge-orange">Important</span></div>
-          <div class="tool-desc">Installer un <strong>plugin community</strong> qui ajoute des compétences à Claude (skills, commandes, agents).</div>
-          <p><strong>Quand l'utiliser :</strong> pour récupérer un kit complet sans coder. Exemple : installer le pack SEO de la communauté.</p>
-          <div class="snippet">
-            <div class="snippet-header"><span>Parcourir le marketplace</span><button class="copy-btn">Copier</button></div>
-            <div class="snippet-body">/plugins</div>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">👥</div>
+          <span>/agents — déléguer à un spécialiste</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> tâche longue ou très spécialisée.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Sous-agent</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Lance un agent qui scrape PagesJaunes pour me sortir 50 plombiers à Brest avec téléphone et site web.</div>
+            </div>
           </div>
-          <p>Voir la <a href="plugins.html">page Plugins</a> pour les packs recommandés.</p>
         </div>
       </div>
 
-      <h2>Les commandes qui complètent</h2>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">📋</div>
+          <span>/plan — mode plan</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> avant chaque grosse tâche (refonte, refactor, mise en prod).</p>
+            <p>Raccourci : <code>Shift+Tab</code></p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Plan mode</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Passe en plan mode. Propose-moi un plan pour créer une landing complète AUTAF. Ne code rien tant que je n'ai pas validé.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="grid-2">
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">🧩</div>
+          <span>/plugins — marketplace</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p><strong>Quand l'utiliser :</strong> pour installer des kits complets (skills + commandes).</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Explorer marketplace</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">/plugins</div>
+            </div>
+            <p style="margin-top:8px;font-size:13px;">Voir la <a href="plugins.html">page Plugins</a> pour les packs recommandés.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider reveal"><span>Commandes complémentaires</span></div>
+
+      <div class="cmd-grid reveal">
+        <div class="cmd-card">
+          <div class="cmd-icon">🛠️</div>
+          <div class="cmd-name">/skill</div>
+          <div class="cmd-desc">Invoque une skill manuellement (ex: /skill copywriting).</div>
+        </div>
+        <div class="cmd-card">
+          <div class="cmd-icon">▶️</div>
+          <div class="cmd-name">/run</div>
+          <div class="cmd-desc">Lance l'app du projet pour voir le résultat en live.</div>
+        </div>
+        <div class="cmd-card">
+          <div class="cmd-icon">🔍</div>
+          <div class="cmd-name">/review</div>
+          <div class="cmd-desc">Revue de code complète + suggestions d'amélioration.</div>
+        </div>
+        <div class="cmd-card">
+          <div class="cmd-icon">🛡️</div>
+          <div class="cmd-name">/security-review</div>
+          <div class="cmd-desc">Audit sécurité OWASP avant mise en prod.</div>
+        </div>
+        <div class="cmd-card">
+          <div class="cmd-icon">🔄</div>
+          <div class="cmd-name">/loop</div>
+          <div class="cmd-desc">Répète une tâche à intervalle régulier.</div>
+        </div>
+        <div class="cmd-card">
+          <div class="cmd-icon">⏰</div>
+          <div class="cmd-name">/schedule</div>
+          <div class="cmd-desc">Programme une routine récurrente côté serveur.</div>
+        </div>
+      </div>
+
+      <div class="section-divider reveal"><span>Output styles (ton des réponses)</span></div>
+
+      <div class="grid-3 reveal">
         <div class="card">
-          <h4><code>/skill &lt;nom&gt;</code></h4>
-          <p>Invoque manuellement une <em>skill</em> (une fiche métier spécifique). Exemple : <code>/skill copywriting</code> pour activer le mode rédaction.</p>
+          <h4>Default</h4>
+          <p>Travail quotidien, concis et direct.</p>
         </div>
         <div class="card">
-          <h4><code>/run</code></h4>
-          <p>Lance l'app du projet en cours pour voir le résultat (utile en dev web : démarre le serveur local et capture un screenshot).</p>
+          <h4>Explanatory</h4>
+          <p>Quand vous voulez <em>comprendre</em>, pas juste obtenir un résultat.</p>
         </div>
         <div class="card">
-          <h4><code>/review</code></h4>
-          <p>Lance une revue de code complète. Claude relit ce qu'il a fait et propose des améliorations.</p>
-        </div>
-        <div class="card">
-          <h4><code>/security-review</code></h4>
-          <p>Audit de sécurité (failles OWASP, secrets en clair, injection). À lancer avant toute mise en prod.</p>
-        </div>
-        <div class="card">
-          <h4><code>/loop</code></h4>
-          <p>Répète une tâche en boucle à intervalle régulier. Exemple : "scrape les nouveaux artisans tous les jours à 8h".</p>
-        </div>
-        <div class="card">
-          <h4><code>/schedule</code></h4>
-          <p>Programme une action récurrente côté serveur Anthropic (cloud), pas votre machine. Utile pour le monitoring.</p>
+          <h4>Concise</h4>
+          <p>Quand vous êtes pressé et savez ce que vous faites.</p>
         </div>
       </div>
 
-      <h2>Cheatsheet imprimable</h2>
-
-      <table>
-        <tr>
-          <th>Commande</th>
-          <th>Action</th>
-          <th>Fréquence</th>
-        </tr>
-        <tr><td><code>/help</code></td><td>Aide intégrée, liste des commandes</td><td>Quand vous bloquez</td></tr>
-        <tr><td><code>/clear</code></td><td>Vide le contexte de la conversation</td><td>Plusieurs fois par session</td></tr>
-        <tr><td><code>/resume</code></td><td>Reprendre une conversation précédente</td><td>Début de journée</td></tr>
-        <tr><td><code>/init</code></td><td>Initialiser un projet (crée CLAUDE.md)</td><td>1× par nouveau projet</td></tr>
-        <tr><td><code>/memory</code></td><td>Gérer la mémoire long-terme</td><td>Quand vous découvrez un fait à retenir</td></tr>
-        <tr><td><code>/agents</code></td><td>Déléguer à un sous-agent</td><td>Tâches longues / spécialisées</td></tr>
-        <tr><td><code>/plan</code> ou Shift+Tab</td><td>Mode plan (réfléchir avant d'agir)</td><td>Avant grosse tâche</td></tr>
-        <tr><td><code>/plugins</code></td><td>Marketplace de plugins community</td><td>Découverte / setup initial</td></tr>
-      </table>
-
-      <h2>Styles (output styles)</h2>
-      <p>Les <strong>output styles</strong> changent le ton et le format des réponses de Claude. Par défaut Claude est concis et direct. Vous pouvez le mettre en mode "pédagogue", "concis", "verbeux", etc.</p>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Lister les styles</span><button class="copy-btn">Copier</button></div>
+      <div class="snippet reveal">
+        <div class="snippet-header"><span>Changer de style</span><button class="copy-btn">Copier</button></div>
         <div class="snippet-body">/output-style</div>
       </div>
 
-      <p>À utiliser selon le moment :</p>
-      <ul>
-        <li><strong>Default</strong> — pour le travail quotidien</li>
-        <li><strong>Explanatory</strong> — quand vous voulez comprendre, pas juste obtenir un résultat</li>
-        <li><strong>Concise</strong> — quand vous êtes pressé et savez ce que vous faites</li>
-      </ul>
-
-      <h2>Et maintenant ?</h2>
-      <div class="grid-2">
-        <a href="mcp.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="section-divider reveal"><span>Et maintenant ?</span></div>
+      <div class="grid-2 reveal">
+        <a href="mcp.html" class="card lift-card">
           <span class="badge badge-orange">SUIVANT</span>
-          <h4>Brancher les outils externes (MCP)</h4>
-          <p>Stitch, fal.ai, Apify, DataForSEO… et où chopper chaque clé API.</p>
+          <h4>🔌 Brancher les outils externes</h4>
+          <p>MCP : Stitch, fal.ai, Apify, DataForSEO, Playwright.</p>
         </a>
-        <a href="skills.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-purple">OU</span>
-          <h4>Découvrir les skills</h4>
-          <p>Les "fiches métier" prêtes à l'emploi pour rédaction, SEO, vidéo, etc.</p>
+        <a href="skills.html" class="card lift-card">
+          <span class="badge badge-green">OU</span>
+          <h4>📚 Installer des skills</h4>
+          <p>108 mini-experts spécialisés, 1 clic.</p>
         </a>
       </div>
     </main>

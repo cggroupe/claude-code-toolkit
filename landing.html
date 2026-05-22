@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing pages — Claude Code Toolkit</title>
+  <title>Landing pages WordPress — Claude Code Toolkit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -14,25 +14,54 @@
     <div id="sidebar-placeholder"></div>
 
     <main class="main">
-      <div class="section-header">
-        <h1>Landing pages WordPress</h1>
-        <p>De l'idée à la page en ligne en 30 min. Stitch pour le design + WordPress pour la prod (gratuit, plugins, sécu, e-commerce).</p>
+      <div class="section-header reveal">
+        <h1>Landing pages WordPress 🎨</h1>
+        <p>De l'idée à la page en ligne en 30 min. Stitch pour le design + WordPress pour la prod.</p>
       </div>
 
-      <div class="callout">
-        <p><strong>Pourquoi WordPress et pas Vercel ?</strong> Vercel = abonnement payant + tu te tape la gestion DNS + pas de e-commerce natif + 0 plugins. WordPress = 0 €, plugins sécu/SEO/e-commerce gratuits, hébergement à 3€/mois Hostinger, et 40% du web tourne dessus.</p>
+      <div class="big-quote reveal">
+        Pourquoi WordPress et pas Vercel ?
+        <span class="small">Gratuit · plugins sécurité/SEO/e-commerce illimités · hébergement Hostinger 3€/mois · 40% du web tourne dessus.</span>
       </div>
 
-      <div class="stat-row">
-        <div class="stat-card"><div class="big">0€</div><div class="label">Hébergement Hostinger</div></div>
-        <div class="stat-card"><div class="big">5min</div><div class="label">Setup initial</div></div>
+      <div class="stat-row reveal">
+        <div class="stat-card"><div class="big">3€</div><div class="label">Hostinger / mois</div></div>
+        <div class="stat-card"><div class="big">5min</div><div class="label">Install WP</div></div>
         <div class="stat-card"><div class="big">60k+</div><div class="label">Plugins gratuits</div></div>
-        <div class="stat-card"><div class="big">∞</div><div class="label">Pages illimitées</div></div>
+        <div class="stat-card"><div class="big">∞</div><div class="label">Pages</div></div>
       </div>
 
-      <div class="section-divider"><span>Le pipeline en 4 étapes</span></div>
+      <div class="section-divider reveal"><span>Aperçu visuel d'une landing AUTAF</span></div>
 
-      <div class="flow-grid">
+      <div class="browser reveal">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">landing-electricien-autaf.fr</div>
+        </div>
+        <div class="browser-body">
+          <div class="wireframe" style="margin: 0; border-radius: 0; border: none;">
+            <div class="wf-block hero">HERO · Titre choc + sous-titre + CTA "Demande mon devis"</div>
+            <div class="wf-row" style="--cols: 3;">
+              <div class="wf-block">Chiffre clé #1<br><strong>-22% décennale</strong></div>
+              <div class="wf-block">Chiffre clé #2<br><strong>850+ artisans</strong></div>
+              <div class="wf-block">Chiffre clé #3<br><strong>12 ans expertise</strong></div>
+            </div>
+            <div class="wf-block">Section "Comment ça marche" · 4 étapes</div>
+            <div class="wf-row" style="--cols: 3;">
+              <div class="wf-block">Témoignage 1<br>👤 photo</div>
+              <div class="wf-block">Témoignage 2<br>👤 photo</div>
+              <div class="wf-block">Témoignage 3<br>👤 photo</div>
+            </div>
+            <div class="wf-block">FAQ · 5 questions critiques</div>
+            <div class="wf-block cta">CTA FINAL "Demande mon devis gratuit"</div>
+            <div class="wf-block">Footer · mentions, contact</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider reveal"><span>Le pipeline en 4 étapes</span></div>
+
+      <div class="flow-grid reveal">
         <div class="flow-node">
           <div class="icon">🎨</div>
           <h4>Stitch</h4>
@@ -42,289 +71,260 @@
         <div class="flow-node">
           <div class="icon">📝</div>
           <h4>WordPress</h4>
-          <p>Import & adapt</p>
+          <p>Import + adapt</p>
         </div>
         <div class="flow-arrow">→</div>
         <div class="flow-node">
           <div class="icon">🚀</div>
           <h4>En ligne</h4>
-          <p>Domain.fr</p>
+          <p>domain.fr/landing</p>
         </div>
       </div>
 
-      <div class="section-divider"><span>Étape 1 — Générer la maquette avec Stitch</span></div>
+      <div class="section-divider reveal"><span>Étape par étape</span></div>
 
-      <div class="browser-mockup">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url">VS Code · Claude Code prompt</div>
-        </div>
-        <div class="browser-body" style="background: var(--bg-elevated); color: var(--text); padding: 20px;">
-          <div style="font-family: var(--mono); font-size: 13px; line-height: 1.7;">
-            <span style="color: var(--accent);">▸ Vous</span> &mdash; "Fais-moi une landing pour AUTAF qui cible les électriciens"<br><br>
-            <span style="color: var(--green);">▸ Claude</span> &mdash; J'active le MCP Stitch et je génère...<br>
-            <span style="color: var(--text-dim);">  → 1 hero avec hook + CTA</span><br>
-            <span style="color: var(--text-dim);">  → 3 chiffres clés (économies, clients, ancienneté)</span><br>
-            <span style="color: var(--text-dim);">  → 3 témoignages photos</span><br>
-            <span style="color: var(--text-dim);">  → FAQ 5 questions</span><br>
-            <span style="color: var(--text-dim);">  → Footer + mentions</span><br>
-            <span style="color: var(--green);">✓</span> <span style="color: var(--text);">Maquette générée → dossier landing-electricien/</span>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">1</div>
+          <span>Générer la maquette via Stitch</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>1 prompt = 1 dossier <code>landing-electricien/</code> avec HTML+CSS prêts.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Prompt Stitch</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Via le MCP Stitch, génère une landing dark mode pour AUTAF cible électriciens BTP.
+
+Structure : hero + 3 chiffres + 3 témoignages + FAQ 5Q + CTA final.
+Style : dark mode, accent jaune AUTAF #FFE72B, Inter font, mobile-first.
+Output : dossier landing-electricien/.</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt Stitch — landing AUTAF électricien</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Stitch, génère-moi une landing page pour AUTAF qui cible les électriciens BTP.
-
-Structure :
-- Hero : titre choc + CTA "Demande mon devis gratuit"
-- Pourquoi nous : 3 colonnes (économies moyennes, expertise BTP, accompagnement)
-- 3 témoignages d'artisans avec photos
-- FAQ : 5 questions critiques pour un électricien
-- CTA final + footer
-
-Style : dark mode, accents jaune AUTAF #FFE72B, mobile-first.
-Output : dossier landing-electricien/ prêt à exporter en WordPress.</div>
-      </div>
-
-      <div class="section-divider"><span>Étape 2 — Setup WordPress (5 min)</span></div>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="badge badge-orange">RECOMMANDÉ</span>
-          <h4>🏠 Hostinger Premium (3€/mois)</h4>
-          <p>WordPress en 1 clic. Domain inclus, SSL auto, sauvegardes auto, support FR. Le meilleur rapport simplicité/prix pour démarrer.</p>
-        </div>
-        <div class="card">
-          <span class="badge badge-blue">ALTERNATIVE</span>
-          <h4>⚙️ VPS auto-hébergé</h4>
-          <p>Sur ce VPS Hostinger CG GROUPE : Docker WordPress déjà setup. Coût marginal 0 €. Plus technique mais 100% contrôle.</p>
-        </div>
-      </div>
-
-      <h3>Setup express Hostinger</h3>
-
-      <div class="flow-grid">
-        <div class="flow-node">
-          <div class="icon">1️⃣</div>
-          <h4>Choisir un domaine</h4>
-          <p>Genre <code>landing-electricien-autaf.fr</code></p>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node">
-          <div class="icon">2️⃣</div>
-          <h4>Install WordPress 1 clic</h4>
-          <p>Dans hPanel</p>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-node">
-          <div class="icon">3️⃣</div>
-          <h4>Admin login</h4>
-          <p>wp-admin → tableau de bord</p>
-        </div>
-      </div>
-
-      <div class="section-divider"><span>Étape 3 — Importer la maquette dans WordPress</span></div>
-
-      <p>2 approches selon le niveau technique :</p>
-
-      <div class="grid-2">
-        <div class="card">
-          <span class="badge badge-green">DÉBUTANT</span>
-          <h4>🎨 Via Elementor (no-code)</h4>
-          <p>Plugin gratuit visual builder. Glisser-déposer. Claude vous donne le contenu, vous le collez dans Elementor.</p>
-          <ul style="font-size:13px;padding-left:18px;margin-top:8px;">
-            <li>Install plugin Elementor</li>
-            <li>Créer page vide</li>
-            <li>Coller texte/images de la maquette Stitch</li>
-            <li>Publier</li>
-          </ul>
-        </div>
-        <div class="card">
-          <span class="badge badge-blue">INTERMÉDIAIRE</span>
-          <h4>📝 Via Custom Theme</h4>
-          <p>On copie le HTML/CSS de Stitch dans un thème enfant WordPress. Plus fidèle à la maquette mais demande de toucher au code.</p>
-          <ul style="font-size:13px;padding-left:18px;margin-top:8px;">
-            <li>Créer un child theme</li>
-            <li>Copier index.html → page-template.php</li>
-            <li>Importer style.css dans le thème</li>
-            <li>Publier</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Prompt Claude pour automatiser l'import WordPress</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Active la skill wordpress-master. La maquette est dans landing-electricien/.
-
-Mission : porter cette maquette dans WordPress :
-1. Crée un thème enfant à partir d'Astra (light, rapide)
-2. Crée un template de page "landing-electricien"
-3. Copie le HTML de landing-electricien/index.html dans le template (en PHP)
-4. Copie le CSS dans style.css du thème enfant
-5. Configure les images (Media Library upload)
-6. Crée la page WordPress "Électriciens" avec ce template
-7. Donne-moi l'URL et le lien admin
-
-Sécurité : applique le hardening WP de base (désactive l'éditeur de fichiers, force HTTPS, change le préfixe de table si neuf).</div>
-      </div>
-
-      <div class="section-divider"><span>Étape 4 — Plugins indispensables</span></div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="feature-icon">🔒</div>
-          <h4>Wordfence</h4>
-          <p style="font-size:13px;">Sécurité : firewall, scan malware, login attempts. Gratuit.</p>
-        </div>
-        <div class="card">
-          <div class="feature-icon">🔍</div>
-          <h4>Yoast SEO</h4>
-          <p style="font-size:13px;">SEO on-page, schema, sitemaps, Open Graph. Gratuit.</p>
-        </div>
-        <div class="card">
-          <div class="feature-icon">⚡</div>
-          <h4>WP Rocket / W3 Cache</h4>
-          <p style="font-size:13px;">Cache + minification + lazy load. Performance Core Web Vitals.</p>
-        </div>
-        <div class="card">
-          <div class="feature-icon">📊</div>
-          <h4>Google Site Kit</h4>
-          <p style="font-size:13px;">GA4 + Search Console + AdSense intégré. Officiel Google.</p>
-        </div>
-        <div class="card">
-          <div class="feature-icon">📨</div>
-          <h4>Contact Form 7 / WPForms</h4>
-          <p style="font-size:13px;">Formulaires de contact / devis. Anti-spam intégré.</p>
-        </div>
-        <div class="card">
-          <div class="feature-icon">🛒</div>
-          <h4>WooCommerce (si e-commerce)</h4>
-          <p style="font-size:13px;">Boutique complète : produits, paiement Stripe, livraison.</p>
-        </div>
-      </div>
-
-      <div class="snippet">
-        <div class="snippet-header"><span>Install des plugins essentiels en 1 prompt</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via WP-CLI (skill wordpress-master), installe et active ces plugins sur ma WordPress :
-- wordfence (sécurité)
-- wordpress-seo (Yoast)
-- wp-rocket (ou w3-total-cache si pas de licence)
-- google-site-kit
-- contact-form-7
-
-Configure les bases :
-- Wordfence : firewall ON + email alerts admin
-- Yoast : sitemap activé + breadcrumbs ON
-- Cache : on/off selon page (off sur formulaires)
-
-Donne-moi la liste de ce qui a été activé.</div>
-      </div>
-
-      <div class="section-divider"><span>Étape 5 — Tests automatiques avec Playwright</span></div>
-
-      <p>Avant de partager l'URL, on teste visuellement et fonctionnellement :</p>
-
-      <div class="compare">
-        <div class="compare-side">
-          <div class="compare-label bad">AVANT déploiement</div>
-          <div class="compare-body">
-            <ul style="padding-left:18px;font-size:13px;">
-              <li>❌ CTA ne redirige pas où il faut</li>
-              <li>❌ Formulaire submit ne marche pas</li>
-              <li>❌ Images cassées sur mobile</li>
-              <li>❌ Slow loading (3s+ LCP)</li>
-              <li>❌ Pas de tracking GA4</li>
-            </ul>
-          </div>
-        </div>
-        <div class="compare-side">
-          <div class="compare-label good">APRÈS Playwright check</div>
-          <div class="compare-body">
-            <ul style="padding-left:18px;font-size:13px;">
-              <li>✓ CTA testés mobile + desktop</li>
-              <li>✓ Form submit + email reçu vérifié</li>
-              <li>✓ Lighthouse score > 90</li>
-              <li>✓ LCP < 1.5s, CLS = 0</li>
-              <li>✓ Events GA4 firing OK</li>
-            </ul>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">2</div>
+          <span>Setup WordPress sur Hostinger (5 min)</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="flow-grid">
+              <div class="flow-node"><div class="icon">1️⃣</div><h4>Domaine</h4><p>landing-elec-autaf.fr</p></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node"><div class="icon">2️⃣</div><h4>WP 1-clic</h4><p>Dans hPanel</p></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node"><div class="icon">3️⃣</div><h4>Admin</h4><p>wp-admin login</p></div>
+            </div>
+            <div class="callout info">
+              <p><strong>Alternative</strong> : héberger sur votre propre VPS (Docker WordPress déjà setup dans <code>/opt/stack/</code>). Plus technique mais 0€ marginal.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Test E2E via Playwright MCP</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Via le MCP Playwright, teste la landing https://landing-electricien-autaf.fr :
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">3</div>
+          <span>Porter la maquette dans WordPress</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="grid-2" style="margin-bottom: 14px;">
+              <div class="card" style="margin:0;">
+                <span class="badge badge-green">DÉBUTANT</span>
+                <h4>🎨 Via Elementor</h4>
+                <p>Plugin visual builder gratuit. Glisser-déposer. Vous collez le texte/images de la maquette dans Elementor.</p>
+              </div>
+              <div class="card" style="margin:0;">
+                <span class="badge badge-blue">INTERMÉDIAIRE</span>
+                <h4>📝 Via Child Theme</h4>
+                <p>Claude copie le HTML+CSS de Stitch dans un thème enfant. Plus fidèle, plus tech.</p>
+              </div>
+            </div>
+            <div class="snippet">
+              <div class="snippet-header"><span>Prompt port automatique</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Active wordpress-master. Crée un child theme (Astra), template "landing-electricien", port HTML/CSS de landing-electricien/, configure images Media Library, crée la page WordPress. Donne URL + lien admin.
 
-1. Ouvre sur desktop (1440×900) et mobile (390×844), screenshot les 2
-2. Vérifie que tous les CTA cliquent où il faut
-3. Remplis le formulaire avec un test bidon et vérifie qu'il submit + reçoit confirmation
-4. Score Lighthouse : performance, accessibilité, SEO, best practices
-5. Vérifie que GA4 firing (events page_view + cta_clicked)
-6. Sors un rapport markdown avec les screenshots embed + tous les problèmes détectés
-
-Si Lighthouse < 90 sur n'importe quelle métrique : propose les 3 fixs prioritaires.</div>
+Sécurité de base : désactive l'éditeur de fichiers, force HTTPS.</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="section-divider"><span>Bonus : e-commerce en 1h avec WooCommerce</span></div>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">4</div>
+          <span>Plugins indispensables (1 prompt)</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="grid-3" style="margin-bottom: 14px;">
+              <div class="card" style="margin:0;text-align:center;">
+                <div style="font-size:32px;">🔒</div>
+                <h4 style="margin:6px 0 4px;">Wordfence</h4>
+                <p style="font-size:12px;margin:0;">Sécurité firewall</p>
+              </div>
+              <div class="card" style="margin:0;text-align:center;">
+                <div style="font-size:32px;">🔍</div>
+                <h4 style="margin:6px 0 4px;">Yoast SEO</h4>
+                <p style="font-size:12px;margin:0;">SEO + sitemap</p>
+              </div>
+              <div class="card" style="margin:0;text-align:center;">
+                <div style="font-size:32px;">⚡</div>
+                <h4 style="margin:6px 0 4px;">WP Rocket</h4>
+                <p style="font-size:12px;margin:0;">Cache + perf</p>
+              </div>
+              <div class="card" style="margin:0;text-align:center;">
+                <div style="font-size:32px;">📊</div>
+                <h4 style="margin:6px 0 4px;">Site Kit</h4>
+                <p style="font-size:12px;margin:0;">GA4 Google</p>
+              </div>
+              <div class="card" style="margin:0;text-align:center;">
+                <div style="font-size:32px;">📨</div>
+                <h4 style="margin:6px 0 4px;">CF7 / WPForms</h4>
+                <p style="font-size:12px;margin:0;">Formulaires</p>
+              </div>
+              <div class="card" style="margin:0;text-align:center;">
+                <div style="font-size:32px;">🛒</div>
+                <h4 style="margin:6px 0 4px;">WooCommerce</h4>
+                <p style="font-size:12px;margin:0;">E-commerce</p>
+              </div>
+            </div>
+            <div class="snippet">
+              <div class="snippet-header"><span>Install bulk</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Via WP-CLI (skill wordpress-master), installe et active : wordfence, wordpress-seo, wp-rocket, google-site-kit, contact-form-7.
 
-      <p>Si vous vendez des formations, des packs, des SaaS billables : WooCommerce ajoute la couche e-commerce.</p>
+Configure : Wordfence firewall ON + Yoast sitemap ON + cache adapté (off sur formulaires).</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="snippet">
-        <div class="snippet-header"><span>Setup WooCommerce + Stripe en 1 prompt</span><button class="copy-btn">Copier</button></div>
-        <div class="snippet-body">Active wordpress-master + woocommerce skill.
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">5</div>
+          <span>Tests automatiques via Playwright</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="compare">
+              <div class="compare-side">
+                <div class="compare-label bad">AVANT</div>
+                <div class="compare-body">
+                  <ul style="font-size:13px;">
+                    <li>❌ CTA cassés</li>
+                    <li>❌ Form submit fail</li>
+                    <li>❌ Images mobile cassées</li>
+                    <li>❌ LCP 3s+</li>
+                    <li>❌ GA4 ne fire pas</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="compare-side">
+                <div class="compare-label good">APRÈS Playwright</div>
+                <div class="compare-body">
+                  <ul style="font-size:13px;">
+                    <li>✓ CTA testés tout device</li>
+                    <li>✓ Form + email reçu</li>
+                    <li>✓ Lighthouse &gt; 90</li>
+                    <li>✓ LCP &lt; 1.5s</li>
+                    <li>✓ GA4 events firing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="snippet">
+              <div class="snippet-header"><span>Test E2E</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Via MCP Playwright, teste https://landing-electricien-autaf.fr :
+1. Desktop 1440×900 + mobile 390×844, screenshot
+2. CTA tous testés et redirigent où il faut
+3. Form submit + email reçu
+4. Lighthouse perf/a11y/SEO
+5. GA4 events firing
 
-Mission : ajoute WooCommerce à ma WordPress avec :
-1. Install et activation WooCommerce
-2. Configuration de base : France, EUR, TVA 20%
-3. Install + setup gateway Stripe (test mode)
-4. Crée 3 produits :
-   - "Formation Claude Code AUTAF" (197 €, digital, accès illimité)
+Si Lighthouse < 90 → propose les 3 fixs prioritaires.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider reveal"><span>Bonus : e-commerce en 1h</span></div>
+
+      <div class="recipe-card reveal">
+        <div class="recipe-head">
+          <div>
+            <strong>🛒 WooCommerce + Stripe en 1 prompt</strong>
+            <div class="recipe-meta">
+              <span>~1h</span>
+              <span>$0</span>
+              <span>WooCommerce + Stripe</span>
+            </div>
+          </div>
+          <span class="badge badge-green">BONUS</span>
+        </div>
+        <div class="recipe-body">
+          <div class="snippet">
+            <div class="snippet-header"><span>Setup WooCommerce</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Active wordpress-master + woocommerce.
+
+Mission : ajoute WooCommerce avec :
+1. Install + activation WooCommerce
+2. Config base : France, EUR, TVA 20%
+3. Install + setup Stripe gateway (test mode)
+4. 3 produits :
+   - "Formation Claude Code AUTAF" (197 €, digital)
    - "Pack 10 vidéos TikTok BTP" (490 €, service)
    - "Audit landing express" (97 €, service one-shot)
-5. Configure les emails transactionnels (confirmation, facture)
-6. Ajoute le panier + checkout au menu
+5. Emails transactionnels (confirmation + facture)
+6. Cart + checkout au menu
 
-Sécurité : active Wordfence sur les routes /checkout et /my-account.
-
-Test final : passe une commande test en Stripe test mode, confirme tout marche.</div>
+Sécurité : Wordfence sur /checkout + /my-account.
+Test final : commande test Stripe test mode.</div>
+          </div>
+        </div>
       </div>
 
-      <div class="section-divider"><span>Skills à activer pour landing WordPress</span></div>
+      <div class="section-divider reveal"><span>Skills à activer</span></div>
 
-      <div class="skill-lib">
+      <div class="skill-lib reveal">
         <div class="skill-tile" style="--skill-accent: #21759b">
           <div class="head"><span class="emoji">📝</span><span class="badge badge-orange">CORE</span></div>
           <div class="name">wordpress-master</div>
-          <div class="desc">Skill complète WordPress : themes, plugins, sécu, SEO, WooCommerce, REST API, WP-CLI.</div>
+          <div class="desc">Skill complète WordPress.</div>
           <div class="install-row">
             <code class="install-cmd">/plugins install wordpress</code>
             <button class="install-btn">Installer</button>
           </div>
         </div>
-        <div class="skill-tile" style="--skill-accent: #21759b">
+        <div class="skill-tile">
           <div class="head"><span class="emoji">✍️</span></div>
           <div class="name">copywriting</div>
-          <div class="desc">Headlines, body, CTA persuasifs. Frameworks AIDA/PAS/BAB.</div>
+          <div class="desc">Headlines, body, CTA persuasifs.</div>
           <div class="install-row">
             <code class="install-cmd">/plugins install marketing</code>
             <button class="install-btn">Installer</button>
           </div>
         </div>
-        <div class="skill-tile" style="--skill-accent: #21759b">
+        <div class="skill-tile">
           <div class="head"><span class="emoji">📈</span></div>
           <div class="name">page-cro</div>
-          <div class="desc">Audit + optimisation conversion. Friction, social proof, CTA.</div>
+          <div class="desc">Audit + optimisation conversion.</div>
           <div class="install-row">
             <code class="install-cmd">/plugins install marketing</code>
             <button class="install-btn">Installer</button>
           </div>
         </div>
-        <div class="skill-tile" style="--skill-accent: #21759b">
+        <div class="skill-tile">
           <div class="head"><span class="emoji">🔍</span></div>
           <div class="name">seo-page</div>
-          <div class="desc">SEO on-page complet : meta, schema, Core Web Vitals.</div>
+          <div class="desc">SEO on-page + Core Web Vitals.</div>
           <div class="install-row">
             <code class="install-cmd">/plugins install seo</code>
             <button class="install-btn">Installer</button>
@@ -332,17 +332,17 @@ Test final : passe une commande test en Stripe test mode, confirme tout marche.<
         </div>
       </div>
 
-      <h2>Et maintenant ?</h2>
-      <div class="grid-2">
-        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-orange">EN ACTION</span>
+      <div class="section-divider reveal"><span>Et maintenant ?</span></div>
+      <div class="grid-2 reveal">
+        <a href="recettes.html" class="card lift-card">
+          <span class="badge badge-orange">VOIR EN ACTION</span>
           <h4>💡 Recette landing 10 min</h4>
-          <p>Le workflow A à Z copy-pastable.</p>
+          <p>Le workflow A à Z démontré en live.</p>
         </a>
-        <a href="publication.html" class="card" style="text-decoration:none;color:inherit;display:block;">
-          <span class="badge badge-purple">PUBLIER</span>
-          <h4>📱 PostFast & co</h4>
-          <p>Diffuser le trafic vers la landing via TikTok / LinkedIn / Insta.</p>
+        <a href="publication.html" class="card lift-card">
+          <span class="badge badge-purple">SUIVANT</span>
+          <h4>📱 Publication</h4>
+          <p>Diriger du trafic vers la landing via TikTok / LinkedIn.</p>
         </a>
       </div>
     </main>

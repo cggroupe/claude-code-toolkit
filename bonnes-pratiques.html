@@ -6,7 +6,7 @@
   <title>Bonnes pratiques — Claude Code Toolkit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -14,275 +14,266 @@
     <div id="sidebar-placeholder"></div>
 
     <main class="main">
-      <div class="section-header">
-        <h1>Bonnes pratiques 📖</h1>
-        <p>Les règles simples qui évitent les boulettes coûteuses. À lire avant la 1ère session.</p>
+      <div class="section-header reveal">
+        <h1>10 règles d'or 📖</h1>
+        <p>Les réflexes qui font la différence entre un pro et quelqu'un qui brûle son crédit.</p>
       </div>
 
-      <div class="callout success">
-        <p><strong>🎯 L'esprit du guide.</strong> Pas de jargon. Pas de leçon de morale. Juste les <em>réflexes</em> qui font la différence entre un usage pro et un usage qui vous fait perdre temps + argent + crédibilité.</p>
+      <div class="big-quote reveal">
+        Lire 5 minutes maintenant = économiser 5 heures plus tard.
       </div>
 
-      <div class="section-divider"><span>Les 10 règles d'or</span></div>
+      <div class="section-divider reveal"><span>Les règles</span></div>
 
-      <div class="grid-2">
-        <div class="card" style="border-color: var(--green); background: linear-gradient(135deg, var(--card), rgba(34, 197, 94, 0.05));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">1️⃣</span>
-            <h4 style="margin: 0;">Toujours commencer en plan mode</h4>
-          </div>
-          <p>Avant une grosse tâche, demandez à Claude de réfléchir d'abord. Tapez <code>/plan</code> ou Shift+Tab. Il propose, vous validez, puis il exécute.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Évite les heures perdues sur une mauvaise piste.
-          </div>
+      <div class="rule-grid">
+        <div class="rule-card reveal">
+          <div class="rule-num">1</div>
+          <h4>📋 Plan mode avant grosse tâche</h4>
+          <p>Tapez <code>/plan</code> ou Shift+Tab. Claude propose, vous validez, puis il exécute.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Évite 2h gaspillées sur une mauvaise piste.</div>
         </div>
 
-        <div class="card" style="border-color: var(--accent); background: linear-gradient(135deg, var(--card), var(--accent-bg));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">2️⃣</span>
-            <h4 style="margin: 0;">Lire avant de cliquer "Allow All"</h4>
-          </div>
-          <p>Claude demande l'autorisation pour chaque action sensible. <strong>Lisez ce qu'il propose</strong> avant de cliquer. Surtout les commandes <code>rm</code>, <code>delete</code>, <code>git push --force</code>.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> 1 clic sans lire peut effacer des heures de travail.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">2</div>
+          <h4>👀 Lire avant "Allow All"</h4>
+          <p>Lisez la commande proposée. Surtout <code>rm</code>, <code>delete</code>, <code>git push --force</code>.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> 1 clic aveugle = des heures de travail effacées.</div>
         </div>
 
-        <div class="card" style="border-color: var(--blue); background: linear-gradient(135deg, var(--card), rgba(59, 130, 246, 0.05));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">3️⃣</span>
-            <h4 style="margin: 0;">/clear quand ça part en vrille</h4>
-          </div>
-          <p>Si Claude boucle sur une mauvaise piste, ne pas insister. Tapez <code>/clear</code> pour repartir d'une feuille blanche, puis reformulez votre demande différemment.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Plus on insiste sur une erreur, plus on s'enlise.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">3</div>
+          <h4>🧹 /clear quand ça boucle</h4>
+          <p>Si Claude part en vrille, n'insistez pas. Tapez <code>/clear</code>, reformulez.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Plus on insiste sur une erreur, plus on s'enlise.</div>
         </div>
 
-        <div class="card" style="border-color: var(--purple); background: linear-gradient(135deg, var(--card), rgba(168, 85, 247, 0.05));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">4️⃣</span>
-            <h4 style="margin: 0;">1 dossier = 1 projet</h4>
-          </div>
-          <p>Ne mélangez jamais deux sujets dans le même dossier VS Code. Toujours créer un dossier dédié par projet (sur le Bureau, par exemple).</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Claude se perd dans l'arborescence sinon.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">4</div>
+          <h4>📂 1 dossier = 1 projet</h4>
+          <p>Toujours un dossier dédié. Pas de "tests-claude" tout-en-un.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Claude se perd dans une arborescence mixte.</div>
         </div>
 
-        <div class="card" style="border-color: var(--red); background: linear-gradient(135deg, var(--card), rgba(239, 68, 68, 0.05));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">5️⃣</span>
-            <h4 style="margin: 0;">Toujours dire le budget max</h4>
-          </div>
-          <p>Avant tout job utilisant fal.ai / PiAPI / Apify (services payants), précisez : <em>« Budget max : $X. Si tu dépasses, STOP. »</em></p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> 6 essais Veo3 ratés = $36 brûlés sans résultat.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">5</div>
+          <h4>💸 Toujours dire le budget max</h4>
+          <p><em>« Budget max : $X. Si tu dépasses, STOP. »</em> en début de prompt.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> 6 essais Veo3 ratés = $36 brûlés sans résultat.</div>
         </div>
 
-        <div class="card" style="border-color: var(--yellow); background: linear-gradient(135deg, var(--card), rgba(234, 179, 8, 0.05));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">6️⃣</span>
-            <h4 style="margin: 0;">Vérifier les chiffres IA</h4>
-          </div>
-          <p>Les IA <em>hallucinent</em>. Surtout sur les chiffres, dates, noms propres, normes. <strong>Toujours vérifier ce qui touche au légal, médical, BTP/normes.</strong></p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Crédibilité métier = irrécupérable si on cite un faux DTU.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">6</div>
+          <h4>✅ Vérifier les chiffres IA</h4>
+          <p>L'IA hallucine. Toujours WebSearch sources officielles pour normes/lois/chiffres.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Citer un faux DTU = crédibilité métier ruinée.</div>
         </div>
 
-        <div class="card" style="border-color: var(--accent);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">7️⃣</span>
-            <h4 style="margin: 0;">Sauvegarder en mémoire</h4>
-          </div>
-          <p>Quand vous découvrez une préférence/règle qui doit tenir entre sessions, dites <em>« Remember : [...]»</em>. Claude l'écrit dans sa mémoire long-terme.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Moins de répétition = plus de vrai travail.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">7</div>
+          <h4>🧠 Sauvegarder en mémoire</h4>
+          <p>« Remember : [...]» pour les règles qui doivent tenir entre sessions.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Moins de répétition = plus de vrai travail.</div>
         </div>
 
-        <div class="card" style="border-color: var(--green);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">8️⃣</span>
-            <h4 style="margin: 0;">Git commit toutes les 30 min</h4>
-          </div>
-          <p>Sur projets versionnés : commit régulier. Si Claude casse quelque chose, vous revenez en arrière sans drame.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Sauvetage en 1 commande au lieu d'1 heure de rage.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">8</div>
+          <h4>💾 Git commit toutes les 30 min</h4>
+          <p>Commit régulier sur tout projet versionné.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Si ça casse, rollback en 1 commande.</div>
         </div>
 
-        <div class="card" style="border-color: var(--purple);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">9️⃣</span>
-            <h4 style="margin: 0;">Pas de secrets en clair</h4>
-          </div>
-          <p>Jamais de clé API, mot de passe, token, dans un fichier <strong>commit</strong>. Toujours dans <code>.env</code> + <code>.env</code> dans <code>.gitignore</code>.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Une clé leakée = abus de votre compte ($$$$).
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">9</div>
+          <h4>🔒 Jamais de secrets en clair</h4>
+          <p>Clés API toujours dans <code>.env</code> + <code>.env</code> dans <code>.gitignore</code>.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Une clé leakée = abus de votre compte ($$$).</div>
         </div>
 
-        <div class="card" style="border-color: var(--accent); background: linear-gradient(135deg, var(--card), var(--accent-bg));">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 28px;">🔟</span>
-            <h4 style="margin: 0;">Tester avant publier</h4>
-          </div>
-          <p>Vidéo, landing, email cold : <strong>jamais</strong> push direct en prod. Test sur soi/un collègue, puis publication.</p>
-          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted);">
-            <strong>Pourquoi.</strong> Erreur publique = capture d'écran qui circule.
-          </div>
+        <div class="rule-card reveal">
+          <div class="rule-num">10</div>
+          <h4>🧪 Tester avant publier</h4>
+          <p>Vidéo, landing, email : jamais push direct en prod. Test sur soi d'abord.</p>
+          <div class="rule-why"><strong>Pourquoi</strong> Erreur publique = capture d'écran qui circule.</div>
         </div>
       </div>
 
-      <div class="section-divider"><span>Les pièges à éviter</span></div>
+      <div class="section-divider reveal"><span>À faire vs à éviter</span></div>
 
-      <div class="compare">
+      <div class="compare reveal">
         <div class="compare-side">
-          <div class="compare-label bad">❌ À NE PAS FAIRE</div>
+          <div class="compare-label bad">❌ NE PAS FAIRE</div>
           <div class="compare-body">
-            <ul style="padding-left:18px;">
-              <li>Lancer Claude Code dans <code>~/Desktop</code> directement</li>
-              <li>Cliquer "Allow All" sans lire la commande proposée</li>
+            <ul>
+              <li>Claude Code dans <code>~/Desktop</code> direct</li>
+              <li>"Allow All" sans lire</li>
               <li>Coller du code IA en prod sans relire</li>
-              <li>Publier les chiffres d'une IA sans vérifier</li>
-              <li>Mettre les API keys dans le code source</li>
-              <li>Donner des données clients réelles en test</li>
-              <li>Demander 50 vidéos Veo3 sans budget cap</li>
-              <li>Croire que Claude se souvient de la dernière session</li>
+              <li>Publier des chiffres sans vérifier</li>
+              <li>API keys dans le code source</li>
+              <li>Données clients réelles en test</li>
+              <li>50 vidéos Veo3 sans budget cap</li>
             </ul>
           </div>
         </div>
         <div class="compare-side">
           <div class="compare-label good">✓ À FAIRE</div>
           <div class="compare-body">
-            <ul style="padding-left:18px;">
-              <li>Créer un dossier dédié par projet</li>
-              <li>Plan mode avant les grosses tâches</li>
-              <li>Relire le code généré, tester en local</li>
-              <li>WebSearch + sources pro pour les chiffres</li>
-              <li>Variables d'env <code>.env</code> + <code>.gitignore</code></li>
-              <li>Données test bidon pour les essais</li>
-              <li>Budget cap explicite dans le prompt</li>
-              <li>Pattern Karpathy = wiki à jour avant clôture session</li>
+            <ul>
+              <li>Dossier dédié par projet</li>
+              <li>Plan mode avant grosses tâches</li>
+              <li>Relire + tester le code généré</li>
+              <li>WebSearch + sources pro</li>
+              <li><code>.env</code> + <code>.gitignore</code></li>
+              <li>Données bidon pour les essais</li>
+              <li>Budget cap explicite</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div class="section-divider"><span>IA en général — ce qu'il faut savoir</span></div>
+      <div class="section-divider reveal"><span>L'IA en général</span></div>
 
-      <div class="grid-2">
+      <div class="grid-2 reveal">
         <div class="card">
-          <h4>🧠 L'IA hallucine</h4>
-          <p>Claude/ChatGPT peuvent inventer des choses avec aplomb : statistiques fausses, URLs inexistantes, citations imaginées, articles de loi qui n'existent pas.</p>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><strong>Réflexe :</strong> tout ce qui touche au légal, médical, normes BTP, dates précises → WebSearch + source officielle.</p>
+          <div class="entry-icon" style="background:rgba(239,68,68,0.15);border-color:rgba(239,68,68,0.4);">🧠</div>
+          <h4 style="margin-top:12px;">L'IA hallucine</h4>
+          <p>Statistiques fausses, URLs inexistantes, articles de loi imaginés. <strong>Toujours vérifier</strong> le légal, médical, normes BTP.</p>
         </div>
-
         <div class="card">
-          <h4>📅 Knowledge cutoff</h4>
-          <p>Les IA ont une "date de coupure" de connaissances. Claude 4.7 sait jusqu'à janvier 2026. Au-delà : il ne sait pas (ou pire, il invente).</p>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><strong>Réflexe :</strong> pour l'actualité récente, lui demander de faire un WebSearch explicite.</p>
+          <div class="entry-icon" style="background:rgba(234,179,8,0.15);border-color:rgba(234,179,8,0.4);">📅</div>
+          <h4 style="margin-top:12px;">Knowledge cutoff janvier 2026</h4>
+          <p>Claude 4.7 ne sait rien après cette date (sauf si WebSearch). Demandez explicitement à fouiller le web pour l'actu.</p>
         </div>
-
         <div class="card">
-          <h4>🔒 RGPD & données clients</h4>
-          <p>Vos prompts peuvent être stockés/analysés par le fournisseur (Anthropic, OpenAI). Ne collez jamais : RIB, mot de passe, dossier médical, NIR, données clients réelles.</p>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><strong>Réflexe :</strong> anonymiser avant collage. "Client X" au lieu de "Marie Dupont".</p>
+          <div class="entry-icon" style="background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.4);">🔒</div>
+          <h4 style="margin-top:12px;">RGPD & données clients</h4>
+          <p>Ne collez jamais RIB, mots de passe, données patients, NIR. Anonymisez avant. Vos prompts peuvent être analysés.</p>
         </div>
-
         <div class="card">
-          <h4>💰 Le vrai coût</h4>
-          <p>L'IA semble gratuite mais : abonnement Claude (20-200$), MCP payants (fal.ai $6/clip, Apify, DataForSEO), temps humain de relecture.</p>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><strong>Réflexe :</strong> faire un budget mensuel total. Tracker dépenses fal/Apify par dashboard.</p>
+          <div class="entry-icon" style="background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.4);">💰</div>
+          <h4 style="margin-top:12px;">Le vrai coût</h4>
+          <p>Abonnement Claude (20-200$/mois) + MCP payants (fal $6/clip, Apify, etc.) + temps humain de relecture.</p>
         </div>
-
         <div class="card">
-          <h4>👤 Pas un remplacement de l'expertise</h4>
-          <p>L'IA accélère 10× ce que vous savez faire. Elle ne remplace pas le jugement métier. Sur le BTP, l'assurance, le juridique : <strong>relecture humaine obligatoire</strong>.</p>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><strong>Réflexe :</strong> "trust but verify".</p>
+          <div class="entry-icon" style="background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">👤</div>
+          <h4 style="margin-top:12px;">Pas un remplacement de l'expertise</h4>
+          <p>L'IA accélère 10× ce que vous savez faire. Ne remplace pas le jugement métier. <strong>Relecture humaine obligatoire</strong> sur BTP/assurance/juridique.</p>
         </div>
-
         <div class="card">
-          <h4>🎭 Le syndrome du faux pro</h4>
-          <p>L'IA répond avec un ton très assuré, même quand elle a tort. Ce n'est pas parce que ça <em>semble</em> juste que c'est juste.</p>
-          <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><strong>Réflexe :</strong> demander à Claude lui-même "es-tu sûr ? vérifie tes sources".</p>
+          <div class="entry-icon" style="background:rgba(236,72,153,0.15);border-color:rgba(236,72,153,0.4);">🎭</div>
+          <h4 style="margin-top:12px;">Le syndrome du faux pro</h4>
+          <p>L'IA répond avec un ton assuré, même quand elle a tort. <em>Trust but verify.</em> Demandez à Claude lui-même de vérifier ses sources.</p>
         </div>
       </div>
 
-      <div class="section-divider"><span>Workflow type d'une journée propre</span></div>
+      <div class="section-divider reveal"><span>Workflow type d'une journée</span></div>
 
-      <ol class="steps">
-        <li>
-          <h3>Matin — ouvrir un projet existant</h3>
-          <p>VS Code → ouvre le dossier projet → ouvre Claude Code → tapez <code>/resume</code> pour reprendre la conversation. Premier prompt : <em>"Lis CLAUDE.md, MAP.md et log.md, fais-moi un résumé d'où on en est"</em>.</p>
-        </li>
-        <li>
-          <h3>Définir la mission du jour</h3>
-          <p><em>"Aujourd'hui je veux faire X. Voici les contraintes : Y. Budget max : $Z. Passe en plan mode et propose-moi un plan d'attaque."</em></p>
-        </li>
-        <li>
-          <h3>Travailler par cycles courts</h3>
-          <p>Petite tâche → tester → commit. Petite tâche → tester → commit. Plutôt que 4h de génération massive et "espérer que ça marche".</p>
-        </li>
-        <li>
-          <h3>Si bloqué &gt; 15 min : reset</h3>
-          <p>Tapez <code>/clear</code>, reformulez le problème en partant du résultat attendu (pas du code intermédiaire). Souvent ça débloque.</p>
-        </li>
-        <li>
-          <h3>Avant fin de session : update wiki + log</h3>
-          <p><em>"Met à jour le wiki/ et log.md avec ce qu'on a fait aujourd'hui. Format synthétique, dates, décisions clés."</em> Pattern Karpathy obligatoire.</p>
-        </li>
-        <li>
-          <h3>Commit final + push</h3>
-          <p><code>git add . && git commit -m "..."  && git push</code>. Demain vous reprenez exactement où vous avez laissé.</p>
-        </li>
-      </ol>
-
-      <div class="section-divider"><span>Quand demander de l'aide ?</span></div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h4>🤖 À Claude</h4>
-          <p style="font-size: 13px;">Quand c'est technique : erreur, bug, commande qui marche pas, comprendre du code. C'est son métier.</p>
-        </div>
-        <div class="card">
-          <h4>📞 À Philippe</h4>
-          <p style="font-size: 13px;">Quand c'est stratégie : choix de marque, ton, ICP, décision business. Ou que vous êtes paumé sur Claude Code.</p>
-        </div>
-        <div class="card">
-          <h4>🌐 À la communauté</h4>
-          <p style="font-size: 13px;">Discord Claude Code (anglais), forum Anthropic, X @AnthropicAI. Le tooling évolue vite.</p>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">1</div>
+          <span>Matin — Reprendre où on s'est arrêté</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>VS Code → ouvre le dossier projet → ouvre Claude Code → <code>/resume</code>.</p>
+            <div class="snippet">
+              <div class="snippet-header"><span>Prompt de reprise</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Lis CLAUDE.md, MAP.md et log.md, fais-moi un résumé d'où on en est en 5 lignes.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="section-divider"><span>Si vous deviez retenir 1 seule chose</span></div>
-
-      <div class="card" style="background: linear-gradient(135deg, var(--accent-bg), var(--card)); border: 2px solid var(--accent); padding: 32px;">
-        <div style="text-align: center;">
-          <div style="font-size: 60px; margin-bottom: 16px;">🎯</div>
-          <h3 style="margin: 0 0 12px;">Claude est un stagiaire surdoué, pas un dieu.</h3>
-          <p style="font-size: 16px; margin: 0; max-width: 600px; margin: 0 auto;">
-            Il fait <strong>10× plus vite</strong> ce que vous savez déjà faire.
-            Il <strong>ne remplace pas</strong> votre jugement.
-            Il vous <strong>libère du temps</strong> pour faire ce que la machine ne peut pas.
-          </p>
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">2</div>
+          <span>Définir la mission du jour</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="snippet">
+              <div class="snippet-header"><span>Prompt de mission</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Aujourd'hui je veux faire X. Contraintes : Y. Budget max : $Z. Passe en plan mode et propose-moi un plan d'attaque.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <h2>Et maintenant ?</h2>
-      <div class="grid-2">
-        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">3</div>
+          <span>Travailler par cycles courts</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Petite tâche → tester → commit. Plutôt que 4h de génération massive + "espérer que ça marche".</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">4</div>
+          <span>Si bloqué > 15 min → reset</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Tapez <code>/clear</code>, reformulez en partant du résultat attendu (pas du code intermédiaire). Souvent ça débloque.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">5</div>
+          <span>Avant fin de session : wiki + log</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="snippet">
+              <div class="snippet-header"><span>Prompt de clôture</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">Met à jour le wiki/ et log.md avec ce qu'on a fait aujourd'hui. Format synthétique, dates, décisions clés. Pattern Karpathy.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion reveal">
+        <button class="accordion-toggle">
+          <div class="acc-icon">6</div>
+          <span>Commit final + push</span>
+          <span class="acc-chev">▾</span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <div class="snippet">
+              <div class="snippet-header"><span>Commit final</span><button class="copy-btn">Copier</button></div>
+              <div class="snippet-body">git add . && git commit -m "session 22/05 - update wiki + features X Y" && git push</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-quote reveal" style="margin-top:48px;">
+        🎯 Claude est un stagiaire surdoué, pas un dieu.
+        <span class="small">Il fait 10× plus vite ce que vous savez déjà faire. Il ne remplace pas votre jugement. Il vous libère du temps pour faire ce que la machine ne peut pas.</span>
+      </div>
+
+      <div class="section-divider reveal"><span>Et maintenant ?</span></div>
+      <div class="grid-2 reveal">
+        <a href="recettes.html" class="card lift-card">
           <span class="badge badge-orange">PASSER À L'ACTION</span>
-          <h4>💡 Recettes prêtes</h4>
-          <p>Les 3 workflows démontrés en live.</p>
+          <h4>💡 3 recettes prêtes</h4>
+          <p>Landing 10 min · Vidéo TikTok · Prospection 50 leads.</p>
         </a>
-        <a href="sos.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+        <a href="sos.html" class="card lift-card">
           <span class="badge badge-red">EN CAS DE BUG</span>
           <h4>🆘 SOS pannes</h4>
-          <p>Les erreurs courantes et leur fix.</p>
+          <p>Erreurs courantes et fixes en 1 minute.</p>
         </a>
       </div>
     </main>
