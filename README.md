@@ -35,13 +35,13 @@ claude-code-toolkit/
 
 ```bash
 # Option 1 : Python
-python3 -m http.server 8907 --directory /var/www/claude-code-toolkit
+python3 -m http.server 8919 --directory /var/www/claude-code-toolkit
 
 # Option 2 : Node
-npx serve /var/www/claude-code-toolkit -p 8907
+npx serve /var/www/claude-code-toolkit -p 8919
 ```
 
-Ouvrir http://localhost:8907
+Ouvrir http://localhost:8919
 
 ## Déployer
 
@@ -57,7 +57,7 @@ vercel
 
 ```nginx
 server {
-    listen 8907;
+    listen 8919;
     server_name _;
     root /var/www/claude-code-toolkit;
     index index.html;
