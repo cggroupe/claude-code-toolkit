@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing pages — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Landing pages</h1>
+        <p>De l'idée à la maquette déployée sur Vercel, sans coder. Stitch + Claude Code.</p>
+      </div>
+
+      <h2>La pipeline en 4 étapes</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge badge-orange">ÉTAPE 1</span>
+          <h4>🎨 Génération via Stitch</h4>
+          <p>Prompt Claude → Stitch génère la maquette HTML/CSS complète.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-blue">ÉTAPE 2</span>
+          <h4>🔧 Itération design</h4>
+          <p>Ajustements ciblés sur sections précises sans tout refaire.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">ÉTAPE 3</span>
+          <h4>📝 Copy persuasif</h4>
+          <p>Skill <code>copywriting</code> + <code>page-cro</code> pour le texte qui convertit.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-green">ÉTAPE 4</span>
+          <h4>🚀 Deploy Vercel</h4>
+          <p>1 commande pour déployer, URL publique en 30 secondes.</p>
+        </div>
+      </div>
+
+      <h2>Pré-requis</h2>
+      <ul>
+        <li>MCP Stitch configuré avec clé Google AI Studio (voir <a href="mcp.html#stitch">MCP</a>)</li>
+        <li>Compte Vercel (gratuit, <a href="https://vercel.com" target="_blank">vercel.com</a>)</li>
+        <li>Vercel CLI installée : <code>npm install -g vercel</code></li>
+        <li>Optionnel : MCP Playwright pour tester la landing automatiquement</li>
+      </ul>
+
+      <h2>Le prompt master Stitch</h2>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt complet (à adapter)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Via le MCP Stitch, génère-moi une landing page pour [TON BUSINESS].
+
+Contexte business :
+- Cible : [PERSONA]
+- Promesse : [VALUE PROP en 1 phrase]
+- Preuve sociale : [CHIFFRES + LOGOS]
+- Objection #1 à anticiper : [OBJECTION + RÉPONSE]
+- CTA principal : [ACTION attendue]
+
+Structure :
+1. Hero (titre + sous-titre + CTA + visual hero)
+2. Logos clients ou chiffres clés
+3. "Pour qui" : 3 personas avec icône
+4. "Comment ça marche" : 4 étapes numérotées
+5. Témoignages : 3 cards avec photo + verbatim
+6. Tarifs ou bénéfices (selon modèle)
+7. FAQ : 5 questions critiques
+8. CTA final + footer
+
+Style :
+- Dark mode haut de gamme (type Linear / Stripe / Vercel)
+- Accent color : [COULEUR]
+- Typographie : Inter pour le sans-serif, JetBrains Mono pour code/numbers
+- Mobile-first
+- Animations subtiles au scroll (intersection observer)
+
+Output : un dossier landing-[NOM]/ avec :
+- index.html
+- assets/style.css
+- assets/app.js (interactions)
+- README.md (instructions deploy)
+
+Prêt à déployer sur Vercel.</div>
+      </div>
+
+      <h2>Itérer en gardant le contrôle</h2>
+
+      <p>Une fois la 1ère version sortie, on itère section par section. Pas tout refaire.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Itération ciblée</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">La section "Pour qui" est bien mais :
+- Trop générique, manque les pains spécifiques par persona
+- Active la skill copywriting et propose 3 variantes pour chaque persona
+- Garde la structure HTML existante, change uniquement le texte
+- Format : 1 phrase de douleur + 1 phrase de promesse par persona</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Audit CRO avant deploy</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Active la skill page-cro. Audite la landing actuelle en mode brutal :
+- Hierarchie visuelle : qu'est-ce qui attire l'œil en premier ?
+- Friction CTA : combien de clics jusqu'à conversion ?
+- Manque de preuves sociales ?
+- Objections non traitées ?
+- Mobile vs desktop : différences ?
+
+Sors-moi un punch list ordonné par impact attendu.</div>
+      </div>
+
+      <h2>Déploiement Vercel</h2>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Premier déploiement</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">cd landing-mon-business
+vercel</div>
+      </div>
+
+      <p>Vercel va :</p>
+      <ol>
+        <li>Demander de se connecter (1ère fois seulement)</li>
+        <li>Détecter automatiquement le framework</li>
+        <li>Donner une URL temporaire de preview</li>
+        <li>Proposer de "promouvoir" en production avec <code>vercel --prod</code></li>
+      </ol>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Déployer en production</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">vercel --prod</div>
+      </div>
+
+      <h2>Tests automatiques avec Playwright</h2>
+
+      <p>Avant de partager l'URL, demandez à Claude de tester la landing.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Test E2E via Playwright MCP</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Via le MCP Playwright, teste la landing déployée sur https://landing-mon-business.vercel.app :
+
+1. Ouvre la page sur desktop (1440×900) et mobile (390×844)
+2. Capture screenshot des 2 versions
+3. Vérifie que les CTA principaux sont cliquables et redirigent où il faut
+4. Remplis le formulaire avec un test bidon et vérifie qu'il soumet
+5. Score Lighthouse (performance, accessibilité, SEO)
+6. Sors-moi un rapport avec les screenshots + les éventuels problèmes détectés</div>
+      </div>
+
+      <h2>Alternative : refonte d'une page existante</h2>
+
+      <p>Vous avez déjà une landing mais elle convertit mal ? Audit + refonte ciblée :</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Audit + refonte existant</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Voici l'URL de notre landing actuelle : https://autaf.fr/devis
+
+1. Via Playwright MCP, charge la page et screenshot mobile + desktop
+2. Active la skill page-cro et audit complet
+3. Propose un plan de refonte en 5 points prioritaires (impact > effort)
+4. Pour chaque point, propose la modif concrète (HTML/CSS exact)
+5. Donne-moi un estimé de gain de conversion attendu (range pessimiste / optimiste)
+
+Ne touche pas au code tant que je n'ai pas validé le plan.</div>
+      </div>
+
+      <h2>Skills à activer pour landing pages</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>copywriting</h4>
+          <p>Pour les headlines, body, CTA, taglines. Frameworks AIDA, PAS, BAB.</p>
+        </div>
+        <div class="card">
+          <h4>page-cro</h4>
+          <p>Pour l'audit et l'optimisation des conversions. Vraie expertise CRO.</p>
+        </div>
+        <div class="card">
+          <h4>customer-research</h4>
+          <p>Pour identifier les "true pain points" à mettre dans le copy.</p>
+        </div>
+        <div class="card">
+          <h4>seo-page</h4>
+          <p>Pour l'optimisation on-page (meta, schema, Core Web Vitals).</p>
+        </div>
+        <div class="card">
+          <h4>schema-markup</h4>
+          <p>Pour ajouter le JSON-LD qui aide à apparaître dans les résultats riches Google.</p>
+        </div>
+        <div class="card">
+          <h4>ai-seo</h4>
+          <p>Pour optimiser la page afin qu'elle soit citée par ChatGPT / Perplexity / Claude.</p>
+        </div>
+      </div>
+
+      <h2>Recette complète : landing AUTAF en 10 min</h2>
+
+      <p>Voir la <a href="recettes.html">page recettes</a>, recette n°1.</p>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">EXEMPLE COMPLET</span>
+          <h4>💡 Recette landing 10 min</h4>
+          <p>Le workflow A-Z, copy-pastable.</p>
+        </a>
+        <a href="video.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">AUTRE PRODUCTION</span>
+          <h4>🎬 Vidéo TikTok</h4>
+          <p>Pipeline complet Hyperframes + fal.ai.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

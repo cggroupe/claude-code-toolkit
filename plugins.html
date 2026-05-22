@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plugins — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Plugins</h1>
+        <p>Packs de skills, commandes et MCP livrés ensemble. Installable en 1 commande.</p>
+      </div>
+
+      <h2>C'est quoi, un plugin ?</h2>
+      <p>Un plugin Claude Code, c'est un <strong>bundle</strong> qui peut contenir : plusieurs skills, des commandes custom, des hooks, voire des MCP préconfigurés. Au lieu de tout installer à la main, vous lancez <code>/plugins install &lt;nom&gt;</code> et tout arrive en bloc.</p>
+
+      <div class="callout">
+        <p><strong>Métaphore.</strong> Une skill = une fiche métier. Un plugin = la mallette complète d'un corps de métier (toutes les fiches + les outils).</p>
+      </div>
+
+      <h2>Comment installer ?</h2>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Parcourir le marketplace</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">/plugins</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Installer un plugin par nom</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">/plugins install &lt;nom-du-plugin&gt;</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Lister les plugins installés</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">/plugins list</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Désinstaller</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">/plugins uninstall &lt;nom-du-plugin&gt;</div>
+      </div>
+
+      <h2>Plugins marketing recommandés</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">📝</div>
+        <div class="tool-meta">
+          <div class="tool-name">marketing-skills <span class="badge badge-green">ESSENTIEL</span></div>
+          <div class="tool-desc">Pack complet de 32 skills marketing : copywriting, page-cro, lead-magnets, cold-email, ad-creative, social-content, email-sequence, customer-research, et plus.</div>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">/plugins install marketing-skills</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔍</div>
+        <div class="tool-meta">
+          <div class="tool-name">seo-toolkit <span class="badge badge-orange">SEO</span></div>
+          <div class="tool-desc">Audit SEO complet : on-page, technique, schema markup, Core Web Vitals, AI Overviews (GEO), backlinks, images, sitemap.</div>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">/plugins install seo-toolkit</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎬</div>
+        <div class="tool-meta">
+          <div class="tool-name">hyperframes-suite <span class="badge badge-purple">VIDÉO</span></div>
+          <div class="tool-desc">Hyperframes CLI + skills média (TTS Kokoro, Whisper, remove-bg) + registry de templates (caption styles, transitions, VFX).</div>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">/plugins install hyperframes-suite</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🛡️</div>
+        <div class="tool-meta">
+          <div class="tool-name">prohacker <span class="badge badge-red">SÉCURITÉ</span></div>
+          <div class="tool-desc">Audit sécurité complet : OWASP Top 10, secrets en clair, RGPD, hardening Docker/Nginx, prompt injection LLM. À lancer avant toute mise en prod.</div>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">/plugins install prohacker</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Plugins productivité</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>verify</h4>
+          <p>Vérifie qu'un changement fait vraiment ce qu'il prétend, en lançant l'app et observant le comportement.</p>
+        </div>
+        <div class="card">
+          <h4>simplify</h4>
+          <p>Review le code récemment modifié et propose simplifications, refactos, dead code à supprimer.</p>
+        </div>
+        <div class="card">
+          <h4>schedule</h4>
+          <p>Programme des routines cron pour Claude (exécution remote sur cloud Anthropic).</p>
+        </div>
+        <div class="card">
+          <h4>loop</h4>
+          <p>Répète un prompt à intervalle régulier (poll d'un déploiement, vérification de stat).</p>
+        </div>
+      </div>
+
+      <h2>Créer son propre plugin</h2>
+
+      <p>Vous pouvez créer un plugin pour packager vos propres skills + commandes et le publier sur GitHub pour vos collègues.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Structure d'un plugin</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">mon-plugin/
+├── plugin.json          # metadata du plugin
+├── skills/
+│   ├── ma-skill-1/SKILL.md
+│   └── ma-skill-2/SKILL.md
+├── commands/
+│   └── ma-commande.md
+└── README.md</div>
+      </div>
+
+      <p>Pour publier, push sur GitHub puis on installe via :</p>
+      <div class="snippet">
+        <div class="snippet-header"><span>Installer un plugin depuis GitHub</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">/plugins install github:cggroupe/mon-plugin</div>
+      </div>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="skills.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SKILLS INDIVIDUELLES</span>
+          <h4>📚 Catalogue de skills</h4>
+          <p>Si vous ne voulez qu'une skill précise plutôt qu'un pack complet.</p>
+        </a>
+        <a href="projets.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-blue">SUIVANT</span>
+          <h4>📂 Créer un projet</h4>
+          <p>Méthodologie pour démarrer un projet propre dès le jour 1.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

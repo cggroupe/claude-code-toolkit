@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un projet — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Créer un projet</h1>
+        <p>La méthode pour démarrer un projet propre, structuré, qui restera maintenable dans 6 mois.</p>
+      </div>
+
+      <h2>Le checklist du nouveau projet</h2>
+
+      <ol class="steps">
+        <li>
+          <h3>Créer un dossier dédié</h3>
+          <p>Toujours un dossier par projet. Pas de tout-en-un. Sur le Bureau ou dans <code>~/Documents/projets/</code>.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Création du dossier</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">mkdir mon-nouveau-projet && cd mon-nouveau-projet</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Ouvrir le dossier dans VS Code</h3>
+          <p>File → Open Folder → sélectionner votre dossier. VS Code = 1 fenêtre = 1 projet.</p>
+        </li>
+
+        <li>
+          <h3>Lancer /init</h3>
+          <p>Claude scanne le projet (vide ou existant) et propose une première structure + CLAUDE.md.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Init</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">/init</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Compléter CLAUDE.md</h3>
+          <p>Le fichier <code>CLAUDE.md</code> est la <em>bible</em> du projet. Y mettre :</p>
+          <ul>
+            <li><strong>Objectif business</strong> : que fait ce projet ? Pour qui ?</li>
+            <li><strong>Stack technique</strong> : langages, frameworks, services externes</li>
+            <li><strong>Conventions</strong> : style code, langue (français/anglais), nommage</li>
+            <li><strong>Règles métier</strong> : tout ce qui n'est pas dans le code mais qu'il faut respecter (RGPD, TVA, processus interne)</li>
+            <li><strong>Interdits</strong> : ce que Claude ne doit jamais faire (push --force, supprimer X, modifier Y)</li>
+          </ul>
+        </li>
+
+        <li>
+          <h3>Activer le pattern Karpathy</h3>
+          <p>Création de <code>wiki/</code>, <code>sources/</code>, <code>log.md</code>, <code>MAP.md</code>. Voir <a href="karpathy.html">page dédiée</a>.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Bootstrap Karpathy</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Initialise le pattern Karpathy : crée wiki/, sources/, log.md, MAP.md. Scanne le projet existant et génère les premières notes wiki. Format markdown, français, frontmatter YAML.</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Configurer les MCP du projet</h3>
+          <p>Quels outils externes ce projet va utiliser ? (Apify pour prospection, fal.ai pour vidéo, Stitch pour design…) Installer dans Claude Code.</p>
+          <p>Voir <a href="mcp.html">page MCP</a>.</p>
+        </li>
+
+        <li>
+          <h3>Versionner avec git</h3>
+          <p>Sauf raison contraire, toujours versionner avec git. Même pour les petits projets marketing.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Setup git + GitHub</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">git init && git add . && git commit -m "Init projet" && gh repo create mon-nouveau-projet --private --source=. --push</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Premier vrai prompt</h3>
+          <p>Demander à Claude une grande tâche en <strong>plan mode</strong>. Lire le plan, ajuster, exécuter.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Premier vrai prompt en plan mode</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Passe en plan mode. Voici ma mission : [DÉCRIRE PROJET].
+
+Propose-moi un plan d'attaque en 5-10 étapes, avec :
+- Les fichiers à créer
+- Les dépendances à installer
+- Les MCP à utiliser
+- Les risques / décisions à prendre
+
+Ne code rien tant que je n'ai pas validé.</div>
+          </div>
+        </li>
+      </ol>
+
+      <h2>Templates de projet</h2>
+
+      <p>Selon votre objectif, voici des templates de démarrage :</p>
+
+      <div class="tool-card">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-meta">
+          <div class="tool-name">Landing page marketing</div>
+          <div class="tool-desc">Site statique 1 page, dark mode, copy persuasif, formulaire de capture.</div>
+          <p>Stack : HTML/CSS pur ou Next.js + Tailwind. MCP Stitch obligatoire.</p>
+          <p>Voir <a href="landing.html">page landing pages</a>.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎬</div>
+        <div class="tool-meta">
+          <div class="tool-name">Pipeline vidéo TikTok</div>
+          <div class="tool-desc">Génération de vidéos verticales en chaîne. Script → voix → clips → assemblage → publication.</div>
+          <p>Stack : Node.js + Hyperframes + fal.ai + PostFast.</p>
+          <p>Voir <a href="recettes.html#vidéo">recette vidéo TikTok</a>.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎯</div>
+        <div class="tool-meta">
+          <div class="tool-name">Prospection automatisée</div>
+          <div class="tool-desc">Scrape → enrich → email perso → CRM. Pour identifier et contacter des prospects en masse.</div>
+          <p>Stack : Apify + Pappers/Sirene + Gmail MCP.</p>
+          <p>Voir <a href="recettes.html#prospection">recette prospection</a>.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <div class="tool-meta">
+          <div class="tool-name">Veille concurrentielle</div>
+          <div class="tool-desc">Surveillance prix, contenu, ads concurrents. Alertes hebdo en Slack.</div>
+          <p>Stack : Apify + DataForSEO + Slack MCP + cron.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📝</div>
+        <div class="tool-meta">
+          <div class="tool-name">Knowledge base / wiki interne</div>
+          <div class="tool-desc">Stocker la connaissance de votre équipe (process, normes, décisions) pour Claude.</div>
+          <p>Stack : markdown + pattern Karpathy strict + optionnel RAG pour gros corpus.</p>
+        </div>
+      </div>
+
+      <h2>Les règles d'or</h2>
+
+      <div class="callout">
+        <p><strong>1. Un dossier = un projet.</strong> Ne mélangez jamais 2 sujets dans le même dossier VS Code, Claude se perd.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>2. CLAUDE.md à jour = projet propre.</strong> Quand vous prenez une décision importante, ajoutez-la dans CLAUDE.md. C'est ce que Claude relit en premier.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>3. Pas de secrets en clair.</strong> Toutes les clés API dans <code>.env</code> (jamais commit) ou en variables d'environnement. Ajoutez <code>.env</code> dans <code>.gitignore</code> immédiatement.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>4. Plan mode pour les grosses décisions.</strong> Refonte, gros refactor, mise en prod : toujours en plan mode. On lit, on valide, on exécute.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>5. Log + wiki avant fin de session.</strong> Avant de fermer VS Code : "<em>mets à jour le wiki et log.md avec ce qu'on a fait aujourd'hui</em>". Sinon vous perdez le contexte.</p>
+      </div>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="karpathy.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">APPROFONDIR</span>
+          <h4>🧠 Pattern Karpathy</h4>
+          <p>La méthode complète pour transformer votre projet en cerveau partagé.</p>
+        </a>
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">EXEMPLES</span>
+          <h4>💡 Recettes prêtes</h4>
+          <p>3 use cases complets pour s'entraîner sur du vrai.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

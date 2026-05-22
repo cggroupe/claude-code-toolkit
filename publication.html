@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publication — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Publication</h1>
+        <p>PostFast, Make.com, n8n. Comment publier et programmer vos contenus depuis Claude Code.</p>
+      </div>
+
+      <h2>Les 3 outils du pipeline</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge badge-orange">RECOMMANDÉ</span>
+          <h4>📱 PostFast</h4>
+          <p>Publication multi-plateformes (TikTok, Instagram, LinkedIn, X). Simple, API directe, schedule fiable.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-blue">ALTERNATIVE</span>
+          <h4>⚙️ Make.com</h4>
+          <p>Plateforme de workflow no-code. Connecte 1500+ apps. Plus puissant mais plus de setup.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">POWER USER</span>
+          <h4>🔧 n8n</h4>
+          <p>Alternative open-source à Make. Self-hostable. Workflows complexes, transformation de données.</p>
+        </div>
+      </div>
+
+      <h2>PostFast — le pipeline @btpmindset</h2>
+
+      <h3>Où chopper la clé API</h3>
+      <ol>
+        <li>Allez sur <a href="https://postfa.st" target="_blank">postfa.st</a></li>
+        <li>Créez un compte (free trial 7 jours)</li>
+        <li>Connectez vos comptes TikTok / Instagram / LinkedIn dans <strong>Settings → Social Accounts</strong></li>
+        <li>Allez dans <strong>Settings → API</strong></li>
+        <li>Générez votre API token</li>
+      </ol>
+
+      <h3>Schedule une vidéo TikTok depuis Claude</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt complet</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Programme cette vidéo sur PostFast pour publication TikTok ce soir à 20h Paris :
+- Fichier : output/clip-final.mp4
+- Caption : "Les 5 erreurs des artisans BTP qui leur coûtent 10k€ par an 🔨"
+- Hashtags : #BTP #artisan #chantier #savoirfaire #travaux #france #pourtoi
+- Public : oui
+- Comments / Duet / Stitch : allowed
+- Save le post ID dans output/scheduled-postids.json (tracking local obligatoire)</div>
+      </div>
+
+      <div class="callout danger">
+        <p><strong>🚨 Bug connu PostFast.</strong> L'API <code>/social-posts?limit=50</code> renvoie 2 à 50 items au hasard, <code>hasNextPage=false</code> menteur. Toujours <strong>tracker localement</strong> les post IDs dans un fichier JSON, sinon vous risquez les doublons.</p>
+      </div>
+
+      <h3>Publier en bulk</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>10 vidéos schedulées en 1 prompt</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Programme cette série de 10 vidéos sur PostFast en alternance 20h/12h Paris du 01/06 au 10/06 :
+
+1. couvreur.mp4 — caption "Nous les couvreurs..." — 01/06 20h
+2. plombier.mp4 — caption "Nous les plombiers..." — 02/06 12h
+...
+
+Hashtags signature pour chaque : #viedechantier #savoirfaire #travaux #france + métier + #pourtoi.
+Settings : public, comments/duet/stitch allowed.
+Save tous les post IDs dans output/scheduled-serie.json.</div>
+      </div>
+
+      <h2>Make.com — workflow Apify → Claude → PostFast</h2>
+
+      <p>Exemple : tous les lundis, scrape les tendances TikTok, demande à Claude un script vidéo, génère via fal.ai, publie via PostFast.</p>
+
+      <h3>Où chopper la clé API</h3>
+      <ol>
+        <li>Allez sur <a href="https://make.com" target="_blank">make.com</a> et créez un compte (plan gratuit OK pour démarrer)</li>
+        <li>Dans <strong>Profile → API</strong>, copiez votre Make API token</li>
+      </ol>
+
+      <h3>Trigger un scenario Make depuis Claude</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Webhook trigger</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Lance le scenario Make "veille-tiktok-hebdo" via son webhook URL https://hook.eu1.make.com/xxxxx avec ce payload :
+{
+  "trigger": "weekly",
+  "topic": "tendances BTP TikTok semaine 22",
+  "output_destination": "postfast"
+}</div>
+      </div>
+
+      <h2>n8n — self-hosted workflow</h2>
+
+      <p>n8n est l'alternative open-source à Make. On l'utilise quand on veut héberger soi-même (VPS) et avoir des workflows complexes.</p>
+
+      <div class="callout warn">
+        <p><strong>⚠️ Piège connu.</strong> Dans n8n v2.8+, la variable <code>$env</code> est <em>bloquée</em>. Vous devez hardcoder les valeurs ou passer par des credentials n8n natifs. <strong>JAMAIS</strong> utiliser le nœud "Schedule" pour les process longs : utiliser systemd à la place.</p>
+      </div>
+
+      <h3>Trigger un workflow n8n depuis Claude</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Webhook trigger n8n</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Trigger le workflow n8n "prospection-bretagne" via webhook https://n8n.mondomaine.com/webhook/prospection-bretagne avec ce payload :
+{
+  "department": "29",
+  "metier": "couvreur",
+  "limit": 100,
+  "enrichment": ["pappers", "dehashed"]
+}
+Le workflow va scraper, enrichir, écrire des emails personnalisés et me retourner un CSV.</div>
+      </div>
+
+      <h2>Pipeline complet : génération → publication</h2>
+
+      <p>Voici la recette complète que Claude peut orchestrer end-to-end :</p>
+
+      <pre><code>1. Claude lit le calendrier édito (skill btp-content-calendar)
+2. Claude génère 7 scripts vidéo (skill btp-video-script-v3)
+3. Pour chaque script :
+   - Génère voix off (ElevenLabs ou Kokoro)
+   - Génère clips Veo3 (fal.ai MCP)
+   - Assemble avec Hyperframes
+   - Génère captions (Whisper)
+4. Claude upload tous les .mp4 sur PostFast
+5. Claude programme les 7 posts en alternance 20h/12h
+6. Claude écrit le tracking dans wiki/log.md (pattern Karpathy)
+7. Claude envoie un Slack récap : "7 vidéos schedulées, coût total $168"</code></pre>
+
+      <h3>Le prompt master</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt pipeline complet</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Mission : produire et programmer 7 vidéos TikTok pour la semaine prochaine sur le thème "Erreurs BTP qui coûtent cher".
+
+Pipeline :
+1. Active btp-content-calendar et propose 7 angles
+2. Pour chaque angle :
+   - Génère script avec btp-video-script-v3 (verbatim-lock + filler-words-ban)
+   - Génère voix off ElevenLabs Nicolas v3 émotionnel
+   - Génère 5 clips Veo3 via fal.ai (mode standard, 8s chacun)
+   - Assemble avec Hyperframes (1080×1920, captions jaunes)
+   - Audio chain : highpass 80 + denoise + loudnorm -14 LUFS
+3. Upload tous les fichiers sur PostFast
+4. Schedule 7 posts du lundi au dimanche, alternance 20h/12h Paris
+5. Hashtags signature : #BTP #chantier #artisan #savoirfaire #travaux #france + métier
+6. Track post IDs dans wiki/log.md (pattern Karpathy)
+7. Budget max : $200 total. Si tu dépasses, stop et demande validation.
+
+Démarre en mode plan, je valide avant exécution.</div>
+      </div>
+
+      <h2>Les outils complémentaires</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>📊 Metricool / Buffer / Later</h4>
+          <p>Alternatives à PostFast. Plus mainstream. Metricool a une vraie API et de meilleurs analytics.</p>
+        </div>
+        <div class="card">
+          <h4>💬 Apify TikTok scraper</h4>
+          <p>Pour scraper les commentaires sur vos vidéos et les analyser avec Claude (sentiment, questions récurrentes).</p>
+        </div>
+        <div class="card">
+          <h4>🔍 Apify Instagram Profile Scraper</h4>
+          <p>Pour surveiller la concurrence et identifier les top posts à étudier.</p>
+        </div>
+        <div class="card">
+          <h4>📈 PostFast Analytics export</h4>
+          <p>Récupérez vos analytics tous les lundis, demandez à Claude d'analyser ce qui marche.</p>
+        </div>
+      </div>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SUIVANT</span>
+          <h4>💡 Recettes prêtes</h4>
+          <p>3 use cases démontrés en live, copy-pastables.</p>
+        </a>
+        <a href="sos.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-red">EN CAS DE BUG</span>
+          <h4>🆘 SOS pannes</h4>
+          <p>Les erreurs courantes et leur correction.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

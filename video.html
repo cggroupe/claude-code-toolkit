@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidéo — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Production vidéo</h1>
+        <p>Hyperframes, Remotion, Veo3, Kling. Le stack complet pour générer des vidéos TikTok / LinkedIn en quelques minutes.</p>
+      </div>
+
+      <h2>Les 3 approches</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge badge-orange">RECOMMANDÉ</span>
+          <h4>🎬 Hyperframes (HTML)</h4>
+          <p>Vidéo composée en HTML/CSS/JS. Determinist, rapide, captions natifs. Le plus simple pour démarrer.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-blue">ALTERNATIVE</span>
+          <h4>⚛️ Remotion (React)</h4>
+          <p>Plus mature, large communauté, plein de templates. Demande de comprendre un peu JSX.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">100% IA</span>
+          <h4>🤖 Veo3 / Kling direct</h4>
+          <p>Génération vidéo de bout en bout par IA, sans assembler. Magique mais 4-7 clips max et ~$24-$42 par vidéo.</p>
+        </div>
+      </div>
+
+      <h2>Pipeline @btpmindset (référence)</h2>
+
+      <p>Voici la pipeline éprouvée qui produit les vidéos virales de @btpmindset (TikTok BTP) :</p>
+
+      <ol class="steps">
+        <li>
+          <h3>Script (skill <code>btp-video-script-v3</code>)</h3>
+          <p>Claude génère un script 9:16 de 30-45s avec hook + 5 perso + CTA. Format DTU 40 (8s/clip, 4-7 clips).</p>
+        </li>
+        <li>
+          <h3>Voix off (ElevenLabs ou Veo3 native)</h3>
+          <p>Voix Nicolas FR métropolitain, post-prod audio chain (denoise + EQ + loudnorm -14 LUFS).</p>
+        </li>
+        <li>
+          <h3>Génération clips (Veo3 ou Kling)</h3>
+          <p>Veo3 image-to-video via fal.ai pour les plans réalistes. Kling 2.1 Pro via PiAPI pour l'animation d'images fixes.</p>
+        </li>
+        <li>
+          <h3>Captions auto (Whisper)</h3>
+          <p>Transcription + alignement word-level. Style jaune sur fond noir, 1 mot à la fois.</p>
+        </li>
+        <li>
+          <h3>Assemblage (Hyperframes ou Remotion)</h3>
+          <p>Composition finale 1080×1920 avec cuts, overlays, transitions.</p>
+        </li>
+        <li>
+          <h3>Publication (PostFast)</h3>
+          <p>Upload + schedule sur TikTok / Instagram / LinkedIn avec tracking local des post IDs.</p>
+        </li>
+      </ol>
+
+      <h2>Hyperframes — démarrage</h2>
+
+      <p>Hyperframes est un framework HTML → vidéo. Vous écrivez du HTML/CSS comme une page web, le framework le rend en .mp4 image par image.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Installation</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">npm install -g hyperframes</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Créer un nouveau projet vidéo</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">npx hyperframes init mon-clip-tiktok --format=9-16 --duration=30</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Preview en temps réel (browser)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">cd mon-clip-tiktok && npx hyperframes preview</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Render final</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">npx hyperframes render --output=mon-clip.mp4 --fps=30 --quality=high</div>
+      </div>
+
+      <h3>Demander à Claude une compo Hyperframes</h3>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt complet</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Active la skill hyperframes. Crée une compo TikTok 9:16 de 30 secondes pour AUTAF avec :
+- Scène 1 (0-5s) : hook texte "Tu paies tes assurances trop cher ?" sur fond noir, gros caractères jaunes
+- Scène 2 (5-20s) : 3 chiffres clés avec animations (économie moyenne, % clients satisfaits, années d'expertise)
+- Scène 3 (20-30s) : CTA "Demande ton devis gratuit" + logo AUTAF
+- Audio : voix off TTS Kokoro, masculine, ton confiant
+- Captions auto-générées (white text sur fond noir transparent)
+
+Génère tous les fichiers nécessaires, prépare le render, dis-moi quand c'est prêt.</div>
+      </div>
+
+      <h2>Remotion — alternative React</h2>
+
+      <p>Si vous préférez React (ou si vous voulez utiliser les milliers de templates Remotion), c'est la voie. Skill <code>remotion-best-practices</code> active les patterns éprouvés.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Nouveau projet Remotion</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">npx create-video@latest mon-video</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Demander à Claude une compo Remotion</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Active la skill remotion-best-practices. Crée une composition Remotion 1920×1080 de 45 secondes pour une vidéo "explainer" produit. Structure : intro 5s, 3 features 10s chacune, outro CTA 10s. Utilise interpolate() avec spring() pour les animations. Charge la police Inter via @remotion/google-fonts.</div>
+      </div>
+
+      <h2>Veo3 / Kling — génération directe IA</h2>
+
+      <p>Quand vous voulez juste 1 clip court "wow effect" sans assembler, vous appelez directement Veo3 ou Kling via fal.ai / PiAPI.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt Veo3 (8s, image-to-video)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Génère un clip Veo3 de 8 secondes en image-to-video à partir de l'image input.jpg. Caméra : slow dolly forward, lighting natural midday, atmosphere realistic. Dialogue : aucun. Pas d'audio. Format 9:16. Utilise le MCP fal avec le modèle veo3/standard/image-to-video.</div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt Kling 2.1 Pro (5s, animation)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Génère un clip Kling 2.1 Pro de 5 secondes via PiAPI à partir de l'image hook.jpg. Mouvement : l'ouvrier balance la masse vers la caméra. Mode pro, duration 5s. Garde l'image start fidèle.</div>
+      </div>
+
+      <h2>Audio post-production (chain de-rev)</h2>
+
+      <p>Une vidéo qui sonne "AI cheap", c'est presque toujours l'audio. Voici le chain ffmpeg qu'on utilise pour rendre une voix off ElevenLabs / Veo3 native plus pro :</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Chain audio de-rev + loudnorm (ffmpeg)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">ffmpeg -i input.wav -af "highpass=f=80,afftdn=nr=18:nf=-50,equalizer=f=220:width_type=h:width=200:g=-3.5,equalizer=f=420:width_type=h:width=200:g=-2.5,equalizer=f=1100:width_type=h:width=300:g=-1.5,equalizer=f=3200:width_type=h:width=400:g=1.2,acompressor=threshold=-18dB:ratio=3:attack=5:release=50,loudnorm=I=-14:LRA=11:TP=-1" output.wav</div>
+      </div>
+
+      <h2>Budget vidéo (réaliste)</h2>
+
+      <table>
+        <tr>
+          <th>Format</th>
+          <th>Coût</th>
+          <th>Temps</th>
+          <th>Quand l'utiliser</th>
+        </tr>
+        <tr>
+          <td>1 clip Veo3 8s</td>
+          <td>$6</td>
+          <td>2-5 min</td>
+          <td>Hook viral, plan d'ouverture</td>
+        </tr>
+        <tr>
+          <td>1 clip Kling 5s</td>
+          <td>$1</td>
+          <td>3-7 min</td>
+          <td>Animation d'image fixe</td>
+        </tr>
+        <tr>
+          <td>1 vidéo TikTok 30-45s (Veo3 multi-clips)</td>
+          <td>$24-$42</td>
+          <td>30-60 min</td>
+          <td>Format winner @btpmindset</td>
+        </tr>
+        <tr>
+          <td>1 vidéo Hyperframes (sans IA générative)</td>
+          <td>~$0</td>
+          <td>10-20 min</td>
+          <td>Explainer, motion graphics, dashboards animés</td>
+        </tr>
+        <tr>
+          <td>Voix off ElevenLabs 30s</td>
+          <td>$0.30-0.50</td>
+          <td>10 sec</td>
+          <td>Voix de personnage qui parle</td>
+        </tr>
+        <tr>
+          <td>Voix off Kokoro (local)</td>
+          <td>$0</td>
+          <td>5-15 sec</td>
+          <td>Voix off documentaire, narration</td>
+        </tr>
+      </table>
+
+      <div class="callout warn">
+        <p><strong>⚠️ Garde-fou budget.</strong> Toujours dire à Claude "<em>maximum X dollars sur ce projet</em>" avant de lancer. Sinon il peut faire 10 essais Veo3 = $60 sans prévenir.</p>
+      </div>
+
+      <h2>Les pièges à connaître</h2>
+
+      <div class="callout danger">
+        <p><strong>Veo3 et l'accent français.</strong> Par défaut, Veo3 parle avec un accent québécois. Toujours préciser "<em>Metropolitan French from Paris, NOT Canadian/Quebec accent</em>" dans le prompt, et écrire les chiffres en toutes lettres.</p>
+      </div>
+
+      <div class="callout danger">
+        <p><strong>Veo3 et les filler words.</strong> Veo3 ajoute "euh", "tu sais", "quoi" en fin de phrase. Ban explicite dans le prompt : "<em>No filler words. No 'quoi' at the end. Speak with confident assertive tone.</em>"</p>
+      </div>
+
+      <div class="callout danger">
+        <p><strong>Captions et bourdonnement.</strong> Toujours passer l'audio par <code>highpass=80Hz + loudnorm -14 LUFS</code> avant upload TikTok, sinon bourdonnement basse fréquence.</p>
+      </div>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="publication.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SUIVANT</span>
+          <h4>📱 Publier la vidéo</h4>
+          <p>PostFast, Make.com, n8n. Schedule automatique sur TikTok / Insta / LinkedIn.</p>
+        </a>
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-blue">EXEMPLE COMPLET</span>
+          <h4>💡 Recette "vidéo TikTok 9:16"</h4>
+          <p>Le workflow A à Z, copy-pastable, qui produit une vidéo en 20 minutes.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

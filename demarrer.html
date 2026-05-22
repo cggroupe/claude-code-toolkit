@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installer & démarrer — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Installer & démarrer</h1>
+        <p>De zéro à votre premier prompt Claude Code en 30 minutes, étape par étape.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>🎯 Objectif de cette page.</strong> À la fin, vous aurez : VS Code installé, un compte Anthropic actif, Claude Code opérationnel sur votre machine, et vous aurez fait tourner votre premier prompt.</p>
+      </div>
+
+      <h2>Pré-requis matériel</h2>
+      <ul>
+        <li>Un <strong>Mac</strong> (macOS 12+) ou un <strong>PC Windows 10/11</strong></li>
+        <li>Une connexion internet stable</li>
+        <li>Une carte bancaire (pour l'abonnement Anthropic à 20$/mois minimum)</li>
+        <li>30 minutes devant vous, sans dérangement</li>
+      </ul>
+
+      <h2>Le parcours en 6 étapes</h2>
+
+      <ol class="steps">
+        <li>
+          <h3>Télécharger Visual Studio Code (5 min)</h3>
+          <p>VS Code, c'est l'<strong>éditeur de texte intelligent</strong> dans lequel on va faire vivre Claude Code. C'est gratuit, c'est Microsoft, c'est solide.</p>
+          <ul>
+            <li>Allez sur <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></li>
+            <li>Cliquez sur le gros bouton bleu qui détecte votre OS (Mac ou Windows)</li>
+            <li>Installez normalement (double-clic sur le fichier téléchargé, suivez les instructions)</li>
+            <li>Lancez VS Code une fois pour vérifier qu'il s'ouvre</li>
+          </ul>
+          <div class="callout info">
+            <p><strong>Mac avec processeur M1/M2/M3 ?</strong> Prenez la version "Apple Silicon", elle est plus rapide.</p>
+          </div>
+        </li>
+
+        <li>
+          <h3>Créer un compte Anthropic (5 min)</h3>
+          <p>Anthropic, c'est la boîte qui fait Claude. Le compte sert à payer Claude Code et à gérer vos clés.</p>
+          <ul>
+            <li>Allez sur <a href="https://claude.ai" target="_blank">claude.ai</a></li>
+            <li>Cliquez "Sign up" en haut à droite</li>
+            <li>Utilisez votre adresse email pro</li>
+            <li>Vérifiez votre boîte mail et cliquez le lien de validation</li>
+          </ul>
+        </li>
+
+        <li>
+          <h3>Choisir votre formule (5 min)</h3>
+          <p>Il y a deux mondes : l'abonnement <em>tout-compris</em> ou la <em>clé API</em> à la consommation. Pour démarrer en marketing, c'est l'abonnement.</p>
+
+          <div class="grid-2">
+            <div class="card">
+              <span class="badge badge-green">RECOMMANDÉ</span>
+              <h4>Claude Pro — 20$/mois</h4>
+              <p>Pour tester sérieusement. Limite raisonnable d'usage quotidien. Inclut Claude Code via la web app et le terminal.</p>
+            </div>
+            <div class="card">
+              <span class="badge badge-orange">POWER USER</span>
+              <h4>Claude Max — 100$ à 200$/mois</h4>
+              <p>5x à 20x la quota Pro. Pour ceux qui vont vraiment l'utiliser tous les jours (vidéo, prospection lourde).</p>
+            </div>
+          </div>
+
+          <p>Pour souscrire : connectez-vous à <a href="https://claude.ai" target="_blank">claude.ai</a>, cliquez votre avatar en bas à gauche → <strong>Settings → Plans</strong> → choisissez Pro ou Max.</p>
+
+          <div class="callout warn">
+            <p><strong>⚠️ Ne pas confondre.</strong> Il existe aussi <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a> qui sert pour les clés API (paiement à l'usage). Ce n'est <em>pas</em> ce qu'on utilise ici. On reste sur <code>claude.ai</code>.</p>
+          </div>
+        </li>
+
+        <li>
+          <h3>Installer Claude Code (5 min)</h3>
+          <p>Claude Code, c'est l'<strong>agent</strong> qui tourne dans votre VS Code. Deux options pour l'installer.</p>
+
+          <h4>Option A — Extension VS Code (la plus simple)</h4>
+          <ul>
+            <li>Ouvrez VS Code</li>
+            <li>Dans la barre latérale gauche, cliquez sur l'icône "Extensions" (⊞)</li>
+            <li>Tapez <code>Claude Code</code> dans la recherche</li>
+            <li>Cliquez "Install" sur l'extension officielle <strong>Anthropic</strong></li>
+            <li>Une nouvelle icône apparaît dans la barre latérale : c'est Claude Code</li>
+          </ul>
+
+          <h4>Option B — Ligne de commande (CLI)</h4>
+          <p>Si vous voulez utiliser Claude Code dans le terminal (utile pour les power users), ouvrez un terminal et lancez :</p>
+          <div class="snippet">
+            <div class="snippet-header">
+              <span>Installation CLI (Mac/Linux)</span>
+              <button class="copy-btn">Copier</button>
+            </div>
+            <div class="snippet-body">curl -fsSL https://claude.ai/install.sh | bash</div>
+          </div>
+          <p>Sur Windows, utilisez PowerShell avec :</p>
+          <div class="snippet">
+            <div class="snippet-header">
+              <span>Installation CLI (Windows PowerShell)</span>
+              <button class="copy-btn">Copier</button>
+            </div>
+            <div class="snippet-body">irm https://claude.ai/install.ps1 | iex</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Se connecter à votre compte (3 min)</h3>
+          <p>Première ouverture de Claude Code, il va demander de se connecter.</p>
+          <ul>
+            <li>Cliquez l'icône Claude Code dans VS Code (panneau latéral)</li>
+            <li>Cliquez "Sign in"</li>
+            <li>Votre navigateur s'ouvre sur claude.ai → autorisez la connexion</li>
+            <li>Revenez sur VS Code : vous êtes connecté</li>
+          </ul>
+          <div class="callout success">
+            <p><strong>✅ Vérification.</strong> Vous devez voir un champ de chat dans VS Code avec "How can I help today?" Si oui, vous êtes prêt.</p>
+          </div>
+        </li>
+
+        <li>
+          <h3>Premier prompt (5 min)</h3>
+          <p>On va faire le premier "Hello World" pour vérifier que tout tourne.</p>
+          <ul>
+            <li>Dans VS Code, allez dans <strong>File → Open Folder</strong></li>
+            <li>Créez un nouveau dossier sur votre bureau : <code>mes-tests-claude</code></li>
+            <li>Ouvrez-le dans VS Code</li>
+            <li>Ouvrez Claude Code (panneau latéral)</li>
+            <li>Tapez ce premier prompt :</li>
+          </ul>
+
+          <div class="snippet">
+            <div class="snippet-header">
+              <span>Premier prompt</span>
+              <button class="copy-btn">Copier</button>
+            </div>
+            <div class="snippet-body">Bonjour Claude. On va faire connaissance. Crée-moi un fichier appelé "bonjour.md" qui dit "Hello, je suis prêt." en français. Rien de plus.</div>
+          </div>
+
+          <p>Claude Code va :</p>
+          <ol>
+            <li>Comprendre la demande</li>
+            <li>Vous demander l'autorisation de créer le fichier (cliquez "Allow")</li>
+            <li>Créer <code>bonjour.md</code> dans votre dossier</li>
+            <li>Vous dire ce qu'il a fait</li>
+          </ol>
+
+          <div class="callout success">
+            <p><strong>🎉 Bravo.</strong> Vous venez d'utiliser Claude Code pour la première fois. Tout le reste de cette formation, c'est juste des recettes plus poussées de ce même principe.</p>
+          </div>
+        </li>
+      </ol>
+
+      <h2>Et maintenant ?</h2>
+      <p>Vous êtes opérationnel. Voici la suite recommandée :</p>
+
+      <div class="grid-2">
+        <a href="bases.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SUIVANT</span>
+          <h4>Les 8 commandes vitales</h4>
+          <p>/help, /clear, /init, /memory, /agents, /skill, /plan, /plugins. La base à connaître par cœur.</p>
+        </a>
+        <a href="mcp.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-blue">ENSUITE</span>
+          <h4>Brancher les outils externes</h4>
+          <p>Stitch (design), fal.ai (vidéo), Apify (scraping). Avec les liens pour chopper chaque clé API.</p>
+        </a>
+      </div>
+
+      <h2>Quelques pièges à éviter dès le début</h2>
+
+      <div class="callout warn">
+        <p><strong>1. Ne lancez pas Claude Code dans <em>votre dossier home</em>.</strong> Toujours créer un dossier dédié par projet. Sinon Claude va se perdre dans toute votre arborescence Mac/PC.</p>
+      </div>
+
+      <div class="callout warn">
+        <p><strong>2. Lisez avant de cliquer "Allow All".</strong> Quand Claude veut faire une action (créer un fichier, lancer une commande), il demande l'autorisation. <em>Lisez ce qu'il propose.</em> Surtout les commandes qui commencent par <code>rm</code>, <code>delete</code>, <code>git push --force</code>.</p>
+      </div>
+
+      <div class="callout warn">
+        <p><strong>3. Si vous bloquez, n'insistez pas en boucle.</strong> Claude Code peut "boucler" sur une mauvaise piste. Tapez <code>/clear</code> pour redémarrer le contexte et reformulez votre demande.</p>
+      </div>
+
+      <p style="margin-top: 48px;">
+        Si vous avez un souci durant l'installation, allez voir la page
+        <a href="sos.html">SOS pannes</a>.
+      </p>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

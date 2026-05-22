@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pattern Karpathy — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Pattern Karpathy 🧠</h1>
+        <p>La méthode qui transforme un projet en cerveau partagé. Sans ça, Claude Code casse votre travail au bout d'une semaine.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>⚡ Le pitch en 1 phrase.</strong> Vous demandez à Claude de maintenir un <em>wiki interne</em> à votre projet (chaque page, chaque bouton, chaque règle métier), et ce wiki devient la mémoire que Claude relit avant de modifier quoi que ce soit. Résultat : il arrête de casser ce qu'il ne comprend pas.</p>
+      </div>
+
+      <h2>Le problème : Claude oublie</h2>
+
+      <p>Quand vous bossez seul avec Claude sur un projet, voici ce qui arrive au bout de 2 semaines :</p>
+
+      <ul>
+        <li>Vous lui demandez de modifier la page "tarifs" → il <strong>casse le bouton "Réserver"</strong> parce qu'il a oublié à quoi il sert</li>
+        <li>Vous lui demandez de refactorer un composant → il <strong>réinvente la roue</strong>, dupliquant la logique d'une autre page</li>
+        <li>Vous reprenez le projet 3 mois plus tard → il <strong>n'a aucun contexte</strong>, vous devez tout réexpliquer</li>
+        <li>Vous changez un détail métier (TVA, prix) → il <strong>oublie de propager partout</strong></li>
+      </ul>
+
+      <div class="callout danger">
+        <p><strong>🚨 Ce n'est pas un bug.</strong> Claude n'a pas de mémoire entre sessions. Chaque conversation repart à zéro. Sans pattern, vous lui réexpliquez votre projet à chaque fois. <em>Le pattern Karpathy règle ça.</em></p>
+      </div>
+
+      <h2>L'idée d'Andrej Karpathy</h2>
+
+      <p>
+        Andrej Karpathy (ancien Tesla AI / OpenAI) a popularisé en 2026 cette idée :
+        un projet ne devrait pas être <em>juste du code</em>, mais aussi un
+        <strong>wiki maintenu par l'IA elle-même</strong>, qui résume,
+        cross-référence et explique chaque partie. Quand l'IA modifie le code,
+        elle met à jour le wiki. Quand elle est appelée à nouveau,
+        elle relit le wiki <em>avant</em> de coder.
+      </p>
+
+      <p>C'est la différence entre un stagiaire amnésique et un collègue qui prend des notes.</p>
+
+      <h2>L'architecture en 3 couches</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <span class="badge badge-blue">COUCHE 1</span>
+          <h4>📦 sources/</h4>
+          <p><strong>Immutable.</strong> Le code source, les docs originales, les PDF, les transcripts. <em>Claude lit, ne modifie jamais.</em></p>
+        </div>
+        <div class="card">
+          <span class="badge badge-orange">COUCHE 2</span>
+          <h4>📚 wiki/</h4>
+          <p><strong>AI-owned.</strong> Les notes synthétisées par Claude, une par concept/page/feature. Cross-linked avec <code>[[wikilinks]]</code>. <em>Claude écrit et réécrit ici.</em></p>
+        </div>
+        <div class="card">
+          <span class="badge badge-purple">COUCHE 3</span>
+          <h4>📐 CLAUDE.md</h4>
+          <p><strong>Vous-owned.</strong> Les règles, le glossaire, la classification, l'index. <em>Vous l'éditez à la main, Claude le relit comme une bible.</em></p>
+        </div>
+      </div>
+
+      <h2>Concrètement, ça ressemble à quoi ?</h2>
+
+      <pre><code>mon-projet/
+├── CLAUDE.md            ← règles du projet (vous écrivez)
+├── sources/             ← code, PDFs, transcripts (immutable)
+│   ├── src/
+│   ├── docs/
+│   └── normes/
+├── wiki/                ← notes IA (Claude écrit et met à jour)
+│   ├── pages/
+│   │   ├── accueil.md
+│   │   ├── tarifs.md
+│   │   └── contact.md
+│   ├── composants/
+│   │   ├── bouton-reserver.md
+│   │   └── formulaire-devis.md
+│   ├── business-logic/
+│   │   ├── tva.md
+│   │   └── pricing-rules.md
+│   └── log.md           ← journal append-only des changements
+└── MAP.md               ← index auto-généré du wiki</code></pre>
+
+      <p>Chaque note du wiki suit un format standard avec frontmatter + corps + wikilinks vers d'autres notes :</p>
+
+      <pre><code>---
+name: bouton-reserver
+type: composant
+description: Bouton CTA principal de la page tarifs
+last-updated: 2026-05-22
+---
+
+# Bouton "Réserver"
+
+Composant React situé sur [[tarifs]]. Déclenche l'ouverture du
+formulaire de réservation [[formulaire-devis]].
+
+## Comportement
+- Couleur orange CG : `#f97316`
+- Au clic : `analytics.track('cta_clicked')` puis modal
+- Désactivé si l'utilisateur n'est pas connecté
+
+## Dépendances
+- Hook `useAuth` depuis [[lib-auth]]
+- Tracking analytics depuis [[lib-analytics]]
+
+## Modifications récentes
+Voir [[log]] entrées 2026-05-15, 2026-05-22.</code></pre>
+
+      <h2>Le workflow quotidien</h2>
+
+      <ol class="steps">
+        <li>
+          <h3>/init le projet</h3>
+          <p>Claude scanne <code>sources/</code> et écrit le <code>wiki/</code> initial. Compte 5-15 notes par feature.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Bootstrap d'un projet avec wiki</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Lance le pattern Karpathy sur ce projet. Crée la structure wiki/ avec une note par page, par composant, par règle métier. Cross-link avec [[wikilinks]]. Génère MAP.md et log.md à la racine.</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>/ingest quand vous ajoutez une source</h3>
+          <p>Nouveau PDF, nouvelle norme, nouvelle interview ? Claude la lit et met à jour les notes wiki concernées.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Ingest d'une nouvelle source</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Ingest le PDF sources/normes/dtu-25-41.pdf dans le wiki selon le pattern Karpathy. Met à jour les notes existantes liées, crée les nouvelles, ajoute une entrée dans log.md.</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>/lint avant chaque session</h3>
+          <p>Claude vérifie le wiki : orphelins (notes pas liées), wikilinks cassés, notes périmées, contradictions.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Lint du wiki</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Lint le wiki : trouve les notes orphelines (jamais référencées), les wikilinks cassés, les contradictions entre notes, les notes obsolètes (last-updated &gt; 30j).</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>/query pour répondre vite</h3>
+          <p>Au lieu de re-grepper tout le code, Claude lit le wiki et répond instantanément.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Question rapide</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">D'après le wiki, qu'est-ce que fait exactement le bouton "Réserver" et de quoi il dépend ?</div>
+          </div>
+        </li>
+
+        <li>
+          <h3>/digest hebdomadaire</h3>
+          <p>Claude produit un résumé de la semaine : ce qui a changé, ce qui est en suspens, ce qui doit être nettoyé.</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Digest hebdo</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Lis log.md des 7 derniers jours et fais-moi un digest : quels changements, quelles décisions, quelles dettes techniques. Format markdown lisible en 30 secondes.</div>
+          </div>
+        </li>
+      </ol>
+
+      <h2>Wiki Karpathy vs RAG : la bombe atomique du combo</h2>
+
+      <p>Beaucoup de gens connaissent les RAG (Retrieval Augmented Generation). Karpathy n'est <em>pas</em> un remplacement, c'est un <em>complément</em>. Voici la différence :</p>
+
+      <table>
+        <tr>
+          <th></th>
+          <th>RAG (recherche sémantique)</th>
+          <th>Wiki Karpathy</th>
+        </tr>
+        <tr>
+          <td><strong>Format</strong></td>
+          <td>Chunks de texte vectorisés</td>
+          <td>Notes markdown cross-linked</td>
+        </tr>
+        <tr>
+          <td><strong>Recherche</strong></td>
+          <td>Similarity search (cosine)</td>
+          <td>Lecture directe + suivi des [[liens]]</td>
+        </tr>
+        <tr>
+          <td><strong>Contexte</strong></td>
+          <td>Chunks isolés (perd les liens)</td>
+          <td>Réseau de notes (préserve les liens)</td>
+        </tr>
+        <tr>
+          <td><strong>Maintenance</strong></td>
+          <td>Re-vectoriser à chaque MAJ</td>
+          <td>Claude maintient lui-même</td>
+        </tr>
+        <tr>
+          <td><strong>Précision</strong></td>
+          <td>Bonne sur gros volumes</td>
+          <td>Excellente sur projet précis</td>
+        </tr>
+        <tr>
+          <td><strong>Coût</strong></td>
+          <td>Embeddings + DB vectorielle</td>
+          <td>Zéro (juste des .md)</td>
+        </tr>
+        <tr>
+          <td><strong>Idéal pour</strong></td>
+          <td>Textes de loi, papiers scientifiques, gros corpus externes</td>
+          <td>Knowledge interne projet : code, pages, business logic, décisions</td>
+        </tr>
+      </table>
+
+      <h3>Pourquoi le combo est imbattable</h3>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge badge-blue">RAG</span>
+          <h4>Pour les gros corpus externes</h4>
+          <p>Vous avez 500 PDFs de normes DTU, 10 000 articles juridiques, des transcripts d'interviews clients. Le RAG les indexe tous. Claude pose une question, le RAG retourne les passages les plus pertinents.</p>
+        </div>
+        <div class="card">
+          <span class="badge badge-orange">KARPATHY</span>
+          <h4>Pour le contexte projet</h4>
+          <p>Le wiki Karpathy capture votre <em>compréhension</em> du projet : pourquoi le bouton fait ça, quel concurrent on imite, quelle décision a été prise en réunion. Le contexte humain que le code seul ne dit pas.</p>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <p><strong>💎 Le combo gagnant.</strong> Claude utilise le <em>wiki Karpathy</em> pour comprendre votre projet en 30 secondes, puis interroge le <em>RAG</em> uniquement quand il a besoin de fouiller un corpus volumineux (normes, lois, papiers). Vitesse + précision + contexte. C'est ça, la "bombe atomique".</p>
+      </div>
+
+      <h2>Cas d'usage concrets pour AUTAF</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🏗️</div>
+        <div class="tool-meta">
+          <div class="tool-name">Site AUTAF (refonte / évolution)</div>
+          <div class="tool-desc">Wiki Karpathy = note par page (accueil, services, contact), note par composant (bouton CTA, formulaire devis), note par règle business (politique TVA, conditions).</div>
+          <p>Quand vous demandez "ajoute une section témoignages", Claude relit les notes voisines, comprend le style maison, et propose une section <em>cohérente</em>.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎯</div>
+        <div class="tool-meta">
+          <div class="tool-name">Base prospects & contacts</div>
+          <div class="tool-desc">Wiki Karpathy = note par prospect important (historique, décideur, sensibilité prix). Sources = exports Apify, transcripts d'appels.</div>
+          <p>Quand vous reprenez le suivi 3 mois après, Claude rouvre la note et vous résume le contexte en 5 lignes.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📹</div>
+        <div class="tool-meta">
+          <div class="tool-name">Personal brand TikTok / LinkedIn</div>
+          <div class="tool-desc">Wiki = note par "pilier" de contenu, note par format gagnant, note par audience. Sources = analytics, transcripts vidéos, commentaires.</div>
+          <p>Quand vous demandez "fais-moi un calendrier édito 30 jours", Claude relit le wiki et reproduit ce qui a marché.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">⚖️</div>
+        <div class="tool-meta">
+          <div class="tool-name">Veille normes / juridique (RAG + Karpathy)</div>
+          <div class="tool-desc">RAG sur 500 PDFs DTU + Karpathy qui synthétise les normes pertinentes en notes courtes thématiques.</div>
+          <p>Quand un client demande "c'est conforme DTU 25.41 ?", Claude répond en 10 secondes via le wiki, et descend dans le RAG si besoin de précision.</p>
+        </div>
+      </div>
+
+      <h2>Le mini-template pour démarrer</h2>
+
+      <p>Voici le prompt à coller dans Claude Code pour bootstrap le pattern Karpathy sur n'importe quel projet :</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Bootstrap pattern Karpathy (à copier-coller)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Initialise le pattern Karpathy sur ce projet selon ces règles :
+
+1. Crée un dossier `wiki/` à la racine avec sous-dossiers : pages/, composants/, business-logic/, decisions/
+2. Crée `MAP.md` à la racine : index de toutes les notes wiki
+3. Crée `log.md` à la racine : journal append-only des changements (date + auteur + résumé)
+4. Crée `CLAUDE.md` à la racine avec :
+   - Les règles du projet (langue, style code, conventions)
+   - Le glossaire (acronymes, termes métier)
+   - La classification des notes wiki (quel type va où)
+5. Scanne le projet existant et génère une 1ère salve de notes wiki (1 par page, 1 par composant clé)
+6. Chaque note doit avoir un frontmatter YAML (name, type, description, last-updated) et cross-linker avec [[autres-notes]]
+7. À la fin, ajoute la 1ère entrée dans log.md résumant le bootstrap
+
+Format des notes : markdown, max 100 lignes par note, toujours en français.</div>
+      </div>
+
+      <h2>Les règles d'or à connaître</h2>
+
+      <div class="callout">
+        <p><strong>Règle 1.</strong> <em>Le wiki est la source de vérité du contexte projet, pas du code.</em> Le code reste la source de vérité du comportement. Si les deux divergent, faites confiance au code et corrigez le wiki.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Règle 2.</strong> <em>Une modification de code = une mise à jour du wiki.</em> Claude doit faire les deux dans le même mouvement. Si vous oubliez, le wiki devient inutile.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Règle 3.</strong> <em>log.md est append-only.</em> On n'efface jamais. Une entrée par changement significatif. Ça devient votre journal de bord.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Règle 4.</strong> <em>Lint hebdomadaire obligatoire.</em> Une note non liée = un orphelin. Un orphelin = du bruit. Claude doit nettoyer ou rattacher.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Règle 5.</strong> <em>CLAUDE.md = la bible.</em> Vous l'éditez à la main, Claude le relit en premier à chaque session. Y mettre vos préférences, vos interdits, vos décisions stratégiques.</p>
+      </div>
+
+      <h2>Pour aller plus loin</h2>
+
+      <div class="grid-2">
+        <a href="projets.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SUIVANT</span>
+          <h4>Créer un projet from scratch</h4>
+          <p>Méthodologie complète pour démarrer un nouveau projet en intégrant Karpathy dès le jour 1.</p>
+        </a>
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">VOIR EN ACTION</span>
+          <h4>Les recettes prêtes</h4>
+          <p>3 use cases démontrés en live, tous structurés avec le pattern Karpathy.</p>
+        </a>
+      </div>
+
+      <p style="margin-top: 32px; padding: 16px; background: var(--bg-elevated); border-radius: 8px; border: 1px dashed var(--border-strong); color: var(--text-dim); font-size: 14px;">
+        <strong>Source originale.</strong> Le pattern décrit ici s'inspire des travaux d'Andrej Karpathy sur les "LLM wikis" (avril-mai 2026), adaptés ici à l'usage Claude Code pour projets marketing/produit. Voir aussi : "Software is Changing Again" (essai Karpathy), et les threads X @karpathy de 2026.
+      </p>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

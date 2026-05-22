@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOS pannes — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>SOS pannes 🆘</h1>
+        <p>Les erreurs courantes et leur correction. Cherchez Ctrl+F votre symptôme.</p>
+      </div>
+
+      <h2>Claude Code en général</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔁</div>
+        <div class="tool-meta">
+          <div class="tool-name">Claude boucle sur la même mauvaise piste</div>
+          <p><strong>Symptôme.</strong> Vous lui demandez X, il fait Y, vous corrigez, il refait Y, etc.</p>
+          <p><strong>Fix.</strong></p>
+          <ol>
+            <li>Tapez <code>/clear</code> pour vider le contexte</li>
+            <li>Reformulez en étant plus explicite sur ce que vous <em>ne</em> voulez <em>pas</em></li>
+            <li>Si ça boucle encore : passez en <code>/plan</code> mode et lisez le plan avant exécution</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🧠</div>
+        <div class="tool-meta">
+          <div class="tool-name">Claude "oublie" ce qu'il vient de faire</div>
+          <p><strong>Symptôme.</strong> Vous reprenez le projet 3 jours après, il a perdu le contexte.</p>
+          <p><strong>Fix.</strong> Adoptez le <a href="karpathy.html">pattern Karpathy</a>. Avec un wiki à jour, Claude relit avant d'agir. Et utilisez <code>/memory</code> pour les préférences perso.</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">💸</div>
+        <div class="tool-meta">
+          <div class="tool-name">Vous avez brûlé votre crédit fal.ai / PiAPI sans résultat</div>
+          <p><strong>Symptôme.</strong> 6 essais Veo3 à $6 chacun = $36 et aucune vidéo utilisable.</p>
+          <p><strong>Fix.</strong> Toujours dire en début de prompt "<em>Budget max : $X. Si tu dépasses ou risques de dépasser, stop et demande validation</em>". Et faites toujours un <em>test 1 clip</em> avant de lancer 5 clips.</p>
+        </div>
+      </div>
+
+      <h2>Veo3 / fal.ai</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🇨🇦</div>
+        <div class="tool-meta">
+          <div class="tool-name">Veo3 parle québécois</div>
+          <p><strong>Symptôme.</strong> Votre personnage français a un accent canadien.</p>
+          <p><strong>Fix.</strong> Dans le prompt :</p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Forcer FR métropolitain</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">Speak in Metropolitan French from Paris, NOT Canadian/Quebec French. Write all numbers in full letters. No filler words like "quoi" or "tu sais" or "euh".</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🤐</div>
+        <div class="tool-meta">
+          <div class="tool-name">Veo3 ajoute "quoi", "euh", "tu sais" en fin de phrase</div>
+          <p><strong>Symptôme.</strong> Le ton sonne familier au lieu de pro.</p>
+          <p><strong>Fix.</strong> Ban explicite des filler words + verbatim-lock (dialogues exacts).</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🚫</div>
+        <div class="tool-meta">
+          <div class="tool-name">"401 Unauthorized" sur fal.ai</div>
+          <p><strong>Symptôme.</strong> L'appel Veo3 échoue avec une erreur d'authentification.</p>
+          <p><strong>Fix.</strong></p>
+          <ol>
+            <li>Vérifiez que votre clé fal.ai est valide sur <a href="https://fal.ai/dashboard/keys" target="_blank">fal.ai/dashboard/keys</a></li>
+            <li>Vérifiez le bon endpoint : depuis 2026, c'est <code>/fal-ai/veo3/standard/image-to-video</code> (et pas <code>/fal-ai/veo3/image-to-video</code>)</li>
+            <li>Vérifiez votre solde (Veo3 = $6/clip, il faut au moins ça)</li>
+          </ol>
+        </div>
+      </div>
+
+      <h2>Apify</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">⏰</div>
+        <div class="tool-meta">
+          <div class="tool-name">Actor Apify timeout / queue infinie</div>
+          <p><strong>Symptôme.</strong> Vous lancez un actor, il reste en "Running" sans rien produire.</p>
+          <p><strong>Fix.</strong></p>
+          <ul>
+            <li>Vérifiez que vous avez encore du crédit Apify (les actors plus chers consomment vite)</li>
+            <li>Si l'actor a un <code>memoryMbytes</code> élevé : abaissez-le pour aller plus vite</li>
+            <li>Si toujours bloqué : kill le run depuis <a href="https://console.apify.com/runs" target="_blank">console.apify.com/runs</a> et relancez avec <code>maxConcurrency=1</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>PostFast</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">👯</div>
+        <div class="tool-meta">
+          <div class="tool-name">Publication en doublon sur TikTok</div>
+          <p><strong>Symptôme.</strong> Une même vidéo a été publiée 2 fois.</p>
+          <p><strong>Cause.</strong> L'API PostFast <code>/social-posts?limit=50</code> est buggée (renvoie un nombre random d'items, <code>hasNextPage=false</code> menteur).</p>
+          <p><strong>Fix.</strong> Toujours <strong>tracker localement</strong> les post IDs dans <code>output/scheduled-postids.json</code>. Avant de schedule une nouvelle vidéo, vérifier que son chemin n'est pas déjà dans le tracking.</p>
+        </div>
+      </div>
+
+      <h2>Hyperframes / Remotion</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🌀</div>
+        <div class="tool-meta">
+          <div class="tool-name">Render Chrome super lent (6s/frame)</div>
+          <p><strong>Symptôme.</strong> Le render Hyperframes / Remotion prend 30 min pour 30s de vidéo.</p>
+          <p><strong>Causes possibles.</strong></p>
+          <ul>
+            <li>SVG très dense (&gt; 50 éléments) dans la compo → simplifiez</li>
+            <li><code>--public-dir</code> trop volumineux (charge tous les assets en mémoire) → ne mettre que les assets utilisés</li>
+            <li>Ubuntu 24.04 : restriction <code>apparmor</code> sur les userns → <code>sysctl -w kernel.apparmor_restrict_unprivileged_userns=0</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔊</div>
+        <div class="tool-meta">
+          <div class="tool-name">Bourdonnement audio dans la vidéo finale</div>
+          <p><strong>Symptôme.</strong> Un grave bourdonnement basse fréquence audible sur TikTok.</p>
+          <p><strong>Fix.</strong> Toujours appliquer <code>highpass=80Hz + loudnorm I=-14 LRA=11 TP=-1</code> sur l'audio avant export. Voir <a href="video.html">page Vidéo</a> pour la chain complète.</p>
+        </div>
+      </div>
+
+      <h2>n8n</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🚫</div>
+        <div class="tool-meta">
+          <div class="tool-name">$env ne marche pas dans n8n</div>
+          <p><strong>Symptôme.</strong> Vous référencez <code>$env.MA_VARIABLE</code> dans un node, valeur vide.</p>
+          <p><strong>Cause.</strong> Depuis n8n v2.8+, l'expression <code>$env</code> est bloquée pour raisons de sécurité.</p>
+          <p><strong>Fix.</strong> Hardcoder les valeurs dans le node, ou utiliser les credentials n8n natifs (Settings → Credentials).</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">⏲️</div>
+        <div class="tool-meta">
+          <div class="tool-name">Workflow Schedule n8n qui ne tourne pas en prod</div>
+          <p><strong>Symptôme.</strong> Le workflow tourne en test mais pas via le node Schedule.</p>
+          <p><strong>Cause.</strong> Le node Schedule est instable pour les process longs.</p>
+          <p><strong>Fix.</strong> Utiliser un service systemd qui appelle le workflow via webhook, à la place du node Schedule.</p>
+        </div>
+      </div>
+
+      <h2>VS Code / installation</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔌</div>
+        <div class="tool-meta">
+          <div class="tool-name">Claude Code n'apparaît pas dans VS Code après install</div>
+          <p><strong>Fix.</strong></p>
+          <ol>
+            <li>Reload window : Cmd+Shift+P → "Reload Window"</li>
+            <li>Vérifiez l'icône Claude dans la barre latérale gauche (en bas)</li>
+            <li>Si toujours rien : Cmd+Shift+P → "Claude Code: Open"</li>
+            <li>Si toujours rien : désinstaller / réinstaller l'extension</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔐</div>
+        <div class="tool-meta">
+          <div class="tool-name">Erreur "Cannot find module" sur npm install</div>
+          <p><strong>Fix.</strong></p>
+          <div class="snippet">
+            <div class="snippet-header"><span>Reset npm</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">rm -rf node_modules package-lock.json && npm install</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Astuces générales</h2>
+
+      <div class="callout info">
+        <p><strong>💡 Quand vous ne comprenez pas une erreur.</strong> Copiez-collez le message d'erreur exact dans Claude Code et demandez "<em>explique cette erreur et propose 3 fixs possibles</em>". 90% du temps il trouve.</p>
+      </div>
+
+      <div class="callout info">
+        <p><strong>💡 Avant d'abandonner.</strong> Tapez <code>/clear</code>, prenez 30s, reformulez votre demande différemment. Souvent c'est juste un malentendu sur le prompt initial.</p>
+      </div>
+
+      <div class="callout danger">
+        <p><strong>🚨 Ne supprimez jamais.</strong> Quand vous voulez désinstaller un MCP : <code>claude mcp remove &lt;nom&gt;</code>. Quand vous voulez nettoyer une session : <code>/clear</code> (et pas la corbeille). Ne supprimez <em>jamais</em> manuellement le dossier <code>~/.claude/</code>, vous perdriez toute votre mémoire.</p>
+      </div>
+
+      <h2>Besoin d'aide ?</h2>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>📚 Documentation officielle</h4>
+          <p><a href="https://docs.claude.com/claude-code" target="_blank">docs.claude.com/claude-code</a></p>
+        </div>
+        <div class="card">
+          <h4>💬 Discord Claude Code</h4>
+          <p>Communauté très active, réponse en quelques heures.</p>
+        </div>
+        <div class="card">
+          <h4>🐛 Reporter un bug</h4>
+          <p><a href="https://github.com/anthropics/claude-code/issues" target="_blank">github.com/anthropics/claude-code/issues</a></p>
+        </div>
+        <div class="card">
+          <h4>📖 Cette plateforme</h4>
+          <p>Si une question revient souvent, on l'ajoute ici. Dites-le.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

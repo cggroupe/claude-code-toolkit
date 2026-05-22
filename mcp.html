@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP & clés API — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>MCP & clés API</h1>
+        <p>Branchez Claude Code à des outils externes : design, vidéo, scraping, SEO.</p>
+      </div>
+
+      <h2>C'est quoi, un MCP ?</h2>
+      <p>
+        MCP = <strong>Model Context Protocol</strong>. Pensez-y comme à un
+        <em>fournisseur externe</em> que Claude appelle quand il en a besoin.
+        Sans MCP, Claude sait écrire du texte et du code. Avec MCP, il peut générer des
+        maquettes, des vidéos, scraper des sites, lire vos emails.
+      </p>
+
+      <div class="callout">
+        <p><strong>Métaphore BTP.</strong> Claude tout seul, c'est un excellent conducteur de travaux. Mais sans téléphone, il ne peut pas appeler le couvreur, le plombier ou l'électricien. Les MCP, ce sont ses contacts métier.</p>
+      </div>
+
+      <h2>Comment ça s'installe ?</h2>
+      <p>Trois façons d'ajouter un MCP à Claude Code :</p>
+
+      <ol>
+        <li><strong>Via la commande CLI</strong> (la plus simple)</li>
+        <li><strong>Via le fichier <code>~/.claude/settings.json</code></strong> (pour personnalisation fine)</li>
+        <li><strong>Via le marketplace Claude</strong> (pour les MCP officiels Anthropic — auth en 1 clic)</li>
+      </ol>
+
+      <h3>Commande générique pour ajouter un MCP</h3>
+      <div class="snippet">
+        <div class="snippet-header"><span>Installation MCP via CLI</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">claude mcp add &lt;nom&gt; -- npx -y &lt;package&gt;</div>
+      </div>
+
+      <p>Ou pour passer une clé API en variable d'environnement :</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Avec clé API</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">claude mcp add &lt;nom&gt; --env API_KEY=&lt;votre_clé&gt; -- npx -y &lt;package&gt;</div>
+      </div>
+
+      <h2>Les 6 MCP du toolkit marketing</h2>
+
+      <!-- STITCH -->
+      <div class="tool-card">
+        <div class="tool-icon">🎨</div>
+        <div class="tool-meta">
+          <div class="tool-name">
+            Stitch <span class="badge badge-green">DESIGN</span> <span class="badge badge-gray">Google</span>
+          </div>
+          <div class="tool-desc">Génère des maquettes UI complètes (landing, app, dashboard) à partir d'un prompt en français. Magique pour démarrer un projet web.</div>
+          <p><strong>Usage typique :</strong> "fais-moi une landing page sombre pour une boîte de BTP avec hero, témoignages clients, formulaire devis". Output : maquette HTML/CSS prête à exporter.</p>
+
+          <h4>Où chopper la clé API</h4>
+          <ol>
+            <li>Allez sur <a href="https://aistudio.google.com/apikey" target="_blank">aistudio.google.com/apikey</a></li>
+            <li>Connectez-vous avec votre compte Google</li>
+            <li>Cliquez "Create API key"</li>
+            <li>Copiez la clé qui commence par <code>AIza...</code></li>
+            <li>Note : Stitch utilise la même API key que Gemini (Google AI Studio)</li>
+          </ol>
+
+          <h4>Installation</h4>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer Stitch MCP</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">claude mcp add stitch --env GOOGLE_API_KEY=VOTRE_CLE -- npx -y @google/stitch-mcp</div>
+          </div>
+
+          <div class="tool-links">
+            <a class="tool-link" href="https://stitch.withgoogle.com" target="_blank">stitch.withgoogle.com</a>
+            <a class="tool-link" href="https://aistudio.google.com/apikey" target="_blank">obtenir la clé</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAL.AI -->
+      <div class="tool-card">
+        <div class="tool-icon">🎬</div>
+        <div class="tool-meta">
+          <div class="tool-name">
+            fal.ai <span class="badge badge-purple">VIDÉO / IMAGE</span> <span class="badge badge-orange">Veo3, Flux, Wan</span>
+          </div>
+          <div class="tool-desc">Accès aux modèles vidéo et image les plus puissants : Veo3 (vidéo 8s ultra-réaliste), Flux Pro (image), Wan 2.2. Le moteur derrière @btpmindset.</div>
+          <p><strong>Usage typique :</strong> "génère 5 clips Veo3 de 8s pour TikTok montrant des artisans BTP en chantier". Output : 5 fichiers .mp4 prêts à monter.</p>
+
+          <h4>Où chopper la clé API</h4>
+          <ol>
+            <li>Allez sur <a href="https://fal.ai" target="_blank">fal.ai</a> et créez un compte</li>
+            <li>Cliquez votre avatar → <strong>Dashboard</strong></li>
+            <li>Onglet <strong>API Keys</strong> → <strong>Add new key</strong></li>
+            <li>Copiez la clé qui ressemble à <code>aaa-bbb-ccc:dddeee...</code></li>
+            <li>Rechargez votre solde (minimum 5$) — Veo3 coûte ~6$ par clip de 8s</li>
+          </ol>
+
+          <h4>Installation</h4>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer fal.ai MCP</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">claude mcp add fal --env FAL_KEY=VOTRE_CLE -- npx -y @fal-ai/mcp-server</div>
+          </div>
+
+          <div class="callout warn">
+            <p><strong>⚠️ Budget.</strong> Veo3 standard = $0.75/seconde × 8s = <strong>$6 par clip</strong>. Une vidéo TikTok = 4-7 clips = $24-$42. Posez-vous toujours la question "combien je veux dépenser ce soir" <em>avant</em> de lancer.</p>
+          </div>
+
+          <div class="tool-links">
+            <a class="tool-link" href="https://fal.ai" target="_blank">fal.ai</a>
+            <a class="tool-link" href="https://fal.ai/dashboard/keys" target="_blank">obtenir la clé</a>
+            <a class="tool-link" href="https://fal.ai/models" target="_blank">modèles dispo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PiAPI -->
+      <div class="tool-card">
+        <div class="tool-icon">🎞️</div>
+        <div class="tool-meta">
+          <div class="tool-name">
+            PiAPI <span class="badge badge-purple">VIDÉO / IMAGE / MUSIQUE</span> <span class="badge badge-orange">Kling, Midjourney, Suno</span>
+          </div>
+          <div class="tool-desc">Accès unifié à Kling 2.1 (image-to-video), Midjourney (image), Suno (musique). Alternative ou complément à fal.ai.</div>
+          <p><strong>Usage typique :</strong> "anime cette image fixe avec Kling 2.1 Pro" → vidéo 5s où l'ouvrier bouge vraiment. Pratique pour les hooks animés TikTok.</p>
+
+          <h4>Où chopper la clé API</h4>
+          <ol>
+            <li>Allez sur <a href="https://piapi.ai" target="_blank">piapi.ai</a> et créez un compte</li>
+            <li>Choisissez un plan (Starter = pay-as-you-go, recommandé pour démarrer)</li>
+            <li>Dashboard → <strong>API Keys</strong> → <strong>Generate</strong></li>
+            <li>Copiez la clé (format <code>xxxxxxxx-xxxx-...</code>)</li>
+            <li>Rechargez votre solde ($10 minimum)</li>
+          </ol>
+
+          <h4>Installation</h4>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer PiAPI MCP</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">claude mcp add piapi --env PIAPI_KEY=VOTRE_CLE -- npx -y @piapi-ai/mcp-server</div>
+          </div>
+
+          <div class="tool-links">
+            <a class="tool-link" href="https://piapi.ai" target="_blank">piapi.ai</a>
+            <a class="tool-link" href="https://piapi.ai/dashboard" target="_blank">dashboard</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- APIFY -->
+      <div class="tool-card">
+        <div class="tool-icon">🕷️</div>
+        <div class="tool-meta">
+          <div class="tool-name">
+            Apify <span class="badge badge-blue">SCRAPING</span> <span class="badge badge-gray">3000+ actors</span>
+          </div>
+          <div class="tool-desc">Scrape n'importe quel site web : TikTok, LinkedIn, Google Maps, PagesJaunes, Instagram, Indeed. 3000+ "actors" prêts à l'emploi.</div>
+          <p><strong>Usage typique :</strong> "scrape les 100 premiers résultats Google Maps pour 'couvreur Brest' avec téléphone, site et avis Google". Output : CSV prêt à enrichir.</p>
+
+          <h4>Où chopper la clé API</h4>
+          <ol>
+            <li>Allez sur <a href="https://apify.com" target="_blank">apify.com</a> et créez un compte</li>
+            <li>Plan gratuit = 5$ de crédit/mois (largement suffisant pour démarrer)</li>
+            <li>Allez sur <a href="https://console.apify.com/account/integrations" target="_blank">console.apify.com/account/integrations</a></li>
+            <li>Copiez votre <strong>Personal API token</strong> (format <code>apify_api_xxxxx</code>)</li>
+          </ol>
+
+          <h4>Installation</h4>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer Apify MCP</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">claude mcp add apify --env APIFY_TOKEN=VOTRE_TOKEN -- npx -y @apify/actors-mcp-server</div>
+          </div>
+
+          <div class="callout success">
+            <p><strong>💎 Le must-have pour la prospection.</strong> 1 token Apify + Claude Code = équivalent d'un commercial junior qui scrape 500 prospects en 1h.</p>
+          </div>
+
+          <div class="tool-links">
+            <a class="tool-link" href="https://apify.com" target="_blank">apify.com</a>
+            <a class="tool-link" href="https://console.apify.com/account/integrations" target="_blank">obtenir le token</a>
+            <a class="tool-link" href="https://apify.com/store" target="_blank">marketplace actors</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATAFORSEO -->
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <div class="tool-meta">
+          <div class="tool-name">
+            DataForSEO <span class="badge badge-blue">SEO / SERP</span>
+          </div>
+          <div class="tool-desc">Données SEO en temps réel : positions Google, volumes de recherche, backlinks, analyse concurrence. Le couteau suisse SEO.</div>
+          <p><strong>Usage typique :</strong> "donne-moi les 100 mots-clés rentables pour 'rénovation maison Brest' avec volume, difficulté et intention". Output : tableau prêt à briefer un rédacteur.</p>
+
+          <h4>Où chopper la clé API</h4>
+          <ol>
+            <li>Allez sur <a href="https://app.dataforseo.com/register" target="_blank">app.dataforseo.com/register</a></li>
+            <li>Créez un compte (vérification email)</li>
+            <li>Rechargez votre solde ($10 minimum, paiement à la requête)</li>
+            <li>Allez sur <strong>API Access</strong> → notez vos identifiants <strong>login</strong> et <strong>password</strong></li>
+          </ol>
+
+          <h4>Installation</h4>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer DataForSEO MCP</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">claude mcp add dataforseo --env DATAFORSEO_USERNAME=login --env DATAFORSEO_PASSWORD=mdp -- npx -y dataforseo-mcp-server</div>
+          </div>
+
+          <div class="callout info">
+            <p><strong>Pricing.</strong> ~$0.001 par mot-clé (très peu cher). $10 = ~10 000 requêtes. Largement de quoi auditer un site complet.</p>
+          </div>
+
+          <div class="tool-links">
+            <a class="tool-link" href="https://dataforseo.com" target="_blank">dataforseo.com</a>
+            <a class="tool-link" href="https://app.dataforseo.com/api-access" target="_blank">obtenir les credentials</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAYWRIGHT -->
+      <div class="tool-card">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-meta">
+          <div class="tool-name">
+            Playwright <span class="badge badge-green">GRATUIT</span> <span class="badge badge-gray">Microsoft</span>
+          </div>
+          <div class="tool-desc">Donne à Claude un <em>vrai navigateur</em>. Il peut cliquer, remplir des formulaires, prendre des screenshots, tester vos landing pages.</div>
+          <p><strong>Usage typique :</strong> "vérifie que le formulaire de contact AUTAF marche : remplis-le avec un faux test et confirme la soumission". Ou : "screenshot le site concurrent et résume-moi leur structure".</p>
+
+          <h4>Où chopper la clé API</h4>
+          <p><strong>Aucune clé.</strong> Playwright est gratuit, il tourne en local sur votre machine.</p>
+
+          <h4>Installation</h4>
+          <div class="snippet">
+            <div class="snippet-header"><span>Installer Playwright MCP</span><button class="copy-btn">Copier</button></div>
+            <div class="snippet-body">claude mcp add playwright -- npx -y @playwright/mcp@latest</div>
+          </div>
+
+          <div class="tool-links">
+            <a class="tool-link" href="https://github.com/microsoft/playwright-mcp" target="_blank">github</a>
+            <a class="tool-link" href="https://playwright.dev" target="_blank">playwright.dev</a>
+          </div>
+        </div>
+      </div>
+
+      <h2>MCP officiels Anthropic (auth 1 clic)</h2>
+      <p>Ces MCP s'installent depuis l'interface Claude Code (menu Settings → MCP) sans clé API à gérer — l'authentification se fait par OAuth en 1 clic.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>📧 Gmail</h4>
+          <p>Lire et envoyer des emails depuis Claude. Idéal pour les workflows prospection.</p>
+        </div>
+        <div class="card">
+          <h4>📅 Google Calendar</h4>
+          <p>Lire votre agenda, créer des RDV. Utile pour le suivi commercial.</p>
+        </div>
+        <div class="card">
+          <h4>📁 Google Drive</h4>
+          <p>Lire/écrire des docs Google Docs et Sheets. Indispensable si vous travaillez en équipe.</p>
+        </div>
+        <div class="card">
+          <h4>💬 Slack</h4>
+          <p>Lire les messages, poster dans un canal. Notifications automatiques quand un workflow finit.</p>
+        </div>
+      </div>
+
+      <h2>MCP built-in (déjà inclus)</h2>
+      <p>Claude Code intègre nativement plusieurs capacités, sans installation :</p>
+      <ul>
+        <li><strong>Filesystem</strong> — lire, créer, modifier les fichiers sur votre disque</li>
+        <li><strong>Bash</strong> — lancer des commandes terminal</li>
+        <li><strong>Memory</strong> — sauvegarder des informations entre sessions</li>
+        <li><strong>WebSearch / WebFetch</strong> — chercher sur internet et lire des pages</li>
+      </ul>
+
+      <h2>Comment vérifier qu'un MCP marche ?</h2>
+      <ol>
+        <li>Lancez Claude Code dans VS Code</li>
+        <li>Tapez <code>/mcp</code> pour voir la liste des MCP connectés</li>
+        <li>Si un MCP est en rouge, c'est qu'il y a un souci (clé API invalide, package manquant)</li>
+        <li>Demandez à Claude : "<em>quels MCP tu as actuellement et qu'est-ce que tu peux faire avec ?</em>"</li>
+      </ol>
+
+      <div class="callout danger">
+        <p><strong>🚨 Sécurité.</strong> Ne mettez <em>jamais</em> vos clés API directement dans un fichier que vous publiez sur GitHub. Toujours via variables d'environnement ou via <code>claude mcp add --env</code>. Si vous leakez une clé, révoquez-la immédiatement.</p>
+      </div>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="skills.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SUIVANT</span>
+          <h4>Découvrir les skills</h4>
+          <p>Les fiches métier prêtes à l'emploi : copywriting, SEO, vidéo BTP, etc.</p>
+        </a>
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">OU</span>
+          <h4>Voir les recettes</h4>
+          <p>3 workflows démontrés en live : landing 10 min, vidéo TikTok, prospection.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

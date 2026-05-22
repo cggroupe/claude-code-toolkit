@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills — Claude Code Toolkit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="app">
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main">
+      <div class="section-header">
+        <h1>Skills</h1>
+        <p>Les "fiches métier" qui apprennent à Claude un savoir-faire spécifique. À télécharger, copier, adapter.</p>
+      </div>
+
+      <h2>C'est quoi, une skill ?</h2>
+      <p>
+        Une skill, c'est un <strong>fichier markdown</strong> qui décrit à Claude une compétence précise : comment écrire un post LinkedIn viral, comment auditer une page SEO, comment générer un script TikTok BTP. Quand Claude détecte que la situation correspond, il <em>active</em> automatiquement la skill et suit le protocole décrit.
+      </p>
+
+      <div class="callout">
+        <p><strong>Métaphore.</strong> Une skill, c'est la <em>fiche métier</em> qu'on glisse dans le classeur du stagiaire. "Quand un client demande X, voici comment tu procèdes, étape par étape." Le stagiaire la consulte chaque fois qu'il en a besoin.</p>
+      </div>
+
+      <h2>Comment ça s'installe ?</h2>
+
+      <h3>Option A — Via un plugin Claude Code</h3>
+      <p>Le plus simple : la skill est packagée dans un plugin community, vous l'installez en une commande.</p>
+      <div class="snippet">
+        <div class="snippet-header"><span>Installer un pack de skills marketing</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">/plugins install marketing-skills</div>
+      </div>
+
+      <h3>Option B — Manuellement depuis GitHub</h3>
+      <p>Vous téléchargez le fichier <code>SKILL.md</code> et vous le placez dans <code>~/.claude/skills/&lt;nom&gt;/SKILL.md</code>.</p>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Installation manuelle (Mac/Linux)</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">mkdir -p ~/.claude/skills/copywriting && curl -fsSL https://raw.githubusercontent.com/anthropics/skills/main/marketing/copywriting/SKILL.md -o ~/.claude/skills/copywriting/SKILL.md</div>
+      </div>
+
+      <h3>Option C — Créer la vôtre</h3>
+      <p>Demandez à Claude lui-même de vous la générer :</p>
+      <div class="snippet">
+        <div class="snippet-header"><span>Prompt génération de skill</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">Crée-moi une skill Claude Code qui s'appelle "post-linkedin-pro". Elle doit se déclencher quand je demande un post LinkedIn. Le format à respecter : hook (1 ligne choc), 5 insights numérotés, CTA en dernier. Style B2B sénior, pas de buzzwords. Sauvegarde-la dans ~/.claude/skills/post-linkedin-pro/SKILL.md.</div>
+      </div>
+
+      <h2>Catalogue des skills marketing</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">✍️</div>
+        <div class="tool-meta">
+          <div class="tool-name">copywriting <span class="badge badge-green">ESSENTIEL</span></div>
+          <div class="tool-desc">Rédige du copy persuasif : headlines, body, CTA. Connaît les frameworks AIDA, PAS, BAB, FAB.</div>
+          <p><strong>Trigger.</strong> "Écris-moi un copy pour…", "rédige un headline pour…", "améliore ce copy…"</p>
+          <div class="tool-links">
+            <a class="tool-link" href="https://github.com/anthropics/skills" target="_blank">github source</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📈</div>
+        <div class="tool-meta">
+          <div class="tool-name">page-cro <span class="badge badge-green">ESSENTIEL</span></div>
+          <div class="tool-desc">Audit et optimisation de pages (landing, pricing, accueil). Identifie friction, manque de preuves sociales, CTA faibles.</div>
+          <p><strong>Trigger.</strong> "Pourquoi cette page ne convertit pas ?", "audit CRO de…"</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📧</div>
+        <div class="tool-meta">
+          <div class="tool-name">cold-email <span class="badge badge-orange">PROSPECTION</span></div>
+          <div class="tool-desc">Génère des séquences cold email B2B. Personnalisation par prospect, follow-ups, A/B variants.</div>
+          <p><strong>Trigger.</strong> "Écris un cold email pour…", "séquence de relance prospect…"</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎁</div>
+        <div class="tool-meta">
+          <div class="tool-name">lead-magnets <span class="badge badge-blue">INBOUND</span></div>
+          <div class="tool-desc">Création de lead magnets : ebooks, checklists, templates Notion, calculatrices. Inclut séquence email post-téléchargement.</div>
+          <p><strong>Trigger.</strong> "Crée-moi un lead magnet sur…", "qu'est-ce que je peux offrir pour récupérer des emails ?"</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📣</div>
+        <div class="tool-meta">
+          <div class="tool-name">ad-creative <span class="badge badge-orange">PAID</span></div>
+          <div class="tool-desc">Pubs payantes : Meta Ads, Google Ads, LinkedIn Ads. Spécifie format, hook, body, CTA selon plateforme.</div>
+          <p><strong>Trigger.</strong> "Crée 3 variantes d'ad Meta pour…", "campagne LinkedIn ABM cible…"</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📱</div>
+        <div class="tool-meta">
+          <div class="tool-name">social-content <span class="badge badge-green">ESSENTIEL</span></div>
+          <div class="tool-desc">Contenu organique TikTok, Instagram, LinkedIn, X. Adapté à la plateforme, au format, à l'audience.</div>
+          <p><strong>Trigger.</strong> "Idées de contenu pour…", "post Instagram sur…"</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">📨</div>
+        <div class="tool-meta">
+          <div class="tool-name">email-sequence <span class="badge badge-blue">NURTURING</span></div>
+          <div class="tool-desc">Séquences email post-inscription : welcome, nurture, onboarding, win-back. 5 à 12 emails selon objectif.</div>
+          <p><strong>Trigger.</strong> "Séquence welcome pour…", "email d'onboarding…"</p>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🔍</div>
+        <div class="tool-meta">
+          <div class="tool-name">customer-research <span class="badge badge-purple">STRATÉGIE</span></div>
+          <div class="tool-desc">Analyse de transcripts d'interviews, reviews G2/Trustpilot, threads Reddit. Sort des personas et JTBD.</div>
+          <p><strong>Trigger.</strong> "Analyse ces 20 reviews et donne-moi les personas…"</p>
+        </div>
+      </div>
+
+      <h2>Catalogue des skills vidéo</h2>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎬</div>
+        <div class="tool-meta">
+          <div class="tool-name">hyperframes <span class="badge badge-orange">VIDÉO HTML</span></div>
+          <div class="tool-desc">Création de vidéos déterministes à partir de HTML/CSS/JS. Captions, animations, overlays, transitions, scènes multiples.</div>
+          <p><strong>Trigger.</strong> "Crée une vidéo TikTok avec…", "ajoute des captions à cette vidéo…"</p>
+          <div class="tool-links">
+            <a class="tool-link" href="https://hyperframes.dev" target="_blank">hyperframes.dev</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">⚛️</div>
+        <div class="tool-meta">
+          <div class="tool-name">remotion-best-practices <span class="badge badge-blue">VIDÉO REACT</span></div>
+          <div class="tool-desc">Alternative React pour la vidéo programmatique. Mature, large communauté, beaucoup de templates.</div>
+          <p><strong>Trigger.</strong> "Crée une compo Remotion pour…", "convertis cette idée en composition React vidéo…"</p>
+          <div class="tool-links">
+            <a class="tool-link" href="https://remotion.dev" target="_blank">remotion.dev</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎙️</div>
+        <div class="tool-meta">
+          <div class="tool-name">hyperframes-media <span class="badge badge-purple">AUDIO / TTS</span></div>
+          <div class="tool-desc">Génération de voix off (Kokoro), transcription audio (Whisper), suppression de fond (u2net).</div>
+          <p><strong>Trigger.</strong> "Génère une voix off pour…", "transcris ce fichier audio…"</p>
+        </div>
+      </div>
+
+      <h2>Skills BTP custom (pack métier)</h2>
+      <p>Skills spécifiques au secteur BTP/construction, à coller dans <code>~/.claude/skills/</code>. Disponibles dans le repo GitHub du toolkit.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>🎯 linkedin-ghost-btp</h4>
+          <p>Ghostwriter LinkedIn voix dirigeant BTP. Format DIIIE ou Justin Welsh pillar. Ton B2B sénior, pas hype.</p>
+          <p><strong>Trigger.</strong> "Post LinkedIn BTP", "ghostwriting BTP"</p>
+        </div>
+        <div class="card">
+          <h4>📺 tiktok-bait-btp</h4>
+          <p>Génère des baits TikTok BTP en Cunningham-law (affirmation provocante sur DTU/normes pour déclencher commentaires correctifs).</p>
+          <p><strong>Trigger.</strong> "Bait TikTok BTP", "Cunningham law BTP"</p>
+        </div>
+        <div class="card">
+          <h4>🪝 btp-hook-generator</h4>
+          <p>Hooks 7 secondes (TikTok) ou 1 ligne (LinkedIn) adaptés audience BTP française. Frameworks éprouvés.</p>
+          <p><strong>Trigger.</strong> "Hook BTP", "accroche TikTok bâtiment"</p>
+        </div>
+        <div class="card">
+          <h4>📅 btp-content-calendar</h4>
+          <p>Calendrier éditorial 30/60/90 jours TikTok + LinkedIn personal brand BTP. 3 piliers (Education / Histoires chantier / Vision marché).</p>
+          <p><strong>Trigger.</strong> "Calendrier éditorial BTP", "planning contenu"</p>
+        </div>
+        <div class="card">
+          <h4>🎥 btp-video-script-v3</h4>
+          <p>Scripts vidéo 9:16 pour Veo3/Kling adaptés BTP. Verbatim-lock + filler-words-ban + Metropolitan French.</p>
+          <p><strong>Trigger.</strong> "Script vidéo BTP", "Veo3 BTP"</p>
+        </div>
+        <div class="card">
+          <h4>📊 hormozi-offer-btp</h4>
+          <p>Structuration d'offres irrésistibles méthode Alex Hormozi (Grand Slam Offer) appliquée BTP. Stack-value + bonuses + garanties.</p>
+          <p><strong>Trigger.</strong> "Offre irrésistible", "stack BTP"</p>
+        </div>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-header"><span>Tout installer en 1 commande</span><button class="copy-btn">Copier</button></div>
+        <div class="snippet-body">git clone https://github.com/cggroupe/claude-code-toolkit.git ~/.claude-toolkit && cp -r ~/.claude-toolkit/snippets/skills/* ~/.claude/skills/</div>
+      </div>
+
+      <h2>Anatomie d'une skill (pour comprendre)</h2>
+      <p>Un fichier <code>SKILL.md</code> ressemble à ça :</p>
+
+      <pre><code>---
+name: copywriting
+description: Écrit du copy persuasif. Trigger sur "headline", "copy", "tagline"...
+allowed-tools:
+  - Read
+  - Write
+---
+
+# Copywriting Skill
+
+## When to use
+Quand l'utilisateur demande un headline, body copy, CTA, tagline.
+
+## Process
+1. Identifier l'audience cible (à demander si pas clair)
+2. Choisir un framework (AIDA, PAS, BAB)
+3. Écrire 3 variantes
+4. Marquer la variante recommandée
+
+## Output format
+- 3 variantes numérotées
+- 1 ligne d'explication par variante
+- Variante recommandée marquée ⭐
+</code></pre>
+
+      <p>Le frontmatter YAML en haut dit à Claude <em>quand</em> activer la skill. Le markdown en dessous dit <em>comment</em> procéder.</p>
+
+      <h2>Et maintenant ?</h2>
+      <div class="grid-2">
+        <a href="karpathy.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-orange">SUIVANT</span>
+          <h4>Le pattern Karpathy 🧠</h4>
+          <p>Le combo wiki + RAG qui transforme un projet en cerveau partagé. La "bombe atomique" de la productivité.</p>
+        </a>
+        <a href="recettes.html" class="card" style="text-decoration:none;color:inherit;display:block;">
+          <span class="badge badge-purple">OU</span>
+          <h4>Recettes en action</h4>
+          <p>Les 3 use cases live : landing, vidéo TikTok, prospection.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
